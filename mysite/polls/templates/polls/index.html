@@ -8,4 +8,6 @@
     <p>No polls are available.</p>
 {% endif %}
 <br>
-<a href="{% url 'polls:index' %}">User: {{ user.last_login }}</a>
+{% if user.is_authenticated %}
+    <a href="{% url 'polls:index' %}">User: {{ user.username }}</a>
+{% endif %}
