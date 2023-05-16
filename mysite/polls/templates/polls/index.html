@@ -7,3 +7,5 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+<br>
+<a href="{% url 'polls:index' %}">User: {{ user.last_login }}</a>
