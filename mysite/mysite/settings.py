@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ih$oksrtk5@t@fev7lx^9_gxvb3)_0=s^(pqy4)47n613+c+9@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 SITE_ID = 1
 
@@ -94,7 +94,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request',
+                'django.template.context_processors.media',
             ],
         },
     },
