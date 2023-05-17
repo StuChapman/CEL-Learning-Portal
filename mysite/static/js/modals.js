@@ -23,3 +23,8 @@ function sendEmail() {
     alert('Email sent succesfully.');
 
 }
+
+// Function: navigate to Continuous Engagament Ltd homepage //
+function goCELHome() {
+    window.location.replace('http://www.continuous-engagement.co.uk');
+    }
