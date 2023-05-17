@@ -42,15 +42,20 @@
     </script>
     {% endblock %}
 
-    <title>Online Learning{% block extra_title %}{% endblock %}</title>
-  </head>
-  <body id="page-top">
-
     {% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">Online Learning</div>
+        </div>
+    </div>
     {% endblock %}
-
-    {% block content %}
-    {% endblock %}
+    
+<!--navbar-->
+<nav class="sticky-top">
+  <div class="mr-auto ml-0 d-inline">
+          <img id="brandimage" src="{{ MEDIA_URL }}\brand.jpg" alt="{{ MEDIA_URL }} continuous engagement brand image">
+  </div>
+</nav>
 
     {% block postloadjs %}
     <script></script>
