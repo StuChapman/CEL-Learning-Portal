@@ -1,6 +1,11 @@
 
 /*------------------- General Styling */
 
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
 /* credit to https://css-tricks.com/books/fundamental-css-tactics/scale-typography-screen-size/ 
     and https://www.madebymike.com.au/writing/fluid-type-calc-examples/ 
         for font-size: calc(10px + (48 - 10) * ((100vw - 300px) / (1800 - 300)));*/
