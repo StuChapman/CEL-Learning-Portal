@@ -66,6 +66,10 @@ label {
 
 /*------------------- Hover Styling */
 
+.orange-highlight:hover {
+    color: #657486;
+}
+
 a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     color: rgb(255, 255, 255, .5);
     text-decoration: none;
@@ -86,7 +90,6 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     cursor: pointer;
     font-weight: bold; 
 }
-
 
 /*------------------- Navbar Styling */
 
@@ -157,6 +160,8 @@ nav {
     font-size: calc(2vh + (5 - 2) * ((100vw - 300px) / 1620));
     color: #101828;
     height: 4vh;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
 }
 
 #textsection h1 {

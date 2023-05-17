@@ -3,6 +3,35 @@
 
 {% block content %}
 
+
+    <!--Text Section-->
+    <section id="textsection">
+        {% if user.is_authenticated %}
+            <h1>Welcome: {{ user.username }}</h1>
+        {% else %}
+            <h1>Welcome: Please sign in to continue</h1>
+            <button type="button" class="btn">
+                <a href ="{% url 'account_login' %}"> Sign In</a>
+            </button>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            <p class="paralarge">Below are all the learning modules you have been enrolled in:
+                <br> 
+                {% for group in user.groups.all %}
+                    <span>
+                        <a class="orange-highlight" href ="{% url 'account_login' %}">{{ group.name }}</a>
+                    </span>
+                    <br>
+                {% endfor %}
+            </p>
+            <p class="paramedium">Click the links to complete the modules.</p>
+            <button type="button" class="btn">
+                <a href="{% url 'account_logout' %}"> Sign Out</a>
+            </button>
+        {% endif %}
+    </section>
+
     {% load socialaccount %}
     <h1>CWS All Auth Tutorial</h1> 
     </h1>
