@@ -2,8 +2,6 @@
 {% load static %}
 
 {% block content %}
-
-
     <!--Text Section-->
     <section id="textsection">
         {% if user.is_authenticated %}
@@ -20,7 +18,7 @@
                 <br> 
                 {% for group in user.groups.all %}
                     <span>
-                        <a class="orange-highlight" href ="{% url 'account_login' %}">{{ group.name }}</a>
+                        <a class="orange-highlight" href ="{% url 'introvalueandwaste' %}">{{ group.name }}</a>
                     </span>
                     <br>
                 {% endfor %}
@@ -31,33 +29,4 @@
             </button>
         {% endif %}
     </section>
-
-    {% load socialaccount %}
-    <h1>CWS All Auth Tutorial</h1> 
-    </h1>
-    <p>Based on:</p> 
-    <a href="https://youtu.be/RyB_wdEZhOw">code with stein</a> 
-    {% if user.is_authenticated %}
-        <a href="{% url 'polls:index' %}">User: {{ user.username }}</a>
-    {% endif %}
-    <hr>
-    {% if request.user.is_authenticated %}
-    <h2>CONGRATS :)</h2>
-    <h3>You Are Logged in!</h3>
-    <h4> WELCOME TO DASHBOARD!</h4>
-        button for log out
-        <a href="{% url 'account_logout' %}"> Log Out</a>
-    {% else %}
-    <h2>SORRY :/</h2>
-    <h3>You Are Logged Out!</h3>
-        <p>Link to log in:
-        <p>By Django Admin Dashboard [w/ username/password or github credentials]:</p>
-        <p>using url -> .../accounts/login/</p>
-        
-        <a href="{% url 'account_login' %}"> LogIn</a>
-        <hr>
-        <p>Or via Github:</p>
-        <p>using url ->.../accounts/github/login/</p>
-        <a href="{% provider_login_url 'github' %}"> LogIn via Github</a>
-    {% endif %}
 {% endblock %}

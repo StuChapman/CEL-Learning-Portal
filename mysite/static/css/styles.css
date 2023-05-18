@@ -66,14 +66,14 @@ label {
 
 /*------------------- Hover Styling */
 
-.orange-highlight:hover {
-    color: #657486;
-}
-
 a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     color: rgb(255, 255, 255, .5);
     text-decoration: none;
     cursor: pointer;
+}
+
+.orange-highlight:hover {
+    color: #657486;
 }
 
 .btn.focus, .btn:focus {
