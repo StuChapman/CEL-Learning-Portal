@@ -91,6 +91,10 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     font-weight: bold; 
 }
 
+#topper a:hover {
+    color: #CC613A;
+    }
+
 /*------------------- Navbar Styling */
 
 nav {
@@ -155,7 +159,7 @@ nav {
     text-align: left;
 }
 
-#topper {
+#topper, #topper a {
     background-color: #EFEFEF;
     font-size: calc(2vh + (5 - 2) * ((100vw - 300px) / 1620));
     color: #101828;
@@ -564,7 +568,7 @@ nav {
     height: 7.5vh;
 }
 
-#footer i {
+#footer i, svg {
     color: #657486;
 }
 

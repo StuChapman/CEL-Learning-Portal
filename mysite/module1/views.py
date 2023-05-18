@@ -5,7 +5,7 @@ from . import views
 # Create your views here.
 
 
-def intromodule1(request):
+def valueandwaste(request):
     """ A view to return the intro page """
 
     return render(request, 'valueandwaste/intro.html')

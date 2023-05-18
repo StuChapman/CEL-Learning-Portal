@@ -15,12 +15,14 @@
 
         {% if user.is_authenticated %}
             <p class="paralarge">Below are all the learning modules you have been enrolled in:
-                <br> 
+                <br>
                 {% for group in user.groups.all %}
+                    {% with my_url=group.name|cut:" "|lower %}
                     <span>
-                        <a class="orange-highlight" href ="{% url 'intromodule1' %}">{{ group.name }}</a>
+                        <a class="orange-highlight" href ="{% url my_url %}">{{ group.name }}</a>
                     </span>
                     <br>
+                    {% endwith %}
                 {% endfor %}
             </p>
             <p class="paramedium">Click the links to complete the modules.</p>
