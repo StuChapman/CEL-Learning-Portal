@@ -4,7 +4,7 @@
             <span><i class="fas fa-backward"></i> prev</span>
         </a>
         <a class="pr-4 ml-auto" href="looking.html">
-            <span>next <i class="fas fa-forward"></i></span>
+            <span>{{ request.path|slice:":-1" }} <i class="fas fa-forward"></i></span>
         </a>
     </div>
 </footer>
