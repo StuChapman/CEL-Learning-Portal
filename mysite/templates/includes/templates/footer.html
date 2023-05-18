@@ -1,0 +1,13 @@
+<footer>
+    <div id="footer" class="align-vertically">
+        {% if user.is_authenticated %}
+            <p class="paramedium">Welcome: {{ user.username }} ...
+                <a href="{% url 'account_logout' %}"> Sign Out</a>
+            </p>
+        {% else %}
+            <p class="paramedium">Welcome: Please sign in to continue ...
+                <a href ="{% url 'account_login' %}"> Sign In</a>
+            </p>
+        {% endif %}
+    </div>
+</footer>

@@ -15,19 +15,20 @@
 
         {% if user.is_authenticated %}
             <!--Text Section-->
-            <section id="textsection">
-                <h1>Introduction to the 8 Wastes</h1>
-                <p class="paralarge">In this module, you will be introduced to the concepts of: 
-                    <span class="orange-highlight">Value</span> and 
-                    <span class="orange-highlight">Waste</span>, the 8 classifications of 
-                    Waste, their meanings and examples to bring them to life.</p>
-                <p class="paramedium">Following the content, there is a test, made up of 10 questions to check your learning. The pass 
-                    mark is 70% (7 out of 10).</p>
-                <p class="paramedium">Good Luck!</p>
-                <button type="button" class="btn"><a href="{% url 'backgroundmodule1' %}">
-                    Click to Begin
-                    </a>
-                </button>
+            <section id="textsection" class="row">
+                <div class="col-xl-12">
+                    <h1>Background</h1>
+                </div>
+                <div class="col-xl-8">
+                    <p class="paralarge">The Japanese engineer, Taiichi Ohno identified that companies should spend more time on work that is useful, 
+                    productive and valuable to the  Customer, and minimise activity that is meaningless and wasteful.</p>
+                </div>
+                <div class="mr-auto ml-auto col-lg-4">
+                        <img id="ohnoimage" src="assets/images/Taiichi_Ohno.jpeg" alt="Taiichi Ohno image">
+                </div>
+                <div class="col-xl-12">
+                    <p  class="paramedium">Ohno described Muda (Waste) in 7 categories (now 8), and how companies should identify and eliminate Waste to prosper.</p>
+                </div>
             </section>
         {% endif %}
     </section>
