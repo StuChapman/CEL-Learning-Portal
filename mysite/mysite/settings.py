@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'home',
-    'valueandwaste',
+    'module1',
 ]
 
 MIDDLEWARE = [

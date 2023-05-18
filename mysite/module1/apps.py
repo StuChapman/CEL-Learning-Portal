@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ValueandwasteConfig(AppConfig):
+class module1Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'valueandwaste'
+    name = 'module1'
