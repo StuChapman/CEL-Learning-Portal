@@ -11,8 +11,8 @@ def valueandwaste(request):
     return render(request, 'valueandwaste/intro.html')
 
 
-def page1module1(request):
-    """ A view to return page1 """
+def page001module001(request):
+    """ A view to return page001 """
 
-    return render(request, 'valueandwaste/page1.html')
+    return render(request, 'valueandwaste/page001.html')
     
