@@ -1,8 +1,11 @@
 <footer>
     <div id="footer" class="align-vertically">
+        {% with my_url=prev_url %}
+        {{ prev_url }}
         <a class="pl-4 mr-auto" href="">
             <span><i class="fas fa-backward"></i> {{ prev_url }}</span>
         </a>
+        {% endwith %}
         <a class="pr-4 ml-auto" href="{ next_url }">
             <span>{{ next_page }} <i class="fas fa-forward"></i></span>
         </a>

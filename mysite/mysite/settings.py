@@ -156,7 +156,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-THIS_SITE = 'https://8000-stuchapman-cellearningp-imabq97tmvb.ws-eu97.gitpod.io'
+THIS_SITE = 'https://8000-stuchapman-cellearningp-m6z75f6ktv1.ws-eu97.gitpod.io'
 
 CSRF_TRUSTED_ORIGINS = [THIS_SITE, THIS_SITE]
 
