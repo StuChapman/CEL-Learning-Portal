@@ -72,6 +72,55 @@ function revealWaste() {
             });
 }
 
+//Function: scroll to next image on page004module001 //
+function nextImage() {
+    if (imageCount == 4) {
+          imageCount = 4;
+        } else {
+          imageCount++;
+        }
+    populateImage();
+}
+
+//Function: scroll to previous image on page004module001 //
+function prevImage() {
+    if (imageCount == 0) {
+          imageCount = 0;
+        } else {
+          imageCount--;
+        }
+    populateImage();
+}
+
+//Function: set the image and text on page004module001 and waste.html //
+function populateImage() {
+    let getpage = document.title;
+
+    switch(getpage) {
+        case "Online Learning - Value":
+            imageArray = 
+                [
+                    ['cash', 'Crediting a loan into a Customer’s bank account'],
+                    ['window', 'Cleaning the windows on a building'],
+                    ['meal', 'Serving a meal to a Customer'],
+                    ['tyre', 'Replacing a flat tyre on a car'],
+                    ['sale', 'Selling a new insurance policy to a Customer']
+                ];
+            break;
+        case "Online Learning - Waste":
+            imageArray = 
+                [
+                    ['headache', 'Going past the agreed date for the loan to be credited'],
+                    ['dirty', 'Removing smears left on a window after cleaning'],
+                    ['overeat', 'Serving a meal to a Customer while they are still eating the previous course'],
+                    ['flat', 'Not inflating the tyre to the correct pressure'],
+                    ['phone', 'Telling the telephone Customer they have to go online to buy the policy']
+                ];
+            break;
+        default:
+            break;
+    }
+
 // ********************************** Unused - to be deleted ********************************** //
 
 // Function: reset answerflags - ADMIN ONLY //
@@ -161,55 +210,6 @@ function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ 
         }
     }
 }
-
-//Function: scroll to next image on value.html //
-function nextImage() {
-    if (imageCount == 4) {
-          imageCount = 4;
-        } else {
-          imageCount++;
-        }
-    populateImage();
-}
-
-//Function: scroll to previous image on value.html //
-function prevImage() {
-    if (imageCount == 0) {
-          imageCount = 0;
-        } else {
-          imageCount--;
-        }
-    populateImage();
-}
-
-//Function: set the image and text on value.html and waste.html //
-function populateImage() {
-    let getpage = document.title;
-
-    switch(getpage) {
-        case "Online Learning - Value":
-            imageArray = 
-                [
-                    ['cash', 'Crediting a loan into a Customer’s bank account'],
-                    ['window', 'Cleaning the windows on a building'],
-                    ['meal', 'Serving a meal to a Customer'],
-                    ['tyre', 'Replacing a flat tyre on a car'],
-                    ['sale', 'Selling a new insurance policy to a Customer']
-                ];
-            break;
-        case "Online Learning - Waste":
-            imageArray = 
-                [
-                    ['headache', 'Going past the agreed date for the loan to be credited'],
-                    ['dirty', 'Removing smears left on a window after cleaning'],
-                    ['overeat', 'Serving a meal to a Customer while they are still eating the previous course'],
-                    ['flat', 'Not inflating the tyre to the correct pressure'],
-                    ['phone', 'Telling the telephone Customer they have to go online to buy the policy']
-                ];
-            break;
-        default:
-            break;
-    }
 
     $("#valueimage").attr('src', 'assets/images/' + imageArray[imageCount][0] + '.jpg'); //Credit: https://www.juniordevelopercentral.com/jquery-change-image-src/#:~:text=jQuery%20change%20image%20src%20-%20How%20To%20Change,as%20simple%20as%20using%20the%20attr%20%2Afunction.%20 //
     // 200ms delay to allow image to cache //
