@@ -2,6 +2,16 @@
 
 // ********************************** Interactive Learning Section Functions ********************************** //
 
+// ********** General Functions ********** //
+
+//Function: revealing the nextLink after content has been interacted with //
+function revealNext() {
+    $("#nextLink").removeClass("hidden");
+    $("#nextLink").addClass("unhidden");
+}
+
+// ********** View specific Functions ********** //
+
 //Function: using the play button to play and pause the Mark Onetto video on page002module001 //
 function playVid() { 
 
@@ -27,10 +37,39 @@ function resetPlay() {
     $("#playbutton").text("play");
 }
 
-//Function: revealing the nextLink after content has been interacted with //
-function revealNext() {
-    $("#nextLink").removeClass("hidden");
-    $("#nextLink").addClass("unhidden");
+//Function: reveal the definition for Value by clicking the word value on page003module001 //
+function revealValue() {
+
+    nextRevealValue++;
+    nextReveal = nextRevealValue * nextRevealWaste;
+
+    if (nextReveal > 0) {
+    revealNext();
+    }
+    $("#arrowmaskwaste").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
+                width: '33vw'
+            });
+    $("#arrowmaskvalue").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
+                width: 0
+            });
+}
+
+//Function: reveal the definition for Waste by clicking the word waste on page003module001 //
+function revealWaste() {
+
+    nextRevealWaste++;
+    // confirm that both definitions have been viewed before revealing next href //
+    nextReveal = nextRevealValue * nextRevealWaste;
+
+    if (nextReveal > 0) {
+    revealNext();
+    }
+    $("#arrowmaskvalue").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
+                width: '33vw'
+            });
+    $("#arrowmaskwaste").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
+                width: 0
+            });
 }
 
 // ********************************** Unused - to be deleted ********************************** //
@@ -121,41 +160,6 @@ function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ 
         return i;
         }
     }
-}
-
-//Function: reveal the definition for Value by clicking the word value on definition.html //
-function revealValue() {
-
-    nextRevealValue++;
-    nextReveal = nextRevealValue * nextRevealWaste;
-
-    if (nextReveal > 0) {
-    revealNext();
-    }
-    $("#arrowmaskwaste").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
-                width: '33vw'
-            });
-    $("#arrowmaskvalue").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
-                width: 0
-            });
-}
-
-//Function: reveal the definition for Waste by clicking the word waste on definition.html //
-function revealWaste() {
-
-    nextRevealWaste++;
-    // confirm that both definitions have been viewed before revealing next href //
-    nextReveal = nextRevealValue * nextRevealWaste;
-
-    if (nextReveal > 0) {
-    revealNext();
-    }
-    $("#arrowmaskvalue").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
-                width: '33vw'
-            });
-    $("#arrowmaskwaste").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
-                width: 0
-            });
 }
 
 //Function: scroll to next image on value.html //

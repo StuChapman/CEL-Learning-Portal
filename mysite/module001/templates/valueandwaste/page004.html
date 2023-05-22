@@ -1,0 +1,21 @@
+{% extends "basemodule001.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <h1>Some examples of Value...</h1>
+            <div class="d-inline">
+                <span id="leftcarouselarrow">
+                    <i class="fas fa-chevron-left" onclick="return prevImage();"></i>
+                </span>
+                <img id="valueimage" src="assets/images/cash.jpg" alt="value image" >
+                <span id="rightcarouselarrow">
+                    <i class="fas fa-chevron-right" onclick="return nextImage();"></i>
+                </span>
+            </div>
+            <p id="imagetext">Crediting a loan into a Customer’s bank account</p>
+        </section>
+    {% endif %}
+{% endblock %}

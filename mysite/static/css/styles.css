@@ -383,6 +383,7 @@ nav {
 #arrowvalue, #arrowwaste, #arrowmaskvalue, #arrowmaskwaste {
     position: absolute;
     top: 26.5vh;
+    left: 0;
     height: 33vh;
     border: none;
 }

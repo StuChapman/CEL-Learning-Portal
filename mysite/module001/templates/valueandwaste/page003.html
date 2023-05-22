@@ -1,0 +1,23 @@
+{% extends "basemodule001.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <p class="paralarge extrapadding">Work done can be put into 2 categories:</p>
+            <h1 onclick="return revealValue();"><span class="arrowtext">Value</span></h1>
+            <p class="paralarge">and</p>
+            <h1 onclick="return revealWaste();"><span class="arrowtext">Waste</span></h1>
+            <p class="paralarge extrapadding">Tap on each of them to see the definition ...</p>
+            <div id="arrowvalue" class="extramargin align-vertically">
+                “Value” is defined as work that directly contributes to what the Customer is paying for.
+            </div>
+            <div id="arrowwaste" class="extramargin align-vertically">
+                “Waste” is defined as work that if it was removed, the Customer would receive the same quality.
+            </div>
+            <div id="arrowmaskvalue" class="extramargin"></div>
+            <div id="arrowmaskwaste" class="extramargin"></div>
+        </section>
+    {% endif %}
+{% endblock %}
