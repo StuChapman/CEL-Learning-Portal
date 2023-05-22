@@ -131,24 +131,25 @@ function populateImage(getpage) {
 
     switch(imageCount) {
         case 0:
-            colorTagLeft = '#eeeeee';
+            document.getElementById("leftcarouselarrow").innerHTML = '#eeeeee';
+            console.log(imageCount);
             break;
         case 1:
-            colorTagLeft = '#657486';
+            document.getElementById("leftcarouselarrow").innerHTML = '#657486';
+            console.log(imageCount);
             break;
         case 3:
-            colorTagRight = '#657486';
+            document.getElementById("rightcarouselarrow").innerHTML = '#657486';
+            console.log(imageCount);
             break;
         case 4:
-            colorTagRight = '#eeeeee';
+            document.getElementById("rightcarouselarrow").innerHTML = '#eeeeee';
+            console.log(imageCount);
             revealNext();
             break;
         default:
             break;
     }
-
-    $("#leftcarouselarrow").css('color', colorTagLeft);
-    $("#rightcarouselarrow").css('color', colorTagRight);
 }
 
 
