@@ -10,6 +10,7 @@ var player;
 var imageCount = 0;
 var letterCount = 0;
 var exampleStepNo = 1;
+var getpage;
 
 //Set global variables - flags to ensure all 8 images have been clicked before navigating from eightwastes.html //
 var transportationFlag = 0;

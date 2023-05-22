@@ -73,31 +73,29 @@ function revealWaste() {
 }
 
 //Function: scroll to next image on page004module001 //
-function nextImage() {
+function nextImage(getpage) {
     if (imageCount == 4) {
           imageCount = 4;
         } else {
           imageCount++;
         }
-    populateImage();
+    populateImage(getpage);
 }
 
 //Function: scroll to previous image on page004module001 //
-function prevImage() {
+function prevImage(getpage) {
     if (imageCount == 0) {
           imageCount = 0;
         } else {
           imageCount--;
         }
-    populateImage();
+    populateImage(getpage);
 }
 
 //Function: set the image and text on page004module001 and waste.html //
-function populateImage() {
-    let getpage = document.title;
-
+function populateImage(getpage) {
     switch(getpage) {
-        case "Online Learning - Value":
+        case 1:
             imageArray = 
                 [
                     ['cash', 'Crediting a loan into a Customer’s bank account'],
@@ -107,7 +105,7 @@ function populateImage() {
                     ['sale', 'Selling a new insurance policy to a Customer']
                 ];
             break;
-        case "Online Learning - Waste":
+        case 2:
             imageArray = 
                 [
                     ['headache', 'Going past the agreed date for the loan to be credited'],
@@ -120,6 +118,39 @@ function populateImage() {
         default:
             break;
     }
+
+    $("#valueimage").attr('src', '/media//module001/' + imageArray[imageCount][0] + '.jpg'); //Credit: https://www.juniordevelopercentral.com/jquery-change-image-src/#:~:text=jQuery%20change%20image%20src%20-%20How%20To%20Change,as%20simple%20as%20using%20the%20attr%20%2Afunction.%20 //
+
+    // 200ms delay to allow image to cache //
+    setTimeout(function() {
+        $("#imagetext").text(imageArray[imageCount][1]);
+    }, 200);
+
+    let colorTagLeft;
+    let colorTagRight;
+
+    switch(imageCount) {
+        case 0:
+            colorTagLeft = '#eeeeee';
+            break;
+        case 1:
+            colorTagLeft = '#657486';
+            break;
+        case 3:
+            colorTagRight = '#657486';
+            break;
+        case 4:
+            colorTagRight = '#eeeeee';
+            revealNext();
+            break;
+        default:
+            break;
+    }
+
+    $("#leftcarouselarrow").css('color', colorTagLeft);
+    $("#rightcarouselarrow").css('color', colorTagRight);
+}
+
 
 // ********************************** Unused - to be deleted ********************************** //
 
@@ -209,37 +240,6 @@ function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ 
         return i;
         }
     }
-}
-
-    $("#valueimage").attr('src', 'assets/images/' + imageArray[imageCount][0] + '.jpg'); //Credit: https://www.juniordevelopercentral.com/jquery-change-image-src/#:~:text=jQuery%20change%20image%20src%20-%20How%20To%20Change,as%20simple%20as%20using%20the%20attr%20%2Afunction.%20 //
-    // 200ms delay to allow image to cache //
-    setTimeout(function() {
-        $("#imagetext").text(imageArray[imageCount][1]);
-    }, 200);
-
-    let colorTagLeft;
-    let colorTagRight;
-
-    switch(imageCount) {
-        case 0:
-            colorTagLeft = '#eeeeee';
-            break;
-        case 1:
-            colorTagLeft = '#657486';
-            break;
-        case 3:
-            colorTagRight = '#657486';
-            break;
-        case 4:
-            colorTagRight = '#eeeeee';
-            revealNext();
-            break;
-        default:
-            break;
-    }
-
-    $("#leftcarouselarrow").css('color', colorTagLeft);
-    $("#rightcarouselarrow").css('color', colorTagRight);
 }
 
 //Function: reveal the additional text on nonvalueadd.html //
