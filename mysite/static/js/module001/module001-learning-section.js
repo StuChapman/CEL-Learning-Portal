@@ -131,27 +131,38 @@ function populateImage(getpage) {
 
     switch(imageCount) {
         case 0:
-            document.getElementById("leftcarouselarrow").innerHTML = '#eeeeee';
-            console.log(imageCount);
+            colorTagLeft = '#eeeeee';
             break;
         case 1:
-            document.getElementById("leftcarouselarrow").innerHTML = '#657486';
-            console.log(imageCount);
+            colorTagLeft = '#657486';
             break;
         case 3:
-            document.getElementById("rightcarouselarrow").innerHTML = '#657486';
-            console.log(imageCount);
+            colorTagRight = '#657486';
             break;
         case 4:
-            document.getElementById("rightcarouselarrow").innerHTML = '#eeeeee';
-            console.log(imageCount);
+            colorTagRight = '#eeeeee';
             revealNext();
             break;
         default:
             break;
     }
+
+    $("#leftcarouselarrow").css('color', colorTagLeft);
+    $("#rightcarouselarrow").css('color', colorTagRight);
 }
 
+//Function: reveal the additional text on page006module001 //
+function scrollDown() {
+    $('#scrollone').css('display', 'none');
+    $('#scrolltwo').css('display', 'block');
+    revealNext();
+}
+
+//Function: hide the additional text on page006module001 //
+function scrollUp() {
+    $('#scrollone').css('display', 'block');
+    $('#scrolltwo').css('display', 'none');
+}
 
 // ********************************** Unused - to be deleted ********************************** //
 
@@ -241,19 +252,6 @@ function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ 
         return i;
         }
     }
-}
-
-//Function: reveal the additional text on nonvalueadd.html //
-function scrollDown() {
-    $('#scrollone').css('display', 'none');
-    $('#scrolltwo').css('display', 'block');
-    revealNext();
-}
-
-//Function: hide the additional text on nonvalueadd.html //
-function scrollUp() {
-    $('#scrollone').css('display', 'block');
-    $('#scrolltwo').css('display', 'none');
 }
 
 //Function: handle the images on eightwastes.html ready for the popup //

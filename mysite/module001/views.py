@@ -38,6 +38,7 @@ def page002module001(request):
         'prev_page': 'background',
         'next_url': 'page003module001',
         'next_page': 'definition of value and waste',
+        'next_page_mobile': 'definition',
     }
 
     return render(request, 'valueandwaste/page002.html', context)
@@ -64,8 +65,36 @@ def page004module001(request):
         'nexthedden': 'true',
         'prev_url': 'page003module001',
         'prev_page': 'definition of value and waste',
+        'next_url': 'page005module001',
+        'next_page': 'examples of waste',
+    }
+
+    return render(request, 'valueandwaste/page004.html', context)
+
+
+def page005module001(request):
+    """ A view to return page002 """
+    context = {
+        'arrows': 'arrows',
+        'nexthedden': 'true',
+        'prev_url': 'page004module001',
+        'prev_page': 'examples of value',
+        'next_url': 'page006module001',
+        'next_page': 'necessary non-value-add',
+    }
+
+    return render(request, 'valueandwaste/page005.html', context)
+
+
+def page006module001(request):
+    """ A view to return page002 """
+    context = {
+        'arrows': 'arrows',
+        'nexthedden': 'true',
+        'prev_url': 'page005module001',
+        'prev_page': 'examples of waste',
         'next_url': 'valueandwaste',
         'next_page': 'index',
     }
 
-    return render(request, 'valueandwaste/page004.html', context)
+    return render(request, 'valueandwaste/page006.html', context)
