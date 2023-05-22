@@ -9,11 +9,17 @@
                     <span><i class="fas fa-backward"></i> {{ prev_page }}</span>
                 </a>
             {% endwith %}
-            {% with my_url=next_url %}
+            {% if nexthedden == 'true' %}
+                {% with my_url=next_url %}
+                    <a id="nextLink" class="pr-4 ml-auto hidden" href="{% url next_url %}">
+                        <span>{{ next_page }} <i class="fas fa-forward"></i></span>
+                    </a>
+                {% endwith %}
+            {% else %}
                 <a class="pr-4 ml-auto" href="{% url next_url %}">
                     <span>{{ next_page }} <i class="fas fa-forward"></i></span>
                 </a>
-            {% endwith %}
+            {% endif %}
         </div>
     {% endif %}
 </footer>

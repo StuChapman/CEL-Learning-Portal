@@ -17,3 +17,60 @@
     </section>
     {% endif %}
 {% endblock %}
+
+{% block postloadjs %}
+    <!-- YouTube scripts --> 
+    <!-- Credit: https://developers.google.com/youtube/iframe_api_reference -->
+    <script>
+        // This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+    
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+            // This function creates an <iframe> (and YouTube player)
+            // after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+            player = new YT.Player('onettovideo', {
+                videoId: '5M0aUOudbx0',
+                allowfullscreen: 'false',
+                playsinline: 'true', // without this code getPlayerStatus will not run on apple iphones //
+                events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+                }
+            });
+            }
+    
+        // The API will call this function when the video player is ready.
+            function onPlayerReady(event) {
+            event.target.pauseVideo();
+            }
+    
+        //Function: play the video
+            function playVideo() {
+            player.playVideo();
+            }
+    
+        //Function: pause the video
+            function pauseVideo() {
+            player.pauseVideo();
+            }
+    
+        //Function: identify when the video has finished playing to reveal hidden navigation //
+            function getPlayerStatus(playerStatus) {
+                if  (playerStatus == 0) {
+                revealNext();
+                resetPlay();
+                }
+            }
+    
+        //Function: identify when the video changes state //
+            function onPlayerStateChange(event) {
+                getPlayerStatus(event.data);
+            }
+        </script>
+
+{% endblock %}

@@ -2,6 +2,39 @@
 
 // ********************************** Interactive Learning Section Functions ********************************** //
 
+//Function: using the play button to play and pause the Mark Onetto video on page002module001 //
+function playVid() { 
+
+    let buttonText = $("#playbutton").text();
+    let playText = $.trim(buttonText);
+
+    switch(playText) {
+        case "play":
+            player.playVideo();
+            $("#playbutton").text("pause");
+            break;
+        case "pause":
+            player.pauseVideo();
+            $("#playbutton").text("play");
+            break;
+        default:
+            break;
+    }
+}
+
+//Function: reset button from pause to play when the video finishes on page002module001 //
+function resetPlay() {
+    $("#playbutton").text("play");
+}
+
+//Function: revealing the nextLink after content has been interacted with //
+function revealNext() {
+    $("#nextLink").removeClass("hidden");
+    $("#nextLink").addClass("unhidden");
+}
+
+// ********************************** Unused - to be deleted ********************************** //
+
 // Function: reset answerflags - ADMIN ONLY //
 function resetAnswerFlags() {
     var i;
@@ -123,37 +156,6 @@ function revealWaste() {
     $("#arrowmaskwaste").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
                 width: 0
             });
-}
-
-//Function: revealing the nextLink after content has been interacted with //
-function revealNext() {
-    $("#nextLink").removeClass("hidden");
-    $("#nextLink").addClass("unhidden");
-}
-
-//Function: using the play button to play and pause the Mark Onetto video on looking.html //
-function playVid() { 
-
-    let buttonText = $("#playbutton").text();
-    let playText = $.trim(buttonText);
-
-    switch(playText) {
-        case "play":
-            player.playVideo();
-            $("#playbutton").text("pause");
-            break;
-        case "pause":
-            player.pauseVideo();
-            $("#playbutton").text("play");
-            break;
-        default:
-            break;
-    }
-}
-
-//Function: reset button from pause to play when the video finishes on looking.html //
-function resetPlay() {
-    $("#playbutton").text("play");
 }
 
 //Function: scroll to next image on value.html //
