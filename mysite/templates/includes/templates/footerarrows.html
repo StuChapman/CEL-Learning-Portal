@@ -1,13 +1,19 @@
 <footer>
-    <div id="footer" class="align-vertically">
-        {% with my_url=prev_url %}
-        {{ prev_url }}
-        <a class="pl-4 mr-auto" href="">
-            <span><i class="fas fa-backward"></i> {{ prev_url }}</span>
-        </a>
-        {% endwith %}
-        <a class="pr-4 ml-auto" href="{ next_url }">
-            <span>{{ next_page }} <i class="fas fa-forward"></i></span>
-        </a>
-    </div>
+    {% if arrows == 'noarrows' %}
+        <div id="footer" class="align-vertically">
+        </div>
+    {% else %}
+        <div id="footer" class="align-vertically">
+            {% with my_url=prev_url %}
+                <a class="pl-4 mr-auto" href="{% url my_url %}">
+                    <span><i class="fas fa-backward"></i> {{ prev_page }}</span>
+                </a>
+            {% endwith %}
+            {% with my_url=next_url %}
+                <a class="pr-4 ml-auto" href="{% url next_url %}">
+                    <span>{{ next_page }} <i class="fas fa-forward"></i></span>
+                </a>
+            {% endwith %}
+        </div>
+    {% endif %}
 </footer>

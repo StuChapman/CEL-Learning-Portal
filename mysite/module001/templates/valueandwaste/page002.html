@@ -1,0 +1,19 @@
+{% extends "basemodule001.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+    <section id="textsection">
+        <h1>Looking for Waste...</h1>
+        <p class="paramedium">Marc A. Onetto, formerly Senior Vice President-Worldwide Operations at Amazon.com, Inc., 
+            talks about his experience of Waste at Amazon.</p>
+        <div class="d-block">
+            <div id="onettovideo"></div>
+        </div>
+        <button id="playbutton" type="button" class="btn" onclick="return playVid();">
+            play
+        </button>
+    </section>
+    {% endif %}
+{% endblock %}
