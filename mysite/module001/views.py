@@ -119,9 +119,25 @@ def page007module001(request):
         'prev_url': 'page006module001',
         'prev_page': 'necessary non-value-add',
         'prev_page_small': 'non-value-add',
+        'next_url': 'page008module001',
+        'next_page': 'example: making a chair',
+        'next_page_small': 'example',
+    }
+
+    return render(request, 'valueandwaste/page007.html', context)
+
+
+def page008module001(request):
+    """ A view to return page008 """
+    context = {
+        'arrows': 'arrows',
+        'nexthidden': 'true',
+        'prev_url': 'page007module001',
+        'prev_page': 'the eight wastes',
+        'prev_page_small': '8 wastes',
         'next_url': 'valueandwaste',
         'next_page': 'index',
         'next_page_small': 'index',
     }
 
-    return render(request, 'valueandwaste/page007.html', context)
+    return render(request, 'valueandwaste/page008.html', context)

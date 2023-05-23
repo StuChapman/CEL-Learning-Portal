@@ -301,6 +301,46 @@ function popDownWaste() {
     $('#wastepopup').css('visibility', 'hidden');
 }
 
+//Function: work through the steps in page008module001 //
+function exampleSelect() {
+    exampleStepNo = $.trim($('#examplestep').text().substring(0, 1));
+
+    let answerindex = examplearray[exampleStepNo - 1][1];
+    let answertext = examplearray[exampleStepNo - 1][2];
+
+    var exampleindex  = examplelist.selectedIndex; // Credit: https://www.codeproject.com/articles/656/using-javascript-to-handle-drop-down-list-selectio //
+
+    if (exampleindex == answerindex) {
+        $('#examplestep').text('Thats right! ' + answertext);
+    } else {
+        $('#examplestep').text('Not quite. ' + answertext);
+    }
+
+    if (exampleStepNo == 7) {
+        $('#examplepara').text('tap next to start the Online Test...');
+        $('#examplelist').css('visibility', 'hidden');
+        $("#examplecarouselarrow").css('color', '#dddcdc');
+        revealNext();
+    } else {
+        $('#examplepara').text('tap the arrow to move to the next step...');
+        $('#examplelist').css('visibility', 'hidden');
+        $("#examplecarouselarrow").css('color', '#657486');
+    }
+}
+
+//Function: navigate to the next step in page008module001 //
+function nextExample() {
+    if ($("#examplecarouselarrow").css('color') == 'rgb(221, 220, 220)') {
+        return;
+    } else {
+        ++exampleStepNo;
+        $('#examplestep').text(examplearray[exampleStepNo - 1][0]);
+        document.getElementById("examplelist").selectedIndex = "0";
+        $('#examplelist').css('visibility', 'visible');
+        $("#examplecarouselarrow").css('color', '#dddcdc');
+        $('#examplepara').text('Is this step Value or Waste? If Waste, which of the 8 Wastes? Select from the list below...');
+    }
+}
 
 // ********************************** Unused - to be deleted ********************************** //
 
@@ -381,44 +421,3 @@ $(window).on('pageshow', function() {
         window.location.replace(navflag);
     }
 });
-
-//Function: work through the steps in example.html //
-function exampleSelect() {
-    exampleStepNo = $.trim($('#examplestep').text().substring(0, 1));
-
-    let answerindex = examplearray[exampleStepNo - 1][1];
-    let answertext = examplearray[exampleStepNo - 1][2];
-
-    var exampleindex  = examplelist.selectedIndex; // Credit: https://www.codeproject.com/articles/656/using-javascript-to-handle-drop-down-list-selectio //
-
-    if (exampleindex == answerindex) {
-        $('#examplestep').text('Thats right! ' + answertext);
-    } else {
-        $('#examplestep').text('Not quite. ' + answertext);
-    }
-
-    if (exampleStepNo == 7) {
-        $('#examplepara').text('tap next to start the Online Test...');
-        $('#examplelist').css('visibility', 'hidden');
-        $("#examplecarouselarrow").css('color', '#dddcdc');
-        revealNext();
-    } else {
-        $('#examplepara').text('tap the arrow to move to the next step...');
-        $('#examplelist').css('visibility', 'hidden');
-        $("#examplecarouselarrow").css('color', '#657486');
-    }
-}
-
-//Function: navigate to the next step in example.html //
-function nextExample() {
-    if ($("#examplecarouselarrow").css('color') == 'rgb(221, 220, 220)') {
-        return;
-    } else {
-        ++exampleStepNo;
-        $('#examplestep').text(examplearray[exampleStepNo - 1][0]);
-        document.getElementById("examplelist").selectedIndex = "0";
-        $('#examplelist').css('visibility', 'visible');
-        $("#examplecarouselarrow").css('color', '#dddcdc');
-        $('#examplepara').text('Is this step Value or Waste? If Waste, which of the 8 Wastes? Select from the list below...');
-    }
-}
