@@ -10,6 +10,16 @@ function revealNext() {
     $("#nextLink").addClass("unhidden");
 }
 
+// Function: find index of multidimensional array //
+function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ via https://stackoverflow.com/questions/16102263/to-find-index-of-multidimensional-array-in-javascript
+    for (var i = 0; i < arr.length; i++) {
+        var index = arr[i].indexOf(k);
+        if (index > -1) {
+        return i;
+        }
+    }
+}
+
 // ********** View specific Functions ********** //
 
 //Function: using the play button to play and pause the Mark Onetto video on page002module001 //
@@ -92,7 +102,7 @@ function prevImage(getpage) {
     populateImage(getpage);
 }
 
-//Function: set the image and text on page004module001 and waste.html //
+//Function: set the image and text on page004module001 and page005module001 //
 function populateImage(getpage) {
     switch(getpage) {
         case 1:
@@ -163,6 +173,134 @@ function scrollUp() {
     $('#scrollone').css('display', 'block');
     $('#scrolltwo').css('display', 'none');
 }
+
+//Function: handle the images on page007module001 ready for the popup //
+function handleWaste(imagetag) {
+
+    let imageString = imagetag.substr(1) + 'Flag'; //Credit: https://stackoverflow.com/questions/4564414/delete-first-character-of-a-string-in-javascript
+
+    // as each image is clicked, populate its variable to 1 //
+    switch(imageString) {
+        case 'transportationFlag':
+            transportationFlag = 1;
+            break;
+        case 'inventoryFlag':
+            inventoryFlag = 1;
+            break;
+        case 'motionFlag':
+            motionFlag = 1;
+            break;
+        case 'waitingFlag':
+            waitingFlag = 1;
+            break;
+        case 'overproductionFlag':
+            overproductionFlag = 1;
+            break;
+        case 'overprocessingFlag':
+            overprocessingFlag = 1;
+            break;
+        case 'defectsFlag':
+            defectsFlag = 1;
+            break;
+        case 'skillsFlag':
+            skillsFlag = 1;
+            break;
+        default:
+            break;
+    }
+
+    // confirm that all popups have been viewed before revealing next anchor //
+    // as this is a product, clickCount is only 1 once all images are clicked //
+    let clickCount = (transportationFlag * inventoryFlag * motionFlag * waitingFlag * overproductionFlag * overprocessingFlag * defectsFlag * skillsFlag);
+
+    if (clickCount == 1) {
+    revealNext();
+    }
+
+    // change opacity of clicked image to show status as clicked //
+    $(imagetag).css('opacity', 0.25); //Credit: https://stackoverflow.com/questions/2396342/transparent-image-is-it-possible-in-js
+
+    popupWaste(imagetag);
+}
+
+//Function: reveal and populate the detailed description of each waste on page007module001 //
+function popupWaste(imagetag) {
+
+    let indexString = imagetag.substr(1);
+    let wasteIndex =0;
+
+    let popupArray = [
+                    ['Transportation', 'Moving product or work around for no reason.', 
+                        'In a restaurant, this might be; carrying all the meat downstairs to the cellar, only to have to carry it all back upstairs again to cook it.', 
+                            '...or a Customer being transferred from one department to another.'],
+                    ['Inventory', 'Keeping excessive stocks of product.', 
+                        'In our restaurant, this might be filling the freezer with a year`s worth of sausages', 
+                            '...or batching up change requests for approval.'],
+                    ['Motion', 'Moving the worker around.', 
+                        'The chef in our restaurant might have to walk to one cupboard to get the oil, then walk to the other side of the kitchen to get the salt.', 
+                            '...or navigating through a number of screens of a website.'],
+                    ['Waiting', 'Work or product standing still.', 
+                        'Our restaurant Customers do not like spending 30 minutes waiting for thier food.', 
+                            '...or this could be a queue to speak to an advisor on the phone.'],
+                    ['Overproduction', 'Producing work or product ahead of schedule.', 
+                        'The waiter could take out the first course before the Customer has finished thier starter.', 
+                            '...or printing a batch of books before you have received orders.'],
+                    ['Overprocessing', 'Work or product that is too complicated', 
+                        'The chef arranging the sausages and mash into the shape of a steam locomotive!', 
+                            '...or quality checks and approvals throughout a process.'],
+                    ['Defects', 'Work or product that has to be repaired or discarded.', 
+                        'Burning the sausages!', 
+                            '...or a Customer losing patience with a website, and exiting before buying.'],
+                    ['Skills', 'Using the wrong people at the wrong time.', 
+                        'Asking the waiter to cook the food.', 
+                            '...or asking a manager to decide how a craftsperson uses thier tools.'],
+                ];
+    
+    switch(indexString) {
+        case 'transportation':
+            wasteIndex = 0;
+            break;
+        case 'inventory':
+            wasteIndex = 1;
+            break;
+        case 'motion':
+            wasteIndex = 2;
+            break;
+        case 'waiting':
+            wasteIndex = 3;
+            break;
+        case 'overproduction':
+            wasteIndex = 4;
+            break;
+        case 'overprocessing':
+            wasteIndex = 5;
+            break;
+        case 'defects':
+            wasteIndex = 6;
+            break;
+        case 'skills':
+            wasteIndex = 7;
+            break;
+        default:
+            break;
+    }
+
+    $('#pophead').text(popupArray[wasteIndex][0]);
+    $('#poppone').text(popupArray[wasteIndex][1]);
+    $('#popptwo').text(popupArray[wasteIndex][2]);
+    $('#wastepopupimage').attr('src', '/media/module001/' + indexString + '.jpg');
+    $('#poppthree').text(popupArray[wasteIndex][3]);
+    // 200ms delay to allow image to cache //
+    setTimeout(function() {
+        $('#wastepopup').css('visibility', 'visible');
+    }, 200); 
+}
+
+//Function: hide the detailed description of each waste on page007module001 //
+function popDownWaste() {
+    $('#wastepopup').css('visibility', 'hidden');
+}
+
 
 // ********************************** Unused - to be deleted ********************************** //
 
@@ -243,143 +381,6 @@ $(window).on('pageshow', function() {
         window.location.replace(navflag);
     }
 });
-
-// Function: find index of multidimensional array //
-function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ via https://stackoverflow.com/questions/16102263/to-find-index-of-multidimensional-array-in-javascript
-    for (var i = 0; i < arr.length; i++) {
-        var index = arr[i].indexOf(k);
-        if (index > -1) {
-        return i;
-        }
-    }
-}
-
-//Function: handle the images on eightwastes.html ready for the popup //
-function handleWaste(imagetag) {
-
-    let imageString = imagetag.substr(1) + 'Flag'; //Credit: https://stackoverflow.com/questions/4564414/delete-first-character-of-a-string-in-javascript
-
-    // as each image is clicked, populate its variable to 1 //
-    switch(imageString) {
-        case 'transportationFlag':
-            transportationFlag = 1;
-            break;
-        case 'inventoryFlag':
-            inventoryFlag = 1;
-            break;
-        case 'motionFlag':
-            motionFlag = 1;
-            break;
-        case 'waitingFlag':
-            waitingFlag = 1;
-            break;
-        case 'overproductionFlag':
-            overproductionFlag = 1;
-            break;
-        case 'overprocessingFlag':
-            overprocessingFlag = 1;
-            break;
-        case 'defectsFlag':
-            defectsFlag = 1;
-            break;
-        case 'skillsFlag':
-            skillsFlag = 1;
-            break;
-        default:
-            break;
-    }
-
-    // confirm that all popups have been viewed before revealing next anchor //
-    // as this is a product, clickCount is only 1 once all images are clicked //
-    let clickCount = (transportationFlag * inventoryFlag * motionFlag * waitingFlag * overproductionFlag * overprocessingFlag * defectsFlag * skillsFlag);
-
-    if (clickCount == 1) {
-    revealNext();
-    }
-
-    // change opacity of clicked image to show status as clicked //
-    $(imagetag).css('opacity', 0.25); //Credit: https://stackoverflow.com/questions/2396342/transparent-image-is-it-possible-in-js
-
-    popupWaste(imagetag);
-}
-
-//Function: reveal and populate the detailed description of each waste on eightwastes.html //
-function popupWaste(imagetag) {
-
-    let indexString = imagetag.substr(1);
-    let wasteIndex =0;
-
-    let popupArray = [
-                    ['Transportation', 'Moving product or work around for no reason.', 
-                        'In a restaurant, this might be; carrying all the meat downstairs to the cellar, only to have to carry it all back upstairs again to cook it.', 
-                            '...or a Customer being transferred from one department to another.'],
-                    ['Inventory', 'Keeping excessive stocks of product.', 
-                        'In our restaurant, this might be filling the freezer with a year`s worth of sausages', 
-                            '...or batching up change requests for approval.'],
-                    ['Motion', 'Moving the worker around.', 
-                        'The chef in our restaurant might have to walk to one cupboard to get the oil, then walk to the other side of the kitchen to get the salt.', 
-                            '...or navigating through a number of screens of a website.'],
-                    ['Waiting', 'Work or product standing still.', 
-                        'Our restaurant Customers do not like spending 30 minutes waiting for thier food.', 
-                            '...or this could be a queue to speak to an advisor on the phone.'],
-                    ['Overproduction', 'Producing work or product ahead of schedule.', 
-                        'The waiter could take out the first course before the Customer has finished thier starter.', 
-                            '...or printing a batch of books before you have received orders.'],
-                    ['Overprocessing', 'Work or product that is too complicated', 
-                        'The chef arranging the sausages and mash into the shape of a steam locomotive!', 
-                            '...or quality checks and approvals throughout a process.'],
-                    ['Defects', 'Work or product that has to be repaired or discarded.', 
-                        'Burning the sausages!', 
-                            '...or a Customer losing patience with a website, and exiting before buying.'],
-                    ['Skills', 'Using the wrong people at the wrong time.', 
-                        'Asking the waiter to cook the food.', 
-                            '...or asking a manager to decide how a craftsperson uses thier tools.'],
-                ];
-    
-    switch(indexString) {
-        case 'transportation':
-            wasteIndex = 0;
-            break;
-        case 'inventory':
-            wasteIndex = 1;
-            break;
-        case 'motion':
-            wasteIndex = 2;
-            break;
-        case 'waiting':
-            wasteIndex = 3;
-            break;
-        case 'overproduction':
-            wasteIndex = 4;
-            break;
-        case 'overprocessing':
-            wasteIndex = 5;
-            break;
-        case 'defects':
-            wasteIndex = 6;
-            break;
-        case 'skills':
-            wasteIndex = 7;
-            break;
-        default:
-            break;
-    }
-
-    $('#pophead').text(popupArray[wasteIndex][0]);
-    $('#poppone').text(popupArray[wasteIndex][1]);
-    $('#popptwo').text(popupArray[wasteIndex][2]);
-    $('#wastepopupimage').attr('src','assets/images/' + indexString + '.jpg');
-    $('#poppthree').text(popupArray[wasteIndex][3]);
-    // 200ms delay to allow image to cache //
-    setTimeout(function() {
-        $('#wastepopup').css('visibility', 'visible');
-    }, 200); 
-}
-
-//Function: hide the detailed description of each waste on eightwastes.html //
-function popDownWaste() {
-    $('#wastepopup').css('visibility', 'hidden');
-}
 
 //Function: work through the steps in example.html //
 function exampleSelect() {

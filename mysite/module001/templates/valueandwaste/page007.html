@@ -1,0 +1,70 @@
+{% extends "basemodule001.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">  
+            <h1 class="pt-1 pb-1">The 8 Wastes</h1>
+            <p class="paralarge">tap on each image for more...</p>
+            <div class="row wastecontainer ml-auto mr-auto">
+                <div class="wasteimagecontainer">
+                    <img id="transportation" onclick="return handleWaste('#transportation');" 
+                        src="{{ MEDIA_URL }}\module001\Transportation.jpg" alt="transportation image">
+                    <div class="imagefooter">Transportation</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="inventory" onclick="return handleWaste('#inventory');" 
+                        src="{{ MEDIA_URL }}\module001\Inventory.jpg" alt="transportation image">
+                    <div class="imagefooter">Inventory</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="motion" onclick="return handleWaste('#motion');" 
+                        src="{{ MEDIA_URL }}\module001\Motion.jpg" alt="motion image">
+                    <div class="imagefooter">Motion</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="waiting" onclick="return handleWaste('#waiting');" 
+                        src="{{ MEDIA_URL }}\module001\Waiting.jpg" alt="waiting image">
+                    <div class="imagefooter">Waiting</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="overproduction" onclick="return handleWaste('#overproduction');" 
+                        src="{{ MEDIA_URL }}\module001\Overproduction.jpg" alt="overproduction image">
+                    <div class="imagefooter">Overproduction</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="overprocessing" onclick="return handleWaste('#overprocessing');" 
+                        src="{{ MEDIA_URL }}\module001\Overprocessing.jpg" alt="overprocessing image">
+                    <div class="imagefooter">Overprocessing</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="defects" onclick="return handleWaste('#defects');" 
+                        src="{{ MEDIA_URL }}\module001\Defects.jpg" alt="defects image">
+                    <div class="imagefooter">Defects</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="skills" onclick="return handleWaste('#skills');" 
+                        src="{{ MEDIA_URL }}\module001\Skills.jpg" alt="skills image">
+                    <div class="imagefooter">Skills</div>
+                </div>
+            </div>
+
+        <!-- Waste pop-up -->
+            <div id="wastepopup">
+                <h1 id="pophead">Transportation</h1>
+                <p id="poppone" class="paralarge">Moving product or work around for no reason.</p>
+                <p id="popptwo"  class="paramedium">In a restaurant, this might be; carrying all the 
+                    meat downstairs to the cellar, only to have to carry it all back upstairs again to cook it.</p>
+            <div class="wastepopupimagecontainer">
+                <img id="wastepopupimage" 
+                    src="assets/images/transportation.jpg" alt="image to represent waste">
+            </div>
+                <p id="poppthree"  class="paramedium">Or a Customer being transferred from one department to another.</p>
+                <button type="button" class="btn-blue mt-0" onclick="return popDownWaste();">
+                    Close
+                </button>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
