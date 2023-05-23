@@ -6,18 +6,21 @@
         <div id="footer" class="align-vertically">
             {% with my_url=prev_url %}
                 <a class="pl-4 mr-auto" href="{% url my_url %}">
-                    <span><i class="fas fa-backward"></i> {{ prev_page }}</span>
+                    <span class="d-none d-sm-block"><i class="fas fa-backward"></i> {{ prev_page }}</span>
+                    <span class="d-sm-none"><i class="fas fa-backward"></i> {{ prev_page_small }}</span>
                 </a>
             {% endwith %}
-            {% if nexthedden == 'true' %}
+            {% if nexthidden == 'true' %}
                 {% with my_url=next_url %}
                     <a id="nextLink" class="pr-4 ml-auto hidden" href="{% url next_url %}">
-                        <span>{{ next_page }} <i class="fas fa-forward"></i></span>
+                        <span class="d-none d-sm-block">{{ next_page }} <i class="fas fa-forward"></i></span>
+                        <span class="d-sm-none">{{ next_page_small }} <i class="fas fa-forward"></i></span>
                     </a>
                 {% endwith %}
             {% else %}
                 <a class="pr-4 ml-auto" href="{% url next_url %}">
-                    <span>{{ next_page }} <i class="fas fa-forward"></i></span>
+                    <span class="d-none d-sm-block">{{ next_page }} <i class="fas fa-forward"></i></span>
+                    <span class="d-sm-none">{{ next_page_small }} <i class="fas fa-forward"></i></span>
                 </a>
             {% endif %}
         </div>
