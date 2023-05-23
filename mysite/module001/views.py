@@ -1,23 +1,44 @@
 from django.shortcuts import render
 from django.urls import path
 from . import views
+from .models import Pages
 
 # Create your views here.
 
 
 def valueandwaste(request):
     """ A view to return the intro page """
+    thispage = 'valueandwaste'
     context = {
+        'thispage': thispage,
         'arrows': 'noarrows',
         'nexthidden': 'false',
     }
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
 
     return render(request, 'valueandwaste/intro.html', context)
 
 
 def page001module001(request):
     """ A view to return page001 """
+    thispage = 'page001module001'
     context = {
+        'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': 'false',
         'prev_url': 'valueandwaste',
@@ -33,7 +54,9 @@ def page001module001(request):
 
 def page002module001(request):
     """ A view to return page002 """
+    thispage = 'page002module001'
     context = {
+        'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': 'true',
         'prev_url': 'page001module001',
@@ -49,7 +72,9 @@ def page002module001(request):
 
 def page003module001(request):
     """ A view to return page003 """
+    thispage = 'page003module001'
     context = {
+        'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': 'true',
         'prev_url': 'page002module001',
@@ -65,7 +90,9 @@ def page003module001(request):
 
 def page004module001(request):
     """ A view to return page004 """
+    thispage = 'page004module001'
     context = {
+        'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': 'true',
         'prev_url': 'page003module001',
@@ -81,7 +108,9 @@ def page004module001(request):
 
 def page005module001(request):
     """ A view to return page005 """
+    thispage = 'page005module001'
     context = {
+        'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': 'true',
         'prev_url': 'page004module001',
@@ -97,7 +126,9 @@ def page005module001(request):
 
 def page006module001(request):
     """ A view to return page006 """
+    thispage = 'page006module001'
     context = {
+        'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': 'true',
         'prev_url': 'page005module001',
@@ -113,7 +144,9 @@ def page006module001(request):
 
 def page007module001(request):
     """ A view to return page007 """
+    thispage = 'page007module001'
     context = {
+        'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': 'true',
         'prev_url': 'page006module001',
@@ -129,7 +162,9 @@ def page007module001(request):
 
 def page008module001(request):
     """ A view to return page008 """
+    thispage = 'page008module001'
     context = {
+        'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': 'true',
         'prev_url': 'page007module001',
