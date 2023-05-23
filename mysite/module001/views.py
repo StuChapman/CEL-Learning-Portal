@@ -6,25 +6,6 @@ from .models import Pages
 # Create your views here.
 
 
-def updatepage(request, thispage):
-    if request.user.is_authenticated:
-        """ check if a Page exists for this user for this page """
-        pages = Pages.objects.all()
-        page_exists = (pages.filter
-                       (user=request.user,
-                        page=thispage,
-                        status=1,))
-        if page_exists:
-            return render(request, 'home/home.html')
-
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
-    return render(request, 'valueandwaste/intro.html')
-
-
 def valueandwaste(request):
     """ A view to return the intro page """
     thispage = 'valueandwaste'
@@ -33,22 +14,6 @@ def valueandwaste(request):
         'arrows': 'noarrows',
         'nexthidden': 'false',
     }
-    
-    if request.user.is_authenticated:
-        """ check if a Page exists for this user for this page """
-        pages = Pages.objects.all()
-        page_exists = (pages.filter
-                       (user=request.user,
-                        page=thispage,
-                        status=1,))
-        if page_exists:
-            return render(request, 'home/home.html')
-
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
 
     return render(request, 'valueandwaste/intro.html', context)
 
@@ -76,7 +41,7 @@ def page001module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'valueandwaste/page001.html', context)
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,
@@ -110,7 +75,7 @@ def page002module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'valueandwaste/page002.html', context)
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,
@@ -144,7 +109,7 @@ def page003module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'valueandwaste/page003.html', context)
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,
@@ -178,7 +143,7 @@ def page004module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'valueandwaste/page004.html', context)
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,
@@ -212,7 +177,7 @@ def page005module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'valueandwaste/page005.html', context)
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,
@@ -246,7 +211,7 @@ def page006module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'valueandwaste/page006.html', context)
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,
@@ -280,7 +245,7 @@ def page007module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'valueandwaste/page007.html', context)
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,
