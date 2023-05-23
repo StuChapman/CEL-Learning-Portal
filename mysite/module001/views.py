@@ -6,15 +6,7 @@ from .models import Pages
 # Create your views here.
 
 
-def valueandwaste(request):
-    """ A view to return the intro page """
-    thispage = 'valueandwaste'
-    context = {
-        'thispage': thispage,
-        'arrows': 'noarrows',
-        'nexthidden': 'false',
-    }
-
+def updatepage(request, thispage):
     if request.user.is_authenticated:
         """ check if a Page exists for this user for this page """
         pages = Pages.objects.all()
@@ -23,7 +15,34 @@ def valueandwaste(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'home/home.html')
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
+    return render(request, 'valueandwaste/intro.html')
+
+
+def valueandwaste(request):
+    """ A view to return the intro page """
+    thispage = 'valueandwaste'
+    context = {
+        'thispage': thispage,
+        'arrows': 'noarrows',
+        'nexthidden': 'false',
+    }
+    
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'home/home.html')
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,
@@ -49,6 +68,22 @@ def page001module001(request):
         'next_page_small': 'looking',
     }
 
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
+
     return render(request, 'valueandwaste/page001.html', context)
 
 
@@ -66,6 +101,22 @@ def page002module001(request):
         'next_page': 'definition of value and waste',
         'next_page_small': 'definition',
     }
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
 
     return render(request, 'valueandwaste/page002.html', context)
 
@@ -85,6 +136,22 @@ def page003module001(request):
         'next_page_small': 'value',
     }
 
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
+
     return render(request, 'valueandwaste/page003.html', context)
 
 
@@ -102,6 +169,22 @@ def page004module001(request):
         'next_page': 'examples of waste',
         'next_page_small': 'waste',
     }
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
 
     return render(request, 'valueandwaste/page004.html', context)
 
@@ -121,6 +204,22 @@ def page005module001(request):
         'next_page_small': 'non-value-add',
     }
 
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
+
     return render(request, 'valueandwaste/page005.html', context)
 
 
@@ -138,6 +237,22 @@ def page006module001(request):
         'next_page': 'the eight wastes',
         'next_page_small': '8 wastes',
     }
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
 
     return render(request, 'valueandwaste/page006.html', context)
 
@@ -157,6 +272,22 @@ def page007module001(request):
         'next_page_small': 'example',
     }
 
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
+
     return render(request, 'valueandwaste/page007.html', context)
 
 
@@ -174,5 +305,21 @@ def page008module001(request):
         'next_page': 'index',
         'next_page_small': 'index',
     }
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            return render(request, 'valueandwaste/intro.html', context)
+
+        """ create a Page for this user for this page """
+        user_page = Pages(user=request.user,
+                          page=thispage,
+                          status=1,)
+        user_page.save()
 
     return render(request, 'valueandwaste/page008.html', context)
