@@ -18,6 +18,18 @@ def valueandwaste(request):
     return render(request, 'valueandwaste/intro.html', context)
 
 
+def dummy(request):
+    """ A view to return the dummy page """
+    thispage = 'dummy'
+    context = {
+        'thispage': thispage,
+        'arrows': 'noarrows',
+        'nexthidden': 'false',
+    }
+
+    return render(request, 'valueandwaste/dummy.html', context)
+
+
 def page001module001(request):
     """ A view to return page001 """
     thispage = 'page001module001'
@@ -55,17 +67,6 @@ def page001module001(request):
 def page002module001(request):
     """ A view to return page002 """
     thispage = 'page002module001'
-    context = {
-        'thispage': thispage,
-        'arrows': 'arrows',
-        'nexthidden': 'true',
-        'prev_url': 'page001module001',
-        'prev_page': 'background',
-        'prev_page_small': 'background',
-        'next_url': 'page003module001',
-        'next_page': 'definition of value and waste',
-        'next_page_small': 'definition',
-    }
 
     if request.user.is_authenticated:
         """ check if a Page exists for this user for this page """
@@ -75,14 +76,26 @@ def page002module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/page002.html', context)
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
 
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
-
+    context = {
+        'thispage': thispage,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'prev_url': 'page001module001',
+        'prev_page': 'background',
+        'prev_page_small': 'background',
+        'next_url': 'page003module001',
+        'next_page': 'definition of value and waste',
+        'next_page_small': 'definition',
+    }
     return render(request, 'valueandwaste/page002.html', context)
 
 
@@ -266,9 +279,9 @@ def page008module001(request):
         'prev_url': 'page007module001',
         'prev_page': 'the eight wastes',
         'prev_page_small': '8 wastes',
-        'next_url': 'valueandwaste',
-        'next_page': 'index',
-        'next_page_small': 'index',
+        'next_url': 'dummy',
+        'next_page': 'dummy',
+        'next_page_small': 'dummy',
     }
 
     if request.user.is_authenticated:
@@ -279,7 +292,7 @@ def page008module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/intro.html', context)
+            return render(request, 'valueandwaste/page008.html', context)
 
         """ create a Page for this user for this page """
         user_page = Pages(user=request.user,

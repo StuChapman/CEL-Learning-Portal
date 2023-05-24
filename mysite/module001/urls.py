@@ -27,4 +27,7 @@ urlpatterns = [
     path('module001/page008module001',
          views.page008module001,
          name='page008module001'),
+    path('module001/dummy',
+         views.dummy,
+         name='dummy'),
 ]
