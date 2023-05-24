@@ -102,10 +102,28 @@ def page002module001(request):
 def page003module001(request):
     """ A view to return page003 """
     thispage = 'page003module001'
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
+
     context = {
         'thispage': thispage,
         'arrows': 'arrows',
-        'nexthidden': 'true',
+        'nexthidden': nexthidden,
         'prev_url': 'page002module001',
         'prev_page': 'looking for waste',
         'prev_page_small': 'looking',
@@ -113,6 +131,12 @@ def page003module001(request):
         'next_page': 'examples of value',
         'next_page_small': 'value',
     }
+    return render(request, 'valueandwaste/page003.html', context)
+
+
+def page004module001(request):
+    """ A view to return page004 """
+    thispage = 'page004module001'
 
     if request.user.is_authenticated:
         """ check if a Page exists for this user for this page """
@@ -122,24 +146,19 @@ def page003module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/page003.html', context)
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
 
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
-
-    return render(request, 'valueandwaste/page003.html', context)
-
-
-def page004module001(request):
-    """ A view to return page004 """
-    thispage = 'page004module001'
     context = {
         'thispage': thispage,
         'arrows': 'arrows',
-        'nexthidden': 'true',
+        'nexthidden': nexthidden,
         'prev_url': 'page003module001',
         'prev_page': 'definition of value and waste',
         'prev_page_small': 'definition',
@@ -147,6 +166,12 @@ def page004module001(request):
         'next_page': 'examples of waste',
         'next_page_small': 'waste',
     }
+    return render(request, 'valueandwaste/page004.html', context)
+
+
+def page005module001(request):
+    """ A view to return page005 """
+    thispage = 'page005module001'
 
     if request.user.is_authenticated:
         """ check if a Page exists for this user for this page """
@@ -156,24 +181,19 @@ def page004module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/page004.html', context)
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
 
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
-
-    return render(request, 'valueandwaste/page004.html', context)
-
-
-def page005module001(request):
-    """ A view to return page005 """
-    thispage = 'page005module001'
     context = {
         'thispage': thispage,
         'arrows': 'arrows',
-        'nexthidden': 'true',
+        'nexthidden': nexthidden,
         'prev_url': 'page004module001',
         'prev_page': 'examples of value',
         'prev_page_small': 'value',
@@ -181,6 +201,12 @@ def page005module001(request):
         'next_page': 'necessary non-value-add',
         'next_page_small': 'non-value-add',
     }
+    return render(request, 'valueandwaste/page005.html', context)
+
+
+def page006module001(request):
+    """ A view to return page006 """
+    thispage = 'page006module001'
 
     if request.user.is_authenticated:
         """ check if a Page exists for this user for this page """
@@ -190,24 +216,19 @@ def page005module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/page005.html', context)
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
 
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
-
-    return render(request, 'valueandwaste/page005.html', context)
-
-
-def page006module001(request):
-    """ A view to return page006 """
-    thispage = 'page006module001'
     context = {
         'thispage': thispage,
         'arrows': 'arrows',
-        'nexthidden': 'true',
+        'nexthidden': nexthidden,
         'prev_url': 'page005module001',
         'prev_page': 'examples of waste',
         'prev_page_small': 'waste',
@@ -215,6 +236,12 @@ def page006module001(request):
         'next_page': 'the eight wastes',
         'next_page_small': '8 wastes',
     }
+    return render(request, 'valueandwaste/page006.html', context)
+
+
+def page007module001(request):
+    """ A view to return page007 """
+    thispage = 'page007module001'
 
     if request.user.is_authenticated:
         """ check if a Page exists for this user for this page """
@@ -224,24 +251,19 @@ def page006module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/page006.html', context)
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
 
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
-
-    return render(request, 'valueandwaste/page006.html', context)
-
-
-def page007module001(request):
-    """ A view to return page007 """
-    thispage = 'page007module001'
     context = {
         'thispage': thispage,
         'arrows': 'arrows',
-        'nexthidden': 'true',
+        'nexthidden': nexthidden,
         'prev_url': 'page006module001',
         'prev_page': 'necessary non-value-add',
         'prev_page_small': 'non-value-add',
@@ -249,6 +271,12 @@ def page007module001(request):
         'next_page': 'example: making a chair',
         'next_page_small': 'example',
     }
+    return render(request, 'valueandwaste/page007.html', context)
+
+
+def page008module001(request):
+    """ A view to return page008 """
+    thispage = 'page008module001'
 
     if request.user.is_authenticated:
         """ check if a Page exists for this user for this page """
@@ -258,24 +286,19 @@ def page007module001(request):
                         page=thispage,
                         status=1,))
         if page_exists:
-            return render(request, 'valueandwaste/page007.html', context)
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
 
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
-
-    return render(request, 'valueandwaste/page007.html', context)
-
-
-def page008module001(request):
-    """ A view to return page008 """
-    thispage = 'page008module001'
     context = {
         'thispage': thispage,
         'arrows': 'arrows',
-        'nexthidden': 'true',
+        'nexthidden': nexthidden,
         'prev_url': 'page007module001',
         'prev_page': 'the eight wastes',
         'prev_page_small': '8 wastes',
@@ -283,21 +306,4 @@ def page008module001(request):
         'next_page': 'dummy',
         'next_page_small': 'dummy',
     }
-
-    if request.user.is_authenticated:
-        """ check if a Page exists for this user for this page """
-        pages = Pages.objects.all()
-        page_exists = (pages.filter
-                       (user=request.user,
-                        page=thispage,
-                        status=1,))
-        if page_exists:
-            return render(request, 'valueandwaste/page008.html', context)
-
-        """ create a Page for this user for this page """
-        user_page = Pages(user=request.user,
-                          page=thispage,
-                          status=1,)
-        user_page.save()
-
     return render(request, 'valueandwaste/page008.html', context)
