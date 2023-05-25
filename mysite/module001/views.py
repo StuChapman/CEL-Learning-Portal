@@ -322,7 +322,9 @@ def test001module001(request):
                         status=1,))
         if test_exists:
             test_already_complete = 'true'
-            next_page = 'question 2'
+            next_page = 'this question has been answered - question 2'
+            next_page_small = 'question 2'
+            nexthidden = 'false'
         else:
             """ create a Test Result for this user for this test """
             user_test = Tests(user=request.user,
@@ -331,15 +333,17 @@ def test001module001(request):
             user_test.save()
             test_already_complete = 'false'
             next_page = 'submit'
+            next_page_small = 'submit',
+            nexthidden = 'true'
 
     context = {
         'thistest': thistest,
         'arrows': 'arrows',
-        'nexthidden': 'true',
+        'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
         'next_url': 'test002module001',
         'next_page': next_page,
-        'next_page_small': 'submit',
+        'next_page_small': next_page_small,
     }
     return render(request, 'valueandwaste/test001.html', context)
 
@@ -347,11 +351,10 @@ def test001module001(request):
 def test002module001(request):
     """ A view to return test002 """
     thistest = 'test002module001'
-    testoneanswer = 0
 
-    """ get information from form and/or request """
+    """ get information from testanswer form """
     if request.GET:
-        testoneanswer = request.GET['testanswer']
+        testanswer = request.GET['testanswer']
 
     if request.user.is_authenticated:
         """ check if a Test Result exists for this user for this test """
@@ -375,7 +378,7 @@ def test002module001(request):
         'arrows': 'arrows',
         'test_already_complete': test_already_complete,
         'next_url': 'test002module001',
-        'next_page': testoneanswer,
+        'next_page': 'submit',
         'next_page_small': 'submit',
     }
     return render(request, 'valueandwaste/test002.html', context)

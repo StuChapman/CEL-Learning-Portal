@@ -72,6 +72,10 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     cursor: pointer;
 }
 
+#footer button:hover {
+    cursor: pointer;
+}
+
 .orange-highlight:hover {
     color: #657486;
 }
@@ -573,7 +577,7 @@ nav {
     color: #657486;
 }
 
-#footer a {
+#footer a, #footer button {
     color: #101828;
 }
 
