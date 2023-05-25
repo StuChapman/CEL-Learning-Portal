@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import path
 from . import views
 from .models import Pages, Tests, Answers
@@ -318,19 +318,14 @@ def test001module001(request):
         tests = Tests.objects.all()
         test_exists = (tests.filter
                        (user=request.user,
-                        test=thistest,
-                        status=1,))
+                        test=thistest,)
+                       .exclude(answer=None))
         if test_exists:
             test_already_complete = 'true'
-            next_page = 'this question has been answered - question 2'
-            next_page_small = 'question 2'
+            next_page = 'this question has been answered - go to question 2'
+            next_page_small = 'go to question 2'
             nexthidden = 'false'
         else:
-            """ create a Test Result for this user for this test """
-            user_test = Tests(user=request.user,
-                              test=thistest,
-                              status=1,)
-            user_test.save()
             test_already_complete = 'false'
             next_page = 'submit'
             next_page_small = 'submit',
@@ -350,32 +345,46 @@ def test001module001(request):
 
 def test002module001(request):
     """ A view to return test002 """
+    lasttest = 'test001module001'
     thistest = 'test002module001'
 
-    """ get information from testanswer form """
-    if request.GET:
-        testanswer = request.GET['testanswer']
-
     if request.user.is_authenticated:
+        """ get information from testanswer form """
+        if request.GET:
+            testanswer = request.GET['testanswer']
+            """ check if Test Result matches correct answer """
+            correct_answer_query = get_object_or_404(Answers, test=lasttest)
+            correct_answer = correct_answer_query.correctanswer
+            if testanswer == correct_answer:
+                result = 1
+            else:
+                result = 0
+
+            """ create a Test Result for this user for this test """
+            user_test = Tests(user=request.user,
+                              test=lasttest,
+                              status=1,
+                              answer=correct_answer,
+                              result=result)
+            user_test.save()
+
         """ check if a Test Result exists for this user for this test """
         tests = Tests.objects.all()
         test_exists = (tests.filter
                        (user=request.user,
-                        test=thistest,
-                        status=1,))
+                        test=thistest,)
+                       .exclude(answer=None))
         if test_exists:
             test_already_complete = 'true'
+            nexthidden = 'false'
         else:
-            """ create a Test Result for this user for this test """
-            user_test = Tests(user=request.user,
-                              test=thistest,
-                              status=1,)
-            user_test.save()
             test_already_complete = 'false'
+            nexthidden = 'true'
 
     context = {
         'thistest': thistest,
         'arrows': 'arrows',
+        'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
         'next_url': 'test002module001',
         'next_page': 'submit',

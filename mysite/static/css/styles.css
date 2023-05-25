@@ -566,7 +566,7 @@ nav {
 
 /* ------------------- Footer Styling */
 
-#footer {
+#footer, #footer button {
     background-color: #EFEFEF;
     font-family: 'Cairo', sans-serif;
     font-size: calc(2.5vh + (10 - 2.5) * ((100vw - 300px) / 1620));
