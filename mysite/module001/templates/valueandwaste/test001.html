@@ -17,17 +17,6 @@
                 <label for="optionfour" class="float-left">Japan</label>
                 <input type="radio" name="question" id="optionfour" class="float-right">
             </form>
-            <div>
-                <p class="paramedium ">You answered:
-                    <form action="{% url 'test002module001' %}" id="test_one_answer" method="GET">
-                        {% csrf_token %}
-                        <input type="text" name="testoneanswer"  id="testoneanswer">
-                        <button class="search-button text-center" type="submit">
-                            <i class="fas fa-search"></i>
-                    </button>
-                    </form>
-                </p>
-            </div>
         </section>
     {% endif %}
 {% endblock %}

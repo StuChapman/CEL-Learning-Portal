@@ -16,10 +16,8 @@ function checkQuestionRadio() {
             break;
         }
     }
-    console.log('selectedValue');
-    console.log(selectedValue);
     revealNext();
-    $('input[name="testoneanswer"]').val(selectedValue);
+    $('input[name="testanswer"]').val(selectedValue);
     let thisquestion = document.title;
 
     // answers to radio button style questions: one, three and eight //

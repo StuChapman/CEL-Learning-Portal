@@ -87,6 +87,9 @@ var drag5Score = 0;
 function revealNext() {
     $("#nextLink").removeClass("hidden");
     $("#nextLink").addClass("unhidden");
+    $("#testanswerbtn").removeClass("hidden");
+    $("#testanswerbtn").addClass("unhidden");
+    
 }
 
 // ********************************** Unused - to be deleted ********************************** //

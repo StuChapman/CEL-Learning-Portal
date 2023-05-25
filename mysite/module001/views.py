@@ -299,9 +299,9 @@ def page008module001(request):
 
 def testintro(request):
     """ A view to return the testintro page """
-    thispage = 'dummy'
+    thistest = 'testintro'
     context = {
-        'thispage': thispage,
+        'thistest': thistest,
         'arrows': 'noarrows',
         'nexthidden': 'false',
     }
@@ -351,7 +351,7 @@ def test002module001(request):
 
     """ get information from form and/or request """
     if request.GET:
-        testoneanswer = request.GET['testoneanswer']
+        testoneanswer = request.GET['testanswer']
 
     if request.user.is_authenticated:
         """ check if a Test Result exists for this user for this test """
