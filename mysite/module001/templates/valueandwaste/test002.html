@@ -1,0 +1,51 @@
+{% extends "basemodule001.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">  
+            <h1>Q2: In Other Words</h1>
+            <p class="paralarge">What is the Japanese word for ‘Waste’?</p>
+            <div id="lettersquarebox" class="row ml-auto mr-auto">
+                <div id="square-one" class="lettersquare col-3 ml-auto">
+                </div>
+                <div id="square-two" class="lettersquare col-3">
+                </div>
+                <div id="square-three" class="lettersquare col-3">
+                </div>
+                <div id="square-four" class="lettersquare col-3 mr-auto">
+                </div>
+            </div>
+            <div class="letterpickbox row ml-auto mr-auto">
+                <div  id="divleft" class="ml-auto">
+                    <div id="letterpick-M" class="letterpick d-inline" onclick="return populateMuda('M');">M
+                    </div>
+                    <div id="letterpick-R" class="letterpick d-inline" onclick="return populateMuda('R');">R
+                    </div>
+                    <div id="letterpick-S" class="letterpick d-inline" onclick="return populateMuda('S');">S
+                    </div>
+                    <div id="letterpick-D" class="letterpick d-inline" onclick="return populateMuda('D');">D
+                    </div>
+                    <div id="letterpick-F" class="letterpick d-inline" onclick="return populateMuda('F');">F
+                    </div>
+                </div>
+                <div id="divright" class="mr-auto">
+                    <div id="letterpick-O" class="letterpick d-inline" onclick="return populateMuda('O');">O
+                    </div>
+                    <div id="letterpick-N" class="letterpick d-inline" onclick="return populateMuda('N');">N
+                    </div>
+                    <div id="letterpick-A" class="letterpick d-inline" onclick="return populateMuda('A');">A
+                    </div>
+                    <div id="letterpick-Y" class="letterpick d-inline" onclick="return populateMuda('Y');">Y
+                    </div>
+                    <div id="letterpick-U" class="letterpick d-inline" onclick="return populateMuda('U');">U
+                    </div>
+                </div>
+            </div>
+            <button id="resetbutton" type="button" class="btn btn-blue" onclick="return resetMuda();">
+                reset
+            </button>
+        </section>
+    {% endif %}
+{% endblock %}

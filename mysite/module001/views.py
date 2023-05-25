@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import path
 from . import views
-from .models import Pages
+from .models import Pages, Tests
 
 # Create your views here.
 
@@ -16,18 +16,6 @@ def valueandwaste(request):
     }
 
     return render(request, 'valueandwaste/intro.html', context)
-
-
-def dummy(request):
-    """ A view to return the dummy page """
-    thispage = 'dummy'
-    context = {
-        'thispage': thispage,
-        'arrows': 'noarrows',
-        'nexthidden': 'false',
-    }
-
-    return render(request, 'valueandwaste/dummy.html', context)
 
 
 def page001module001(request):
@@ -302,8 +290,84 @@ def page008module001(request):
         'prev_url': 'page007module001',
         'prev_page': 'the eight wastes',
         'prev_page_small': '8 wastes',
-        'next_url': 'dummy',
-        'next_page': 'dummy',
-        'next_page_small': 'dummy',
+        'next_url': 'testintro',
+        'next_page': 'test',
+        'next_page_small': 'test',
     }
     return render(request, 'valueandwaste/page008.html', context)
+
+
+def testintro(request):
+    """ A view to return the testintro page """
+    thispage = 'dummy'
+    context = {
+        'thispage': thispage,
+        'arrows': 'noarrows',
+        'nexthidden': 'false',
+    }
+
+    return render(request, 'valueandwaste/testintro.html', context)
+
+
+def test001module001(request):
+    """ A view to return test001 """
+    thistest = 'test001module001'
+
+    if request.user.is_authenticated:
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest,
+                        status=1,))
+        if test_exists:
+            test_already_complete = 'true'
+        else:
+            """ create a Test Result for this user for this test """
+            user_test = Tests(user=request.user,
+                              test=thistest,
+                              status=1,)
+            user_test.save()
+            test_already_complete = 'false'
+
+    context = {
+        'thistest': thistest,
+        'arrows': 'arrows',
+        'test_already_complete': test_already_complete,
+        'next_url': 'test002module001',
+        'next_page': 'submit',
+        'next_page_small': 'submit',
+    }
+    return render(request, 'valueandwaste/test001.html', context)
+
+
+def test002module001(request):
+    """ A view to return test002 """
+    thistest = 'test002module001'
+
+    if request.user.is_authenticated:
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest,
+                        status=1,))
+        if test_exists:
+            test_already_complete = 'true'
+        else:
+            """ create a Test Result for this user for this test """
+            user_test = Tests(user=request.user,
+                              test=thistest,
+                              status=1,)
+            user_test.save()
+            test_already_complete = 'false'
+
+    context = {
+        'thistest': thistest,
+        'arrows': 'arrows',
+        'test_already_complete': test_already_complete,
+        'next_url': 'test002module001',
+        'next_page': 'submit',
+        'next_page_small': 'submit',
+    }
+    return render(request, 'valueandwaste/test002.html', context)

@@ -1,6 +1,10 @@
 // jshint esversion: 6
 
-// ********************************** Question Functions ********************************** //
+// ********************************** Question Section Functions ********************************** //
+
+// ********** General Functions ********** //
+
+// ********************************** Unused - to be deleted ********************************** //
 
 //Function: check the answers against desired for radio button style questions: one, three and eight //
 function checkQuestionRadio() {

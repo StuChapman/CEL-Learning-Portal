@@ -80,6 +80,8 @@ var drag3Score = 0;
 var drag4Score = 0;
 var drag5Score = 0;
 
+// ********************************** Unused - to be deleted ********************************** //
+
 // Function: navigate to question-one.html from test-intro.html //
 function goBegin() {
 window.location.replace('question-one.html');
