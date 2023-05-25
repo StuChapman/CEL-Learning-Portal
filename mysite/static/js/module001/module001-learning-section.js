@@ -4,12 +4,6 @@
 
 // ********** General Functions ********** //
 
-//Function: revealing the nextLink after content has been interacted with //
-function revealNext() {
-    $("#nextLink").removeClass("hidden");
-    $("#nextLink").addClass("unhidden");
-}
-
 // Function: find index of multidimensional array //
 function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ via https://stackoverflow.com/questions/16102263/to-find-index-of-multidimensional-array-in-javascript
     for (var i = 0; i < arr.length; i++) {

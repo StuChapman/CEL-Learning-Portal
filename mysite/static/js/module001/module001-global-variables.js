@@ -80,6 +80,15 @@ var drag3Score = 0;
 var drag4Score = 0;
 var drag5Score = 0;
 
+
+// ********************************** Global Functions ********************************** //
+
+//Function: revealing the nextLink after content has been interacted with //
+function revealNext() {
+    $("#nextLink").removeClass("hidden");
+    $("#nextLink").addClass("unhidden");
+}
+
 // ********************************** Unused - to be deleted ********************************** //
 
 // Function: navigate to question-one.html from test-intro.html //
