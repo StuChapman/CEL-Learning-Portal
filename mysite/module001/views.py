@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import path
+from django.contrib import messages
+from django.utils.safestring import mark_safe
 from . import views
 from .models import Pages, Tests, Answers
 
@@ -349,35 +351,38 @@ def test002module001(request):
     thistest = 'test002module001'
 
     if request.user.is_authenticated:
-        """ get information from testanswer form """
-        if request.GET:
-            testanswer = request.GET['testanswer']
-            """ check if Test Result matches correct answer """
-            correct_answer_query = get_object_or_404(Answers, test=lasttest)
-            correct_answer = correct_answer_query.correctanswer
-            if testanswer == correct_answer:
-                result = 1
-            else:
-                result = 0
-
-            """ create a Test Result for this user for this test """
-            user_test = Tests(user=request.user,
-                              test=lasttest,
-                              status=1,
-                              answer=correct_answer,
-                              result=result)
-            user_test.save()
 
         """ check if a Test Result exists for this user for this test """
         tests = Tests.objects.all()
         test_exists = (tests.filter
                        (user=request.user,
-                        test=thistest,)
-                       .exclude(answer=None))
+                        test=lasttest))
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
+            messages.success(request,
+                             mark_safe('this question has been answered -  \
+                             <br>go to question 2'))
         else:
+            """ get information from testanswer form """
+            if request.GET:
+                testanswer = request.GET['testanswer']
+                """ check if Test Result matches correct answer """
+                correct_answer_query = get_object_or_404(Answers,
+                                                         test=lasttest)
+                correct_answer = correct_answer_query.correctanswer
+                if testanswer == correct_answer:
+                    result = 1
+                else:
+                    result = 0
+
+                """ create a Test Result for this user for this test """
+                user_test = Tests(user=request.user,
+                                  test=lasttest,
+                                  status=1,
+                                  answer=testanswer,
+                                  result=result)
+                user_test.save()
             test_already_complete = 'false'
             nexthidden = 'true'
 
