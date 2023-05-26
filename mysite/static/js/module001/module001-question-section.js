@@ -65,15 +65,19 @@ function populateMuda(letterpick) {
 
     if($.trim($('#square-one').text())==''){ // Credit: https://stackoverflow.com/questions/6813227/how-do-i-check-if-an-html-element-is-empty-using-jquery //
         $('#square-one').text(letterpick);
+        $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
     } else {
         if($.trim($('#square-two').text())==''){
             $('#square-two').text(letterpick);
+            $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
         } else {
             if($.trim($('#square-three').text())==''){
                 $('#square-three').text(letterpick);
+                $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
             } else {
                 if($.trim($('#square-four').text())==''){
                     $('#square-four').text(letterpick);
+                    $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
                 }
             }
         }
@@ -117,6 +121,7 @@ function resetMuda() {
     $('#square-four').text('');
     $('.letterpickbox div').css('color', 'black');
     $('.wordpickbox div').css('color', 'black');
+    $('input[name="testanswer"]').val('');
 }
 
 //Function: check answers against desired on checkbox questions: four, seven and ten //

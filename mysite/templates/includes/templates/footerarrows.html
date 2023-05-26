@@ -15,9 +15,9 @@
             {% if nexthidden == 'true' %}
                 {% with my_url=next_url %}
                     {% if thistest %}
-                        <form class="pr-4 ml-auto hidden" action="{% url next_url %}" id="test_answer" method="GET">
+                        <form class="pr-4 ml-auto hiddlen" action="{% url next_url %}" id="test_answer" method="GET">
                             {% csrf_token %}
-                            <input class="hidden" type="text" name="testanswer" id="testanswer">
+                            <input class="hiddlen" type="text" name="testanswer" id="testanswer">
                             <button class="border-0 hidden" type="submit" id="testanswerbtn">{{ next_page }} <i class="fas fa-forward"></i>
                             </button>
                         </form>
