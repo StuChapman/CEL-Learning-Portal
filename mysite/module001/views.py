@@ -361,8 +361,8 @@ def test002module001(request):
             test_already_complete = 'true'
             nexthidden = 'false'
             messages.success(request,
-                             mark_safe('this question has been answered -  \
-                             <br>go to question 2'))
+                             mark_safe('question 1 has been answered already -  \
+                             <br>please go to question 2'))
         else:
             """ get information from testanswer form """
             if request.GET:
