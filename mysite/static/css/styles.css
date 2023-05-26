@@ -72,7 +72,7 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     cursor: pointer;
 }
 
-#footer button:hover {
+#footer button:hover, .toast-close:hover {
     cursor: pointer;
 }
 
@@ -142,18 +142,27 @@ nav {
     opacity: 0;
     border-radius: 0.25rem;
   }
+
   .toast:not(:last-child) {
     margin-bottom: 0.75rem;
   }
+
   .toast.showing {
     opacity: 1;
   }
+
   .toast.show {
     display: block;
     opacity: 1;
   }
+  
   .toast.hide {
     display: none;
+  }
+
+  #textsection .toast-close-container .toast-close {
+    color: #657486;
+    background-color: #ffffff;
   }
 
 /* ------------------- Text Section Styling */
@@ -193,7 +202,7 @@ nav {
 #topper, #topper a {
     background-color: #EFEFEF;
     font-size: calc(2vh + (5 - 2) * ((100vw - 300px) / 1620));
-    color: #101828;
+    color: #101828;button;
     height: 4vh;
     text-align: center;
     font-family: 'Cairo', sans-serif;
@@ -809,9 +818,6 @@ nav {
 .alert-dismissible .close {
     border-color: #5c6674;
     color: #ffffff;
-    position: absolute;
-    top: 0;
-    right: 0;
     z-index: 2;
     padding: 0.75rem 1.25rem;
   }
