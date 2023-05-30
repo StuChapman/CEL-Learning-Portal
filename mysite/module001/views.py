@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.urls import path
 from django.contrib import messages
 from django.utils.safestring import mark_safe
@@ -484,7 +484,6 @@ def test003module001(request):
     lasttest = 'test002module001'
     thistest = 'test003module001'
 
-
     if request.user.is_authenticated:
 
         """ check if a Test Result exists for this user for this test """
@@ -579,7 +578,7 @@ def test003module001b(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'test003module001',
+        'next_url': 'test004module001',
         'next_page': next_page,
         'next_page_small': next_page,
     }
@@ -601,9 +600,8 @@ def test004module001(request):
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
-            messages.success(request,
-                             mark_safe('question 4 has already been answered - please go to question 5 below ...'))
-        
+            next_page = 'next question'
+
         """ check if a Test Result exists for this user for the previous test """
         tests = Tests.objects.all()
         test_exists = (tests.filter
@@ -612,9 +610,18 @@ def test004module001(request):
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
-            messages.success(request,
-                             mark_safe('question 3 has already been answered - please go to question 4 below ...'))
+            next_page = 'next question'
 
+            context = {
+                'thistest': thistest,
+                'arrows': 'arrows',
+                'nexthidden': nexthidden,
+                'test_already_complete': test_already_complete,
+                'next_url': 'test004module001b',
+                'next_page': next_page,
+                'next_page_small': next_page,
+            }
+            return render(request, 'valueandwaste/test004.html', context)
         else:
             """ get information from testanswer form """
             if request.GET:
@@ -637,6 +644,7 @@ def test004module001(request):
                 user_test.save()
             test_already_complete = 'false'
             nexthidden = 'true'
+            next_page = 'submit'
 
     context = {
         'thistest': thistest,
@@ -646,6 +654,39 @@ def test004module001(request):
         'next_url': 'test005module001',
         'next_page': 'submit',
         'next_page_small': 'submit',
+    }
+    return render(request, 'valueandwaste/test004.html', context)
+
+
+def test004module001b(request):
+    """ A view to return test002 """
+    lasttest = 'test003module001'
+    thistest = 'test004module001'
+
+    if request.user.is_authenticated:
+
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            next_page = 'next question'
+        else:
+            test_already_complete = 'false'
+            nexthidden = 'true'
+            next_page = 'submit'
+
+    context = {
+        'thistest': thistest,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'test_already_complete': test_already_complete,
+        'next_url': 'test005module001',
+        'next_page': next_page,
+        'next_page_small': next_page,
     }
     return render(request, 'valueandwaste/test004.html', context)
 
