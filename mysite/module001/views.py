@@ -316,21 +316,49 @@ def test001module001(request):
     thistest = 'test001module001'
 
     if request.user.is_authenticated:
+
         """ check if a Test Result exists for this user for this test """
         tests = Tests.objects.all()
         test_exists = (tests.filter
                        (user=request.user,
-                        test=thistest,)
-                       .exclude(answer=None))
+                        test=thistest))
         if test_exists:
             test_already_complete = 'true'
-            next_page = 'this question has been answered - go to question 2'
-            next_page_small = 'go to question 2'
             nexthidden = 'false'
+            messages.success(request,
+                             mark_safe('question 1 has been answered already -  \
+                             <br>please go to question 2'))
+            context = {
+                'thistest': thistest,
+                'arrows': 'arrows',
+                'nexthidden': nexthidden,
+                'test_already_complete': test_already_complete,
+                'next_url': 'test003module001',
+                'next_page': 'submit',
+                'next_page_small': 'submit',
+            }
+            return render(request, 'valueandwaste/test002.html', context)
         else:
+            """ get information from testanswer form """
+            if request.GET:
+                testanswer = request.GET['testanswer']
+                """ check if Test Result matches correct answer """
+                correct_answer_query = get_object_or_404(Answers,
+                                                         test=lasttest)
+                correct_answer = correct_answer_query.correctanswer
+                if testanswer == correct_answer:
+                    result = 1
+                else:
+                    result = 0
+
+                """ create a Test Result for this user for this test """
+                user_test = Tests(user=request.user,
+                                  test=lasttest,
+                                  status=1,
+                                  answer=testanswer,
+                                  result=result)
+                user_test.save()
             test_already_complete = 'false'
-            next_page = 'submit'
-            next_page_small = 'submit',
             nexthidden = 'true'
 
     context = {
@@ -339,8 +367,8 @@ def test001module001(request):
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
         'next_url': 'test002module001',
-        'next_page': next_page,
-        'next_page_small': next_page_small,
+        'next_page': 'submit',
+        'next_page_small': 'submit',
     }
     return render(request, 'valueandwaste/test001.html', context)
 
@@ -356,13 +384,13 @@ def test002module001(request):
         tests = Tests.objects.all()
         test_exists = (tests.filter
                        (user=request.user,
-                        test=lasttest))
+                        test=thistest))
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
             messages.success(request,
-                             mark_safe('question 1 has been answered already -  \
-                             <br>please go to question 2'))
+                             mark_safe('question 2 has been answered already -  \
+                             <br>please go to question 3'))
         else:
             """ get information from testanswer form """
             if request.GET:
@@ -409,13 +437,13 @@ def test003module001(request):
         tests = Tests.objects.all()
         test_exists = (tests.filter
                        (user=request.user,
-                        test=lasttest))
+                        test=thistest))
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
             messages.success(request,
-                             mark_safe('question 2 has been answered already -  \
-                             <br>please go to question 3'))
+                             mark_safe('question 3 has been answered already -  \
+                             <br>please go to question 4'))
         else:
             """ get information from testanswer form """
             if request.GET:
@@ -444,8 +472,61 @@ def test003module001(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'test002module001',
+        'next_url': 'test004module001',
         'next_page': 'submit',
         'next_page_small': 'submit',
     }
     return render(request, 'valueandwaste/test003.html', context)
+
+
+def test004module001(request):
+    """ A view to return test004 """
+    lasttest = 'test003module001'
+    thistest = 'test004module001'
+
+    if request.user.is_authenticated:
+
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            messages.success(request,
+                             mark_safe('question 4 has been answered already -  \
+                             <br>please go to question 5'))
+        else:
+            """ get information from testanswer form """
+            if request.GET:
+                testanswer = request.GET['testanswer']
+                """ check if Test Result matches correct answer """
+                correct_answer_query = get_object_or_404(Answers,
+                                                         test=lasttest)
+                correct_answer = correct_answer_query.correctanswer
+                if testanswer == correct_answer:
+                    result = 1
+                else:
+                    result = 0
+
+                """ create a Test Result for this user for this test """
+                user_test = Tests(user=request.user,
+                                  test=lasttest,
+                                  status=1,
+                                  answer=testanswer,
+                                  result=result)
+                user_test.save()
+            test_already_complete = 'false'
+            nexthidden = 'true'
+
+    context = {
+        'thistest': thistest,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'test_already_complete': test_already_complete,
+        'next_url': 'testintro',
+        'next_page': 'submit',
+        'next_page_small': 'submit',
+    }
+    return render(request, 'valueandwaste/test004.html', context)

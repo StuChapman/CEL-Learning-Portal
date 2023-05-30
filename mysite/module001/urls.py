@@ -39,4 +39,7 @@ urlpatterns = [
     path('module001/test003module001',
          views.test003module001,
          name='test003module001'),
+    path('module001/test004module001',
+         views.test004module001,
+         name='test004module001'),
 ]

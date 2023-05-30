@@ -26,6 +26,10 @@ SECRET_KEY = 'django-insecure-ih$oksrtk5@t@fev7lx^9_gxvb3)_0=s^(pqy4)47n613+c+9@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+THIS_SITE = 'https://8000-stuchapman-cellearningp-i3xu4tk5e88.ws-eu98.gitpod.io'
+
+CSRF_TRUSTED_ORIGINS = [THIS_SITE, THIS_SITE]
+
 ALLOWED_HOSTS = ['localhost']
 
 SITE_ID = 1
@@ -155,10 +159,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-THIS_SITE = 'https://8000-stuchapman-cellearningp-6h7q95uws6b.ws-eu98.gitpod.io'
-
-CSRF_TRUSTED_ORIGINS = [THIS_SITE, THIS_SITE]
 
 # Email File Based Test
 

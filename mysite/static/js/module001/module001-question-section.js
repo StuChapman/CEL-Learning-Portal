@@ -127,11 +127,32 @@ function resetMuda() {
 //Function: check answers against desired on checkbox questions: four, seven and ten //
 function checkQuestionCheckbox() {
 
+    revealNext();
+    $('input[name="testanswer"]').val('');
+    let selectedValue = '';
     let thisquestion = document.title;
+
+    if ($('#checkone').is(":checked")) {
+        selectedValue = selectedValue + "checkone"
+        $('input[name="testanswer"]').val(selectedValue);
+    }
+    if ($('#checktwo').is(":checked")) {
+        selectedValue = selectedValue + "checktwo"
+        $('input[name="testanswer"]').val(selectedValue);
+    }
+    if ($('#checkthree').is(":checked")) {
+        selectedValue = selectedValue + "checkthree"
+        $('input[name="testanswer"]').val(selectedValue);
+    }
+    if ($('#checkfour').is(":checked")) {
+        selectedValue = selectedValue + "checkfour"
+        $('input[name="testanswer"]').val(selectedValue);
+    }
 
     switch(thisquestion) {
         case 'Online Learning - Question 4':
             if (!$('#checkone').is(":checked") && $('#checktwo').is(":checked") && !$('#checkthree').is(":checked") && $('#checkfour').is(":checked")) {
+                $('input[name="testanswer"]').val(selectedValue);
                 answerFlag4 = 1;
             } else {
                 answerFlag4 = -1;
