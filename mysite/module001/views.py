@@ -325,19 +325,9 @@ def test001module001(request):
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
+            next_page = 'next question'
             messages.success(request,
-                             mark_safe('question 1 has been answered already -  \
-                             <br>please go to question 2'))
-            context = {
-                'thistest': thistest,
-                'arrows': 'arrows',
-                'nexthidden': nexthidden,
-                'test_already_complete': test_already_complete,
-                'next_url': 'test003module001',
-                'next_page': 'submit',
-                'next_page_small': 'submit',
-            }
-            return render(request, 'valueandwaste/test002.html', context)
+                             mark_safe('You have already answered this question - please go to the next question'))
         else:
             """ get information from testanswer form """
             if request.GET:
@@ -360,6 +350,7 @@ def test001module001(request):
                 user_test.save()
             test_already_complete = 'false'
             nexthidden = 'true'
+            next_page = 'submit'
 
     context = {
         'thistest': thistest,
@@ -367,8 +358,8 @@ def test001module001(request):
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
         'next_url': 'test002module001',
-        'next_page': 'submit',
-        'next_page_small': 'submit',
+        'next_page': next_page,
+        'next_page_small': next_page,
     }
     return render(request, 'valueandwaste/test001.html', context)
 
@@ -525,8 +516,61 @@ def test004module001(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'testintro',
+        'next_url': 'test005module001',
         'next_page': 'submit',
         'next_page_small': 'submit',
     }
     return render(request, 'valueandwaste/test004.html', context)
+
+
+def test005module001(request):
+    """ A view to return test004 """
+    lasttest = 'test004module001'
+    thistest = 'test005module001'
+
+    if request.user.is_authenticated:
+
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            messages.success(request,
+                             mark_safe('question 5 has been answered already -  \
+                             <br>please go to question 6'))
+        else:
+            """ get information from testanswer form """
+            if request.GET:
+                testanswer = request.GET['testanswer']
+                """ check if Test Result matches correct answer """
+                correct_answer_query = get_object_or_404(Answers,
+                                                         test=lasttest)
+                correct_answer = correct_answer_query.correctanswer
+                if testanswer == correct_answer:
+                    result = 1
+                else:
+                    result = 0
+
+                """ create a Test Result for this user for this test """
+                user_test = Tests(user=request.user,
+                                  test=lasttest,
+                                  status=1,
+                                  answer=testanswer,
+                                  result=result)
+                user_test.save()
+            test_already_complete = 'false'
+            nexthidden = 'true'
+
+    context = {
+        'thistest': thistest,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'test_already_complete': test_already_complete,
+        'next_url': 'testintro',
+        'next_page': 'submit',
+        'next_page_small': 'submit',
+    }
+    return render(request, 'valueandwaste/test005.html', context)

@@ -42,4 +42,7 @@ urlpatterns = [
     path('module001/test004module001',
          views.test004module001,
          name='test004module001'),
+    path('module001/test005module001',
+         views.test005module001,
+         name='test005module001'),
 ]

@@ -5,6 +5,10 @@
     {% if user.is_authenticated %}
         <!--Text Section-->
         <section id="textsection">  
+        {% if test_already_complete == 'true' %}
+            <h1>Q1: Origins - completed</h1>
+            <p class="paralarge">You have already answered Question 1</p>
+        {% else %}
             <h1>Q1: Origins</h1>
             <p class="paralarge">From which country did the concept of ‘Waste’ originate?</p>
             <form id="optionform" class="ml-auto mr-auto" onclick="return checkQuestionRadio();">
@@ -17,6 +21,7 @@
                 <label for="optionfour" class="float-left">Japan</label>
                 <input type="radio" name="question" id="optionfour" class="float-right">
             </form>
+        {% endif %}
         </section>
     {% endif %}
 {% endblock %}
