@@ -1,0 +1,27 @@
+{% extends "basemodule001.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <h1>Q7: What's the Difference?</h1>
+            <p class="paralarge">What are the differences between Transportation and Motion?</p>
+            <p class="paramedium">(...there is more than one answer...)</p>
+            <form id="checkform" class="ml-auto mr-auto" onclick="return revealNext();">
+                <label for="checkone" class="d-block mb-2 float-left">
+                    Transportation covers long distances, Motion short distances</label>
+                <input type="checkbox" name="question" id="checkone" class="float-right"><br>
+                <label for="checktwo" class="d-block mb-2 float-left">
+                    Transportation always occurs outside, Motion only happens indoors</label>
+                <input type="checkbox" name="question" id="checktwo" class="float-right"><br>
+                <label for="checkthree" class="d-block mb-2 float-left">
+                    Transportation is moving the Work, Motion is moving the Worker</label>
+                <input type="checkbox" name="question" id="checkthree" class="float-right"><br>
+                <label for="checkfour" class="d-block mb-2 float-left">
+                    A Customer being moved around is Transportation, a Worker being moved is motion</label>
+                <input type="checkbox" name="question" id="checkfour" class="float-right">
+            </form>
+        </section>
+    {% endif %}
+{% endblock %}

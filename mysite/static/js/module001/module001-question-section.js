@@ -207,19 +207,19 @@ function drop(ev) {// credit to https://www.w3schools.com/HTML/html5_draganddrop
     
     switch (data) {
     case 'dragcard1': 
-        dragcard1 = ev.target.id;
+        dragcard1 = ev.target.id.slice(0, -1) + "1";
         break;
     case 'dragcard2': 
-        dragcard2 = ev.target.id;
+        dragcard2 = ev.target.id.slice(0, -1) + "2";
         break;
     case 'dragcard3': 
-        dragcard3 = ev.target.id;
+        dragcard3 = ev.target.id.slice(0, -1) + "3";
         break;
     case 'dragcard4': 
-        dragcard4 = ev.target.id;
+        dragcard4 = ev.target.id.slice(0, -1) + "4";
         break;
     case 'dragcard5': 
-        dragcard5 = ev.target.id;
+        dragcard5 = ev.target.id.slice(0, -1) + "5";
         break;
     default: 
         break;
