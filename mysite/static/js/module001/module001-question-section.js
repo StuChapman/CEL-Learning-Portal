@@ -341,7 +341,7 @@ function checkTwo() {
     }
 
     if (checkCount > 1) {
-        revealNext();
+        checkQuestionCheckbox();
     }
 }
 

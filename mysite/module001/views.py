@@ -1287,7 +1287,7 @@ def test010module001(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'testintro',
+        'next_url': 'testsummary',
         'next_page': 'submit',
         'next_page_small': 'submit',
     }
@@ -1320,8 +1320,102 @@ def test010module001b(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'testintro',
+        'next_url': 'testsummary',
         'next_page': next_page,
         'next_page_small': next_page,
     }
     return render(request, 'valueandwaste/test010.html', context)
+
+
+def testsummary(request):
+    """ A view to return test summary """
+    lasttest = 'test010module001'
+
+    if request.user.is_authenticated:
+
+        """ check if a Test Result exists for this user for the previous test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=lasttest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            next_page = 'next question'
+
+            context = {
+                'thistest': 'testsummary',
+                'arrows': 'arrows',
+                'nexthidden': nexthidden,
+                'test_already_complete': test_already_complete,
+                'next_url': 'testsummary',
+                'next_page': next_page,
+                'next_page_small': next_page,
+            }
+            return render(request, 'valueandwaste/testsummary.html', context)
+        else:
+            """ get information from testanswer form """
+            if request.GET:
+                testanswer = request.GET['testanswer']
+                """ check if Test Result matches correct answer """
+                correct_answer_query = get_object_or_404(Answers,
+                                                         test=lasttest)
+                correct_answer = correct_answer_query.correctanswer
+                if testanswer == correct_answer:
+                    result = 1
+                else:
+                    result = 0
+
+                """ create a Test Result for this user for this test """
+                user_test = Tests(user=request.user,
+                                  test=lasttest,
+                                  status=1,
+                                  answer=testanswer,
+                                  result=result)
+                user_test.save()
+            test_already_complete = 'false'
+            nexthidden = 'true'
+            next_page = 'submit'
+
+    context = {
+        'thistest': 'testsummary',
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'test_already_complete': test_already_complete,
+        'next_url': 'testintro',
+        'next_page': 'submit',
+        'next_page_small': 'submit',
+    }
+    return render(request, 'valueandwaste/testsummary.html', context)
+
+
+def testsummaryb(request):
+    """ A view to return testsummary """
+    lasttest = 'test010module001'
+
+    if request.user.is_authenticated:
+
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            next_page = 'next question'
+        else:
+            test_already_complete = 'false'
+            nexthidden = 'true'
+            next_page = 'submit'
+
+    context = {
+        'thistest': thistest,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'test_already_complete': test_already_complete,
+        'next_url': 'testintro',
+        'next_page': next_page,
+        'next_page_small': next_page,
+    }
+    return render(request, 'valueandwaste/testsummary.html', context)

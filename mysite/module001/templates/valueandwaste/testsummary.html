@@ -1,0 +1,32 @@
+{% extends "basemodule001.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <h1 class="pb-3">8 Wastes Online Test - Summary</h1>
+            <p class="paralarge mb-xl-2">You have completed the test.</p>
+            <div class="row extramarginbottom resultscontainer ml-auto mr-auto">
+                <div class="col-xs ml-auto mr-auto">
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>1 is: <span id="answer1"></span></p>
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>2 is: <span id="answer2"></span></p>
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>3 is: <span id="answer3"></span></p>
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>4 is: <span id="answer4"></span></p>
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>5 is: <span id="answer5"></span></p>
+                </div>
+                <div class="col-xs ml-auto mr-auto">
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>6 is: <span id="answer6"></span></p>
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>7 is: <span id="answer7"></span></p>
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>8 is: <span id="answer8"></span></p>
+                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>9 is: <span id="answer9"></span></p>
+                    <p class="paramedium pb-0">Your score for Question 10 is: <span id="answer10"></span></p>
+                </div>
+            </div>
+            <div>
+                <p class="paralarge pb-md-1 mb-xl-1">Your overall score is: <span id="totalScore"></span></p>
+            </div>
+            <button id="retestbutton" type="button" class="btn btn-blue mt-0" onclick="return resetPrint();">Print Certificate</button>
+        </section>
+    {% endif %}
+{% endblock %}
