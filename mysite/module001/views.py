@@ -863,7 +863,7 @@ def test006module001(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'test007module001b',
+        'next_url': 'test007module001',
         'next_page': 'submit',
         'next_page_small': 'submit',
     }
@@ -896,7 +896,7 @@ def test006module001b(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'test007module001b',
+        'next_url': 'test007module001',
         'next_page': next_page,
         'next_page_small': next_page,
     }
