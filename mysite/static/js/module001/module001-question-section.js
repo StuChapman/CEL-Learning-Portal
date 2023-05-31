@@ -222,6 +222,7 @@ function drop(ev) {// credit to https://www.w3schools.com/HTML/html5_draganddrop
     }
 
     if (dragcard1 !== null && dragcard2 !== null && dragcard3 !== null && dragcard4 !== null && dragcard5 !== null) {
+        $('input[name="testanswer"]').val(dragcard1+dragcard2+dragcard3+dragcard4+dragcard5);
         revealNext();
     }
 }
