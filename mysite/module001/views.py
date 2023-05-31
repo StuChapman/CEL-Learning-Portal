@@ -553,7 +553,7 @@ def test003module001(request):
 
 
 def test003module001b(request):
-    """ A view to return test002 """
+    """ A view to return test003 """
     lasttest = 'test002module001'
     thistest = 'test003module001'
 
@@ -692,9 +692,9 @@ def test004module001b(request):
 
 
 def test005module001(request):
-    """ A view to return test004 """
+    """ A view to return test005 """
     lasttest = 'test004module001'
-    thistest = 'test004module001'
+    thistest = 'test005module001'
 
     if request.user.is_authenticated:
 
@@ -757,7 +757,7 @@ def test005module001(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'testintro',
+        'next_url': 'test006module001',
         'next_page': 'submit',
         'next_page_small': 'submit',
     }
@@ -765,9 +765,115 @@ def test005module001(request):
 
 
 def test005module001b(request):
-    """ A view to return test002 """
+    """ A view to return test005 """
     lasttest = 'test004module001'
     thistest = 'test005module001'
+
+    if request.user.is_authenticated:
+
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            next_page = 'next question'
+        else:
+            test_already_complete = 'false'
+            nexthidden = 'true'
+            next_page = 'submit'
+
+    context = {
+        'thistest': thistest,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'test_already_complete': test_already_complete,
+        'next_url': 'test006module001',
+        'next_page': next_page,
+        'next_page_small': next_page,
+    }
+    return render(request, 'valueandwaste/test005.html', context)
+
+
+def test006module001(request):
+    """ A view to return test006 """
+    lasttest = 'test005module001'
+    thistest = 'test006module001'
+
+    if request.user.is_authenticated:
+
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            next_page = 'next question'
+
+        """ check if a Test Result exists for this user for the previous test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=lasttest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            next_page = 'next question'
+
+            context = {
+                'thistest': thistest,
+                'arrows': 'arrows',
+                'nexthidden': nexthidden,
+                'test_already_complete': test_already_complete,
+                'next_url': 'test006module001b',
+                'next_page': next_page,
+                'next_page_small': next_page,
+            }
+            return render(request, 'valueandwaste/test006.html', context)
+        else:
+            """ get information from testanswer form """
+            if request.GET:
+                testanswer = request.GET['testanswer']
+                """ check if Test Result matches correct answer """
+                correct_answer_query = get_object_or_404(Answers,
+                                                         test=lasttest)
+                correct_answer = correct_answer_query.correctanswer
+                if testanswer == correct_answer:
+                    result = 1
+                else:
+                    result = 0
+
+                """ create a Test Result for this user for this test """
+                user_test = Tests(user=request.user,
+                                  test=lasttest,
+                                  status=1,
+                                  answer=testanswer,
+                                  result=result)
+                user_test.save()
+            test_already_complete = 'false'
+            nexthidden = 'true'
+            next_page = 'submit'
+
+    context = {
+        'thistest': thistest,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'test_already_complete': test_already_complete,
+        'next_url': 'testintro',
+        'next_page': 'submit',
+        'next_page_small': 'submit',
+    }
+    return render(request, 'valueandwaste/test006.html', context)
+
+
+def test006module001b(request):
+    """ A view to return test006 """
+    lasttest = 'test005module001'
+    thistest = 'test006module001'
 
     if request.user.is_authenticated:
 
@@ -794,5 +900,5 @@ def test005module001b(request):
         'next_page': next_page,
         'next_page_small': next_page,
     }
-    return render(request, 'valueandwaste/test005.html', context)
+    return render(request, 'valueandwaste/test006.html', context)
 

@@ -1,0 +1,61 @@
+{% extends "basemodule001.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <h1 class="pb-2">Q6: What's the phrase</h1>
+            <p class="paralarge">Complete the definition of Value...</p>
+            <div class="wordsquarebox align-vertically row ml-auto mr-auto">
+                <div class="word ml-auto mr-auto">
+                    <div>“Value” is defined as work that </div>
+                </div>
+                <div class="row ml-auto mr-auto">
+                    <div id="square-one" class="ml-auto mt-auto wordsquare">
+                    </div>
+                    <div id="square-two" class="mr-auto mt-auto wordsquare">
+                    </div>
+                </div>
+                <div class="word ml-auto mr-auto">
+                    <div>to what the Customer is </div>
+                </div>
+                <div class="row ml-auto mr-auto">
+                    <div id="square-three" class="ml-auto mt-auto wordsquare">
+                    </div>
+                    <div id="square-four" class="mr-auto mt-auto wordsquare">
+                    </div>
+                </div>
+            </div>
+            <div class="wordpickbox row ml-auto mr-auto">
+                <div id="divleft" class="ml-auto">
+                    <div id="letterpick-directly" class="wordpick d-inline" onclick="return populateMuda('directly');">directly
+                    </div>
+                    <div id="letterpick-quality" class="wordpick d-inline" onclick="return populateMuda('quality');">quality
+                    </div>
+                    <div id="letterpick-receive" class="wordpick d-inline" onclick="return populateMuda('receive');">receive
+                    </div>
+                    <div id="letterpick-removed" class="wordpick d-inline" onclick="return populateMuda('removed');">removed
+                    </div>
+                    <div id="letterpick-paying" class="wordpick d-inline" onclick="return populateMuda('paying');">paying
+                    </div>
+                </div>
+                <div id="divright" class="mr-auto">
+                    <div id="letterpick-contributes" class="wordpick d-inline" onclick="return populateMuda('contributes');">contributes
+                    </div>
+                    <div id="letterpick-would" class="wordpick d-inline" onclick="return populateMuda('would');">would
+                    </div>
+                    <div id="letterpick-adds" class="wordpick d-inline" onclick="return populateMuda('adds');">adds
+                    </div>
+                    <div id="letterpick-for" class="wordpick d-inline" onclick="return populateMuda('for');">for
+                    </div>
+                    <div id="letterpick-mitigate" class="wordpick d-inline" onclick="return populateMuda('mitigate');">mitigate
+                    </div>
+                </div>
+            </div>
+            <button id="resetbutton" type="button" class="btn btn-blue" onclick="return resetMuda();">
+                reset
+            </button>
+        </section>
+    {% endif %}
+{% endblock %}

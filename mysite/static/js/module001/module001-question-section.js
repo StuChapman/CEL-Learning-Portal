@@ -107,7 +107,9 @@ function populateMuda(letterpick) {
     }
 
     letterCount = ++letterCount;
+
     if (letterCount == 4)  {
+        letterCount = 0;
         revealNext();
         return;
     }
@@ -122,6 +124,8 @@ function resetMuda() {
     $('.letterpickbox div').css('color', 'black');
     $('.wordpickbox div').css('color', 'black');
     $('input[name="testanswer"]').val('');
+    $("#testanswerbtn").addClass("hidden");
+    $("#testanswerbtn").removeClass("unhidden");
 }
 
 //Function: check answers against desired on checkbox questions: four, seven and ten //
