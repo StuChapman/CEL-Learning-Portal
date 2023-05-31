@@ -81,4 +81,10 @@ urlpatterns = [
     path('module001/test009module001b',
          views.test009module001b,
          name='test009module001b'),
+    path('module001/test010module001',
+         views.test010module001,
+         name='test010module001'),
+    path('module001/test010module001b',
+         views.test010module001b,
+         name='test010module001b'),
 ]

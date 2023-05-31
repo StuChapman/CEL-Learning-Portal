@@ -307,6 +307,7 @@ function order(ev) {
     document.getElementById(orderboxShift).innerHTML = '<div class="ordercard align-vertically" id="' + ordercardDrag + '" draggable="true" ondragstart="dragOrder(event)" >' + ordertextDrag + '</div>';
     document.getElementById(orderboxDrag).innerHTML = '<div class="ordercard align-vertically" id="' + ordercardShift + '" draggable="true" ondragstart="dragOrder(event)" >' + ordertextShift + '</div>';
 
+    $('input[name="testanswer"]').val(orderArray[0][1]+orderArray[0][1]+orderArray[2][1]+orderArray[3][1]+orderArray[4][1]+orderArray[5][1]+orderArray[6][1]+orderArray[7][1]);
     revealNext();
 
 }
