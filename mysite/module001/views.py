@@ -313,8 +313,8 @@ def testintro(request):
 
 def checkanswer(request):
     """ Check the answer to each question with the correct answer """
-    thistest = ""
-    nexttest = ""
+    thistest = "blank"
+    nexttest = "blank"
     nexthidden = "false"
     test_already_complete = ""
     next_page = "next question"
@@ -323,6 +323,7 @@ def checkanswer(request):
         
         if request.GET:
             if 'test_list' in request.GET:
+                thistest = 'populated'
                 test_list = request.GET['test_list']
                 test_list_list = test_list.split(',')
                 thistest = test_list_list[0]
@@ -334,7 +335,7 @@ def checkanswer(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': nexttest,
+        'next_url': 'test002module001',
         'next_page': next_page,
         'next_page_small': next_page,
     }
