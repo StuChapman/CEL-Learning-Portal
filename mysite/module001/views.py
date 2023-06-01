@@ -1377,6 +1377,13 @@ def testsummary(request):
             nexthidden = 'true'
             next_page = 'submit'
 
+        """ check if a Test Result exists for this user for all tests """
+        tests = Tests.objects.all().order_by('test')
+        test_result = (tests.filter
+                       (user=request.user))
+        if test_result:
+            this_test_result = test_result
+
     context = {
         'thistest': 'testsummary',
         'arrows': 'arrows',
@@ -1385,6 +1392,7 @@ def testsummary(request):
         'next_url': 'testintro',
         'next_page': 'submit',
         'next_page_small': 'submit',
+        'this_test_result': this_test_result,
     }
     return render(request, 'valueandwaste/testsummary.html', context)
 
