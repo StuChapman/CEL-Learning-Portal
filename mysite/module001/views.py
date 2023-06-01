@@ -311,62 +311,51 @@ def testintro(request):
     return render(request, 'valueandwaste/testintro.html', context)
 
 
-def test001module001(request):
-    """ A view to return test001 """
-    thistest = 'test001module001'
+def checkanswer(request):
+    """ Check the answer to each question with the correct answer """
+    thistest = ""
+    nexttest = ""
+    nexthidden = "false"
+    test_already_complete = ""
+    next_page = "next question"
 
     if request.user.is_authenticated:
-
-        """ check if a Test Result exists for this user for this test """
-        tests = Tests.objects.all()
-        test_exists = (tests.filter
-                       (user=request.user,
-                        test=thistest))
-        if test_exists:
-            test_already_complete = 'true'
-            nexthidden = 'false'
-            next_page = 'next question'
-
-            context = {
-                'thistest': thistest,
-                'arrows': 'arrows',
-                'nexthidden': nexthidden,
-                'test_already_complete': test_already_complete,
-                'next_url': 'test003module001',
-                'next_page': next_page,
-                'next_page_small': next_page,
-            }
-            return render(request, 'valueandwaste/test001.html', context)
-        else:
-            """ get information from testanswer form """
-            if request.GET:
-                testanswer = request.GET['testanswer']
-                """ check if Test Result matches correct answer """
-                correct_answer_query = get_object_or_404(Answers,
-                                                         test=lasttest)
-                correct_answer = correct_answer_query.correctanswer
-                if testanswer == correct_answer:
-                    result = 1
-                else:
-                    result = 0
-
-                """ create a Test Result for this user for this test """
-                user_test = Tests(user=request.user,
-                                  test=lasttest,
-                                  status=1,
-                                  answer=testanswer,
-                                  result=result)
-                user_test.save()
-            test_already_complete = 'false'
-            nexthidden = 'true'
-            next_page = 'submit'
+        
+        if request.GET:
+            if 'test_list' in request.GET:
+                test_list = request.GET['test_list']
+                test_list_list = test_list.split(',')
+                thistest = test_list_list[0]
+                nexttest = test_list_list[1]
 
     context = {
         'thistest': thistest,
+        'nexttest': nexttest,
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'test002module001',
+        'next_url': nexttest,
+        'next_page': next_page,
+        'next_page_small': next_page,
+    }
+    return render(request, 'valueandwaste/test001.html', context)
+
+
+def test001module001(request):
+    """ A view to return test001 """
+    thistest = 'test001module001'
+    nexttest = 'test002module001'
+    test_already_complete = 'false'
+    nexthidden = 'true'
+    next_page = 'submit'
+
+    context = {
+        'thistest': thistest,
+        'nexttest': nexttest,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'test_already_complete': test_already_complete,
+        'next_url': 'checkanswer',
         'next_page': next_page,
         'next_page_small': next_page,
     }
@@ -1383,6 +1372,7 @@ def testsummary(request):
                        (user=request.user))
         if test_result:
             this_test_result = test_result.filter(test__contains='module001')
+            this_test_count = this_test_result.count()
 
     context = {
         'thistest': 'testsummary',
@@ -1393,6 +1383,7 @@ def testsummary(request):
         'next_page': 'submit',
         'next_page_small': 'submit',
         'this_test_result': this_test_result,
+        'this_test_count': this_test_count,
     }
     return render(request, 'valueandwaste/testsummary.html', context)
 
