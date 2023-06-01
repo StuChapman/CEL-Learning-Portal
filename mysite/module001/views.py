@@ -1382,7 +1382,7 @@ def testsummary(request):
         test_result = (tests.filter
                        (user=request.user))
         if test_result:
-            this_test_result = test_result
+            this_test_result = test_result.filter(test__contains='module001')
 
     context = {
         'thistest': 'testsummary',
