@@ -315,9 +315,9 @@ def testintro(request):
 
 def nexttest(request):
     """ Navigate to the next test template """
-    nexthidden = "true"
-    test_already_complete = "false"
-    next_page = "submit"
+    nexthidden = 'true'
+    test_already_complete = 'false'
+    next_page = 'submit'
 
     if request.user.is_authenticated:
 
@@ -325,17 +325,18 @@ def nexttest(request):
             if 'test_list' in request.GET:
                 test_list = request.GET['test_list']
                 test_list_list = test_list.split(',')
-                thistest = test_list_list[0]
+                thistest = test_list_list[1]
+                checktest = test_list_list[0]
                 next_test = get_object_or_404(Answers,
                                               test=thistest)
                 nexttest = next_test.nexttest
-                nexttemplate = 'valueandwaste/' + nexttest[:7] + '.html'
+                nexttemplate = 'valueandwaste/' + thistest[:7] + '.html'
 
         """ check if a Test Result exists for this user for this test """
         tests = Tests.objects.all()
         test_exists = (tests.filter
                        (user=request.user,
-                        test=thistest))
+                        test=checktest))
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
@@ -357,9 +358,15 @@ def nexttest(request):
 
 def checkanswer(request):
     """ Check the answer to each question against the correct answer """
-    nexthidden = "false"
-    test_already_complete = "false"
-    next_page = "next question"
+    test_exists = ""
+    checktest = ""
+    thistest = ""
+    next_test = ""
+    nexttest = ""
+    nexttemplate = "valueandwaste/testintro.html"
+    nexthidden = 'false'
+    test_already_complete = 'false'
+    next_url = 'checkanswer'
 
     if request.user.is_authenticated:
 
@@ -367,22 +374,24 @@ def checkanswer(request):
             if 'test_list' in request.GET:
                 test_list = request.GET['test_list']
                 test_list_list = test_list.split(',')
-                thistest = test_list_list[0]
+                checktest = test_list_list[0]
+                thistest = test_list_list[1]
                 next_test = get_object_or_404(Answers,
                                               test=thistest)
                 nexttest = next_test.nexttest
-                nexttemplate = 'valueandwaste/' + nexttest[:7] + '.html'
+                nexttemplate = 'valueandwaste/' + thistest[:7] + '.html'
 
             """ check if a Test Result exists for this user for this test """
             tests = Tests.objects.all()
             test_exists = (tests.filter
                            (user=request.user,
-                            test=thistest))
+                            test=checktest))
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
             next_page = 'next question'
-            thistemplate = 'valueandwaste/' + thistest[:7] + '.html'
+            nexttemplate = 'valueandwaste/' + checktest[:7] + '.html'
+            next_url = 'nexttest'
 
         else:
             """ get information from testanswer form """
@@ -390,7 +399,7 @@ def checkanswer(request):
                 testanswer = request.POST['testanswer']
                 """ check if Test Result matches correct answer """
                 correct_answer_query = get_object_or_404(Answers,
-                                                         test=thistest)
+                                                         test=checktest)
                 correct_answer = correct_answer_query.correctanswer
                 if testanswer == correct_answer:
                     result = 1
@@ -399,13 +408,21 @@ def checkanswer(request):
 
                 """ create a Test Result for this user for this test """
                 user_test = Tests(user=request.user,
-                                  test=thistest,
+                                  test=checktest,
                                   status=1,
                                   answer=testanswer,
                                   result=result)
                 user_test.save()
             nexthidden = 'true'
             next_page = 'submit'
+            if thistest == 'testsummary':
+                """ A view to return the testintro page """
+                context = {
+                    'arrows': 'noarrows',
+                    'nexthidden': 'false',
+                }
+
+                return render(request, 'valueandwaste/testsummary.html', context)
 
     context = {
         'thistest': thistest,
@@ -413,7 +430,7 @@ def checkanswer(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'test_already_complete': test_already_complete,
-        'next_url': 'nexttest',
+        'next_url': next_url,
         'next_page': next_page,
         'next_page_small': next_page,
     }

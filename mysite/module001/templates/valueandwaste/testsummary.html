@@ -5,23 +5,6 @@
     {% if user.is_authenticated %}
         <!--Text Section-->
         <section id="textsection">
-            <h1 class="pb-3">8 Wastes Online Test - Summary</h1>
-            <div class ="row">
-                <div class="col-xs ml-auto mr-auto">
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>1 is: <span id="answer1"></span></p>
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>2 is: <span id="answer2"></span></p>
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>3 is: <span id="answer3"></span></p>
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>4 is: <span id="answer4"></span></p>
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>5 is: <span id="answer5"></span></p>
-                </div>
-                <div class="col-xs ml-auto mr-auto">
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>6 is: <span id="answer6"></span></p>
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>7 is: <span id="answer7"></span></p>
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>8 is: <span id="answer8"></span></p>
-                    <p class="paramedium pb-0">Your score for Question <span class="white">0</span>9 is: <span id="answer9"></span></p>
-                    <p class="paramedium pb-0">Your score for Question 10 is: <span id="answer10"></span></p>
-                </div>
-            </div>
             {% if this_test_result %}
                 <p class="paralarge mb-xl-2">You have completed {{ this_test_count }} out of 10 questions.</p>
                 <div class="row extramarginbottom resultscontainer ml-auto mr-auto">
