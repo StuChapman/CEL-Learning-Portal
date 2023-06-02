@@ -38,6 +38,7 @@ class Answers(models.Model):
 
     test = models.CharField(max_length=254, null=True)
     correctanswer = models.CharField(max_length=254, null=True)
+    nexttest = models.CharField(max_length=254, null=True)
 
     def __str__(self):
         return self.test

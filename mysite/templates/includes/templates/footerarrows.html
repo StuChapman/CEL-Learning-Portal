@@ -18,7 +18,7 @@
                         <form class="pr-4 ml-auto hidden" action="{% url next_url %}?test_list={{ thistest }},{{ nexttest }}" id="test_answer" method="POST">
                             {% csrf_token %}
                             <input class="hidden" type="text" name="testanswer" id="testanswer">
-                            <button class="border-0 hidden" type="submit" id="testanswerbtn">{{ next_page }} <i class="fas fa-forward"></i>
+                            <button class="border-0 hidden" type="submit" id="testanswerbtn">{{ thistest }} {{ nexttest }} {{ next_page }} <i class="fas fa-forward"></i>
                             </button>
                         </form>
                     {% else %}

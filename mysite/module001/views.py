@@ -302,13 +302,72 @@ def page008module001(request):
 def testintro(request):
     """ A view to return the testintro page """
     thistest = 'testintro'
+    nexttest = 'test001module001'
     context = {
         'thistest': thistest,
+        'nexttest': nexttest,
         'arrows': 'noarrows',
         'nexthidden': 'false',
     }
 
     return render(request, 'valueandwaste/testintro.html', context)
+
+
+def nexttest(request):
+    """ Navigate to the next test template """
+    thistest = "blank"
+    nexttest = "blank"
+    nexthidden = "true"
+    test_already_complete = "false"
+    next_page = "submit"
+
+    if request.user.is_authenticated:
+
+        if request.GET:
+            if 'test_list' in request.GET:
+                thistest = 'populated'
+                test_list = request.GET['test_list']
+                test_list_list = test_list.split(',')
+                thistest = test_list_list[1]
+                next_test = get_object_or_404(Answers,
+                                              test=thistest)
+                nexttest = next_test.nexttest
+                nexttemplate = 'valueandwaste/' + thistest[:7] + '.html'
+
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest))
+        if test_exists:
+            test_already_complete = 'true'
+            nexthidden = 'false'
+            next_page = 'next question'
+            thistemplate = 'valueandwaste/' + thistest[:7] + '.html'
+
+            context = {
+                'thistest': thistest,
+                'nexttest': nexttest,
+                'arrows': 'arrows',
+                'nexthidden': nexthidden,
+                'test_already_complete': test_already_complete,
+                'next_url': 'nexttest',
+                'next_page': next_page,
+                'next_page_small': next_page,
+            }
+            return render(request, thistemplate, context)
+        else:
+            context = {
+                'thistest': thistest,
+                'nexttest': nexttest,
+                'arrows': 'arrows',
+                'nexthidden': nexthidden,
+                'test_already_complete': test_already_complete,
+                'next_url': 'nexttest',
+                'next_page': next_page,
+                'next_page_small': next_page,
+            }
+            return render(request, nexttemplate, context)
 
 
 def checkanswer(request):
@@ -353,7 +412,6 @@ def checkanswer(request):
             }
             return render(request, thistemplate, context)
         else:
-
             """ get information from testanswer form """
             if request.POST:
                 testanswer = request.POST['testanswer']
@@ -387,29 +445,6 @@ def checkanswer(request):
         'next_page_small': next_page,
     }
     return render(request, nexttemplate, context)
-
-
-def test001module001(request):
-    """ A view to return test001 """
-    thistest = 'test001module001'
-    nexttest = 'test002module001'
-    thistemplate = 'valueandwaste/' + thistest[:7] + '.html'
-    test_already_complete = 'false'
-    nexthidden = 'true'
-    next_page = 'submit'
-
-    context = {
-        'thistest': thistest,
-        'nexttest': nexttest,
-        'thistemplate': thistemplate,
-        'arrows': 'arrows',
-        'nexthidden': nexthidden,
-        'test_already_complete': test_already_complete,
-        'next_url': 'checkanswer',
-        'next_page': next_page,
-        'next_page_small': next_page,
-    }
-    return render(request, thistemplate, context)
 
 
 def test002module001(request):
