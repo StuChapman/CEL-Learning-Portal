@@ -15,7 +15,7 @@
             {% if nexthidden == 'true' %}
                 {% with my_url=next_url %}
                     {% if thistest %}
-                        <form class="pr-4 ml-auto hidden" action="{% url next_url %}?test_list={{ thistest }},{{ nexttest }}" id="test_answer" method="POST">
+                        <form class="pr-4 ml-auto hidden" action="{% url next_url %}?test_list={{ thistest }},{{ nexttest }},{{ test_already_complete }}" id="test_answer" method="POST">
                             {% csrf_token %}
                             <input class="hidden" type="text" name="testanswer" id="testanswer">
                             <button class="border-0 hidden" type="submit" id="testanswerbtn">{{ thistest }} {{ nexttest }} {{ next_page }} <i class="fas fa-forward"></i>
@@ -29,7 +29,7 @@
                     {% endif %}
                 {% endwith %}
             {% else %}
-                <a class="pr-4 ml-auto" href="{% url next_url %}">
+                <a class="pr-4 ml-auto" href="{% url next_url %}?test_list={{ thistest }},{{ nexttest }},{{ test_already_complete }}">
                     <span class="d-none d-sm-block">{{ next_page }} <i class="fas fa-forward"></i></span>
                     <span class="d-sm-none">{{ next_page_small }} <i class="fas fa-forward"></i></span>
                 </a>

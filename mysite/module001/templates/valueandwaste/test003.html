@@ -5,19 +5,24 @@
     {% if user.is_authenticated %}
         <!--Text Section-->
         <section id="textsection">
-            <h1>Q3: How much Waste?</h1>
-            <p class="paralarge">According to Marc Onetto, how much of traditional book printing in the US
-                 tends to be Waste?</p>
-            <form id="optionform" class="ml-auto mr-auto" onclick="return checkQuestionRadio();">
-                <label for="optionone" class="float-left">20%</label>
-                <input type="radio" name="question" id="optionone" class="float-right"><br>
-                <label for="optiontwo" class="float-left">40%</label>
-                <input type="radio" name="question" id="optiontwo" class="float-right"><br>
-                <label for="optionthree" class="float-left">60%</label>
-                <input type="radio" name="question" id="optionthree" class="float-right"><br>
-                <label for="optionfour" class="float-left">80%</label>
-                <input type="radio" name="question" id="optionfour" class="float-right">
-            </form>
+            {% if test_already_complete == 'true' %}
+                <h1>Q3: How much Waste? - completed</h1>
+                <p class="paralarge">You have already answered Question 3</p>
+            {% else %}
+                <h1>Q3: How much Waste?</h1>
+                <p class="paralarge">According to Marc Onetto, how much of traditional book printing in the US
+                    tends to be Waste?</p>
+                <form id="optionform" class="ml-auto mr-auto" onclick="return checkQuestionRadio();">
+                    <label for="optionone" class="float-left">20%</label>
+                    <input type="radio" name="question" id="optionone" class="float-right"><br>
+                    <label for="optiontwo" class="float-left">40%</label>
+                    <input type="radio" name="question" id="optiontwo" class="float-right"><br>
+                    <label for="optionthree" class="float-left">60%</label>
+                    <input type="radio" name="question" id="optionthree" class="float-right"><br>
+                    <label for="optionfour" class="float-left">80%</label>
+                    <input type="radio" name="question" id="optionfour" class="float-right">
+                </form>
+            {% endif %}
         </section>
     {% endif %}
 {% endblock %}

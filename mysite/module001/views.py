@@ -318,6 +318,7 @@ def nexttest(request):
     nexthidden = 'true'
     test_already_complete = 'false'
     next_page = 'submit'
+    next_url = 'checkanswer'
 
     if request.user.is_authenticated:
 
@@ -325,8 +326,13 @@ def nexttest(request):
             if 'test_list' in request.GET:
                 test_list = request.GET['test_list']
                 test_list_list = test_list.split(',')
-                thistest = test_list_list[1]
-                checktest = test_list_list[0]
+                test_already_complete = test_list_list[2]
+                if test_already_complete == 'true':
+                    checktest = test_list_list[0]
+                    thistest = test_list_list[0]
+                else:
+                    checktest = test_list_list[0]
+                    thistest = test_list_list[1]
                 next_test = get_object_or_404(Answers,
                                               test=thistest)
                 nexttest = next_test.nexttest
@@ -341,7 +347,8 @@ def nexttest(request):
             test_already_complete = 'true'
             nexthidden = 'false'
             next_page = 'next question'
-            thistemplate = 'valueandwaste/' + thistest[:7] + '.html'
+            nexttemplate = 'valueandwaste/' + nexttest[:7] + '.html'
+            next_url = 'checkanswer'
 
         context = {
             'thistest': thistest,
@@ -349,7 +356,7 @@ def nexttest(request):
             'arrows': 'arrows',
             'nexthidden': nexthidden,
             'test_already_complete': test_already_complete,
-            'next_url': 'checkanswer',
+            'next_url': next_url,
             'next_page': next_page,
             'next_page_small': next_page,
         }
@@ -374,12 +381,17 @@ def checkanswer(request):
             if 'test_list' in request.GET:
                 test_list = request.GET['test_list']
                 test_list_list = test_list.split(',')
-                checktest = test_list_list[0]
-                thistest = test_list_list[1]
+                test_already_complete = test_list_list[2]
+                if test_already_complete == 'true':
+                    checktest = test_list_list[0]
+                    thistest = test_list_list[0]
+                else:
+                    checktest = test_list_list[0]
+                    thistest = test_list_list[1]
                 next_test = get_object_or_404(Answers,
                                               test=thistest)
                 nexttest = next_test.nexttest
-                nexttemplate = 'valueandwaste/' + thistest[:7] + '.html'
+                nexttemplate = 'valueandwaste/' + nexttest[:7] + '.hrtml'
 
             """ check if a Test Result exists for this user for this test """
             tests = Tests.objects.all()
@@ -390,7 +402,7 @@ def checkanswer(request):
             test_already_complete = 'true'
             nexthidden = 'false'
             next_page = 'next question'
-            nexttemplate = 'valueandwaste/' + checktest[:7] + '.html'
+            nexttemplate = 'valueandwaste/' + nexttest[:7] + '.html'
             next_url = 'nexttest'
 
         else:
@@ -416,7 +428,7 @@ def checkanswer(request):
             nexthidden = 'true'
             next_page = 'submit'
             if thistest == 'testsummary':
-                """ A view to return the testintro page """
+                """ A view to return the testsummary page """
                 context = {
                     'arrows': 'noarrows',
                     'nexthidden': 'false',
