@@ -326,13 +326,9 @@ def nexttest(request):
             if 'test_list' in request.GET:
                 test_list = request.GET['test_list']
                 test_list_list = test_list.split(',')
-                test_already_complete = test_list_list[2]
-                if test_already_complete == 'true':
-                    checktest = test_list_list[0]
-                    thistest = test_list_list[0]
-                else:
-                    checktest = test_list_list[0]
-                    thistest = test_list_list[1]
+                test_already_complete_flag = test_list_list[2]
+                checktest = test_list_list[0]
+                thistest = test_list_list[1]
                 next_test = get_object_or_404(Answers,
                                               test=thistest)
                 nexttest = next_test.nexttest
@@ -345,10 +341,7 @@ def nexttest(request):
                         test=checktest))
         if test_exists:
             test_already_complete = 'true'
-            nexthidden = 'false'
             next_page = 'next question'
-            nexttemplate = 'valueandwaste/' + nexttest[:7] + '.html'
-            next_url = 'checkanswer'
 
         context = {
             'thistest': thistest,
@@ -365,12 +358,6 @@ def nexttest(request):
 
 def checkanswer(request):
     """ Check the answer to each question against the correct answer """
-    test_exists = ""
-    checktest = ""
-    thistest = ""
-    next_test = ""
-    nexttest = ""
-    nexttemplate = "valueandwaste/testintro.html"
     nexthidden = 'false'
     test_already_complete = 'false'
     next_url = 'checkanswer'
@@ -381,30 +368,23 @@ def checkanswer(request):
             if 'test_list' in request.GET:
                 test_list = request.GET['test_list']
                 test_list_list = test_list.split(',')
-                test_already_complete = test_list_list[2]
-                if test_already_complete == 'true':
-                    checktest = test_list_list[0]
-                    thistest = test_list_list[0]
-                else:
-                    checktest = test_list_list[0]
-                    thistest = test_list_list[1]
+                test_already_complete_flag = test_list_list[2]
+                checktest = test_list_list[0]
+                thistest = test_list_list[1]
                 next_test = get_object_or_404(Answers,
                                               test=thistest)
                 nexttest = next_test.nexttest
-                nexttemplate = 'valueandwaste/' + nexttest[:7] + '.hrtml'
+                nexttemplate = 'valueandwaste/' + thistest[:7] + '.html'
 
-            """ check if a Test Result exists for this user for this test """
-            tests = Tests.objects.all()
-            test_exists = (tests.filter
-                           (user=request.user,
-                            test=checktest))
+        """ check if a Test Result exists for this user for this test """
+        tests = Tests.objects.all()
+        test_exists = (tests.filter
+                       (user=request.user,
+                        test=thistest))
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
             next_page = 'next question'
-            nexttemplate = 'valueandwaste/' + nexttest[:7] + '.html'
-            next_url = 'nexttest'
-
         else:
             """ get information from testanswer form """
             if request.POST:
@@ -425,16 +405,18 @@ def checkanswer(request):
                                   answer=testanswer,
                                   result=result)
                 user_test.save()
+            test_already_complete = 'false'
             nexthidden = 'true'
             next_page = 'submit'
-            if thistest == 'testsummary':
-                """ A view to return the testsummary page """
-                context = {
-                    'arrows': 'noarrows',
-                    'nexthidden': 'false',
-                }
 
-                return render(request, 'valueandwaste/testsummary.html', context)
+        if thistest == 'testsummary':
+            """ A view to return the testsummary page """
+            context = {
+                'arrows': 'noarrows',
+                'nexthidden': 'false',
+            }
+
+            return render(request, 'valueandwaste/testsummary.html', context)
 
     context = {
         'thistest': thistest,
