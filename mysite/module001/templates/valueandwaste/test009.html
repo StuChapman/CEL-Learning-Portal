@@ -5,84 +5,89 @@
     {% if user.is_authenticated %}
         <!--Text Section-->
         <section id="textsection">
-            <h1 class="pt-2 pb-2">Q9: The 8 Wastes</h1>
-            <p class="paralarge">Re-order the descriptions to align to the Waste they describe ...</p>
-            <div class="row ordercontainerouter ml-auto mr-auto">
-                <div class="col-6">
-                    <div class="row ordercontainerleft">
-                        <span class="orderboxheader ml-auto mr-auto mb-1">Wastes</span>
-                        <div class="orderbox align-vertically" id="orderleft1">
-                            TRANSPORTATION
-                        </div>
-                        <div class="orderbox align-vertically" id="orderleft2">
-                            INVENTORY
-                        </div>
-                        <div class="orderbox align-vertically" id="orderleft3">
-                            MOTION
-                        </div>
-                        <div class="orderbox align-vertically" id="orderleft4">
-                            WAITING
-                        </div>
-                        <div class="orderbox align-vertically" id="orderleft5">
-                            OVERPRODUCTION
-                        </div>
-                        <div class="orderbox align-vertically" id="orderleft6">
-                            OVERPROCESSING
-                        </div>
-                        <div class="orderbox align-vertically" id="orderleft7">
-                            DEFECTS
-                        </div>
-                        <div class="orderbox align-vertically" id="orderleft8">
-                            SKILLS
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="row ordercontainerright">
-                        <span class="orderboxheader ml-auto mr-auto mb-1">Description</span>
-                        <div class="orderbox" id="orderbox1" ondrop="order(event)" ondragover="allowDrop(event)">
-                            <div class="ordercard align-vertically" id="ordercard1" draggable="true" ondragstart="dragOrder(event)" >
-                                delivering ahead of schedule
+            {% if test_already_complete == 'true' %}
+                <h1>Q9: The 8 Wastes - completed</h1>
+                <p class="paralarge">Please go to the next question...</p>
+            {% else %}
+                <h1 class="pt-2 pb-2">Q9: The 8 Wastes</h1>
+                <p class="paralarge">Re-order the descriptions to align to the Waste they describe ...</p>
+                <div class="row ordercontainerouter ml-auto mr-auto">
+                    <div class="col-6">
+                        <div class="row ordercontainerleft">
+                            <span class="orderboxheader ml-auto mr-auto mb-1">Wastes</span>
+                            <div class="orderbox align-vertically" id="orderleft1">
+                                TRANSPORTATION
                             </div>
-                        </div>
-                        <div class="orderbox" id="orderbox2" ondrop="order(event)" ondragover="allowDrop(event)">
-                            <div class="ordercard align-vertically" id="ordercard2" draggable="true" ondragstart="dragOrder(event)" >
-                                using the wrong resource
+                            <div class="orderbox align-vertically" id="orderleft2">
+                                INVENTORY
                             </div>
-                        </div>
-                        <div class="orderbox" id="orderbox3" ondrop="order(event)" ondragover="allowDrop(event)">
-                            <div class="ordercard align-vertically" id="ordercard3" draggable="true" ondragstart="dragOrder(event)" >
-                                faults
+                            <div class="orderbox align-vertically" id="orderleft3">
+                                MOTION
                             </div>
-                        </div>
-                        <div class="orderbox" id="orderbox4" ondrop="order(event)" ondragover="allowDrop(event)">
-                            <div class="ordercard align-vertically" id="ordercard4" draggable="true" ondragstart="dragOrder(event)" >
-                                moving the work/customer around
+                            <div class="orderbox align-vertically" id="orderleft4">
+                                WAITING
                             </div>
-                        </div>
-                        <div class="orderbox" id="orderbox5" ondrop="order(event)" ondragover="allowDrop(event)">
-                            <div class="ordercard align-vertically" id="ordercard5" draggable="true" ondragstart="dragOrder(event)" >
-                                complicated processes
+                            <div class="orderbox align-vertically" id="orderleft5">
+                                OVERPRODUCTION
                             </div>
-                        </div>
-                        <div class="orderbox" id="orderbox6" ondrop="order(event)" ondragover="allowDrop(event)">
-                            <div class="ordercard align-vertically" id="ordercard6" draggable="true" ondragstart="dragOrder(event)" >
-                                moving the worker around
+                            <div class="orderbox align-vertically" id="orderleft6">
+                                OVERPROCESSING
                             </div>
-                        </div>
-                        <div class="orderbox" id="orderbox7" ondrop="order(event)" ondragover="allowDrop(event)">
-                            <div class="ordercard align-vertically" id="ordercard7" draggable="true" ondragstart="dragOrder(event)" >
-                                queues
+                            <div class="orderbox align-vertically" id="orderleft7">
+                                DEFECTS
                             </div>
-                        </div>
-                        <div class="orderbox" id="orderbox8" ondrop="order(event)" ondragover="allowDrop(event)">
-                            <div class="ordercard align-vertically" id="ordercard8" draggable="true" ondragstart="dragOrder(event)" >
-                                building up stock
+                            <div class="orderbox align-vertically" id="orderleft8">
+                                SKILLS
                             </div>
                         </div>
                     </div>
+                    <div class="col-6">
+                        <div class="row ordercontainerright">
+                            <span class="orderboxheader ml-auto mr-auto mb-1">Description</span>
+                            <div class="orderbox" id="orderbox1" ondrop="order(event)" ondragover="allowDrop(event)">
+                                <div class="ordercard align-vertically" id="ordercard1" draggable="true" ondragstart="dragOrder(event)" >
+                                    delivering ahead of schedule
+                                </div>
+                            </div>
+                            <div class="orderbox" id="orderbox2" ondrop="order(event)" ondragover="allowDrop(event)">
+                                <div class="ordercard align-vertically" id="ordercard2" draggable="true" ondragstart="dragOrder(event)" >
+                                    using the wrong resource
+                                </div>
+                            </div>
+                            <div class="orderbox" id="orderbox3" ondrop="order(event)" ondragover="allowDrop(event)">
+                                <div class="ordercard align-vertically" id="ordercard3" draggable="true" ondragstart="dragOrder(event)" >
+                                    faults
+                                </div>
+                            </div>
+                            <div class="orderbox" id="orderbox4" ondrop="order(event)" ondragover="allowDrop(event)">
+                                <div class="ordercard align-vertically" id="ordercard4" draggable="true" ondragstart="dragOrder(event)" >
+                                    moving the work/customer around
+                                </div>
+                            </div>
+                            <div class="orderbox" id="orderbox5" ondrop="order(event)" ondragover="allowDrop(event)">
+                                <div class="ordercard align-vertically" id="ordercard5" draggable="true" ondragstart="dragOrder(event)" >
+                                    complicated processes
+                                </div>
+                            </div>
+                            <div class="orderbox" id="orderbox6" ondrop="order(event)" ondragover="allowDrop(event)">
+                                <div class="ordercard align-vertically" id="ordercard6" draggable="true" ondragstart="dragOrder(event)" >
+                                    moving the worker around
+                                </div>
+                            </div>
+                            <div class="orderbox" id="orderbox7" ondrop="order(event)" ondragover="allowDrop(event)">
+                                <div class="ordercard align-vertically" id="ordercard7" draggable="true" ondragstart="dragOrder(event)" >
+                                    queues
+                                </div>
+                            </div>
+                            <div class="orderbox" id="orderbox8" ondrop="order(event)" ondragover="allowDrop(event)">
+                                <div class="ordercard align-vertically" id="ordercard8" draggable="true" ondragstart="dragOrder(event)" >
+                                    building up stock
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </section>
     {% endif %}
 {% endblock %}
