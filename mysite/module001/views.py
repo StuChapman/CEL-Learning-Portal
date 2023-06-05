@@ -343,6 +343,10 @@ def checkanswer(request):
                         test=thistest))
         if test_exists:
             test_already_complete = 'true'
+            if thistest == 'test010module001':
+                next_page = 'test summary'
+            else:
+                next_page = 'next question'
         else:
             """ get information from testanswer form """
             if request.POST:
@@ -365,7 +369,10 @@ def checkanswer(request):
                 user_test.save()
                 test_already_complete = 'true'
             nexthidden = 'false'
-            next_page = 'next question'
+            if thistest == 'test010module001':
+                next_page = 'test summary'
+            else:
+                next_page = 'next question'
 
     context = {
         'thistest': thistest,
@@ -407,7 +414,10 @@ def nexttest(request):
         if test_exists:
             test_already_complete = 'true'
             nexthidden = 'false'
-            next_page = 'next question'
+            if thistest == 'test010module001':
+                next_page = 'test summary'
+            else:
+                next_page = 'next question'
             next_url = 'nexttest'
         else:
             test_already_complete = 'false'
@@ -416,10 +426,18 @@ def nexttest(request):
             next_page = 'submit'
 
         if thistest == 'testsummary':
-            """ A view to return the testsummary page """
+            """ get the Test Result for this user for this module """
+            tests = Tests.objects.all()
+            test_result = (tests.filter
+                           (user=request.user))
+            this_test_result = test_result.filter(test__contains='module001')
+            this_test_count = this_test_result.count()
+            test_score = this_test_result.filter(result='1').count()
+
             context = {
-                'arrows': 'noarrows',
-                'nexthidden': 'false',
+                'this_test_result': this_test_result,
+                'this_test_count': this_test_count,
+                'test_score': test_score,
             }
 
             return render(request, 'valueandwaste/testsummary.html', context)
@@ -435,35 +453,3 @@ def nexttest(request):
         'next_page_small': next_page,
     }
     return render(request, nexttemplate, context)
-
-
-def testsummary(request):
-    """ A view to return testsummary """
-    lasttest = 'test010module001'
-
-    if request.user.is_authenticated:
-
-        """ check if a Test Result exists for this user for this test """
-        tests = Tests.objects.all()
-        test_exists = (tests.filter
-                       (user=request.user,
-                        test=thistest))
-        if test_exists:
-            test_already_complete = 'true'
-            nexthidden = 'false'
-            next_page = 'next question'
-        else:
-            test_already_complete = 'false'
-            nexthidden = 'true'
-            next_page = 'submit'
-
-    context = {
-        'thistest': thistest,
-        'arrows': 'arrows',
-        'nexthidden': nexthidden,
-        'test_already_complete': test_already_complete,
-        'next_url': 'testintro',
-        'next_page': next_page,
-        'next_page_small': next_page,
-    }
-    return render(request, 'valueandwaste/testsummary.html', context)

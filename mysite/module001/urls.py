@@ -36,7 +36,4 @@ urlpatterns = [
     path('module001/checkanswer',
          views.checkanswer,
          name='checkanswer'),
-    path('module001/testsummary',
-         views.testsummary,
-         name='testsummary'),
 ]

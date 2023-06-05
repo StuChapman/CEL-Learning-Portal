@@ -219,6 +219,12 @@ nav {
     font-family: 'Cairo', sans-serif;
 }
 
+#totalScore {
+    color: #CC613A;
+    font-weight: bold;
+    font-size: calc(15vh + (30 - 5) * ((100vw - 300px) / 1620));
+}
+
 #textsection h1 {
     padding: 5vh;
     margin: 0;
