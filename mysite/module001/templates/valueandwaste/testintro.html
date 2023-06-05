@@ -4,20 +4,32 @@
 {% block content %}
     {% if user.is_authenticated %}
         {% if this_failed_test_list %}
-            <div>Failed tests: {{ this_failed_test_list}}</div>
+            <section id="textsection">
+                <h1>8 Wastes Online Test - retry</h1>
+                <p class="paralarge">Question to retry are: <span class="paramedium">(you can skip through all the others)</span></p>
+                {% for test in this_failed_test_list %}
+                    <p class="paramedium pb-0">Question {{ test.test|slice:'5:7' }}</p>
+                {% endfor %}
+                <button type="button" class="btn btn-blue">
+                    <a href="{% url 'nexttest' %}?test_list={{ 'testintro' }},{{ 'test001module001' }},{{ 'false' }}">
+                    Click to Begin
+                    </a>
+                </button>
+            </section>
+        {% else %}
+            <!--Text Section-->
+            <section id="textsection">
+                <h1>8 Wastes Online Test</h1>
+                <p class="paralarge">You are now ready to face the test to consolidate your learning around the 8 Wastes.</p>
+                <p class="paramedium">The pass 
+                    mark is 70% (7 out of 10).</p>
+                <p class="paramedium">Good Luck!</p>
+                <button type="button" class="btn btn-blue">
+                    <a href="{% url 'nexttest' %}?test_list={{ 'testintro' }},{{ 'test001module001' }},{{ 'false' }}">
+                    Click to Begin
+                    </a>
+                </button>
+            </section>
         {% endif %}
-        <!--Text Section-->
-        <section id="textsection"> 
-            <h1>8 Wastes Online Test</h1>
-            <p class="paralarge">You are now ready to face the test to consolidate your learning around the 8 Wastes.</p>
-            <p class="paramedium">The pass 
-                mark is 70% (7 out of 10).</p>
-            <p class="paramedium">Good Luck!</p>
-            <button type="button" class="btn btn-blue">
-                <a href="{% url 'nexttest' %}?test_list={{ 'testintro' }},{{ 'test001module001' }},{{ 'false' }}">
-                Click to Begin
-                </a>
-            </button>
-        </section>
     {% endif %}
 {% endblock %}

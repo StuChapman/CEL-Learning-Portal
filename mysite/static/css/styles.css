@@ -49,6 +49,14 @@ label {
     color: #ffffff;
 }
 
+.greencheck {
+    color: green;
+}
+
+.redcross {
+    color: red;
+}
+
 /*------------------- Bootstrap Overrules */
 
 .row {
