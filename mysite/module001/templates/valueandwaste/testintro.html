@@ -3,6 +3,9 @@
 
 {% block content %}
     {% if user.is_authenticated %}
+        {% if this_failed_test_list %}
+            <div>Failed tests: {{ this_failed_test_list}}</div>
+        {% endif %}
         <!--Text Section-->
         <section id="textsection"> 
             <h1>8 Wastes Online Test</h1>

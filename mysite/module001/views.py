@@ -453,3 +453,33 @@ def nexttest(request):
         'next_page_small': next_page,
     }
     return render(request, nexttemplate, context)
+
+
+def retest(request):
+    """ A view to reset the incorrect tests and return the testintro page """
+    thistest = 'testintro'
+    nexttest = 'test001module001'
+
+    if request.user.is_authenticated:
+
+        if request.GET:
+            if 'module_list' in request.GET:
+                module_list = request.GET['module_list']
+
+                """ create a Failed Test List for this user for this module """
+                tests = Tests.objects.all()
+                test_result = (tests.filter
+                               (user=request.user))
+                this_test_result = test_result.filter(test__contains='module001')
+                this_failed_test_list = this_test_result.filter(result='0')
+                """ this_failed_test_list.save()"""
+
+    context = {
+        'thistest': thistest,
+        'nexttest': nexttest,
+        'arrows': 'noarrows',
+        'nexthidden': 'false',
+        'this_failed_test_list': this_failed_test_list,
+    }
+
+    return render(request, 'valueandwaste/testintro.html', context)

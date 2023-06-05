@@ -18,13 +18,22 @@
                         <p class="paralarge pb-0 mb-xl-1"><span id="totalScore">{{ test_score }}0%</span></p>
                         {% if test_score < 10 %}
                             <div>
-                                <p class="paramedium pb-0">To retake the questions you missed, click <span class="orange-highlight">here</span></p>
+                                <p class="paramedium pb-0">To retake the questions you missed, click 
+                                    <span>
+                                        <a class="orange-highlight" href="{% url 'retest' %}?module_list={{ 'module001' }}">
+                                            here
+                                        </a>
+                                    </span></p>
                             </div>
                         {% endif %}
                     </div>
                 </div>
                 <div>
-                    <p class="paramedium pb-0">Click <span class="orange-highlight">here</span> the print a summary of your score</p>
+                    <p class="paramedium pb-0">Click 
+                        <span>
+                            <a class="orange-highlight" href="{% url 'retest' %}?module_list={{ 'module001' }}">
+                                here
+                            </a></span> to print a summary of your score</p>
                 </div>
             {% else %}
                 <div class="col-xs ml-auto mr-auto">
