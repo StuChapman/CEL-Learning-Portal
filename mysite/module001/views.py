@@ -430,7 +430,8 @@ def nexttest(request):
             tests = Tests.objects.all()
             test_result = (tests.filter
                            (user=request.user))
-            this_test_result = test_result.filter(test__contains='module001')
+            failed_test_result = test_result.filter(test__contains='module001')
+            this_test_result = failed_test_result.exclude(test__contains='fail').order_by('test')
             this_test_count = this_test_result.count()
             test_score = this_test_result.filter(result='1').count()
 
@@ -470,9 +471,12 @@ def retest(request):
                 tests = Tests.objects.all()
                 test_result = (tests.filter
                                (user=request.user))
-                this_test_result = test_result.filter(test__contains='module001')
-                this_failed_test_list = this_test_result.filter(result='0')
-                """ this_failed_test_list.save()"""
+                failed_test_result = test_result.filter(test__contains='module001')
+                this_test_result = failed_test_result.exclude(test__contains='fail')
+                this_failed_test_list = this_test_result.filter(result='0').order_by('test')
+                for test in this_failed_test_list:
+                    test.test = test.test + 'fail'
+                    test.save()
 
     context = {
         'thistest': thistest,

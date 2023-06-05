@@ -10,7 +10,7 @@
                 <div class="row extramarginbottom resultscontainer ml-auto mr-auto">
                     <div class="col-xs pt-3 ml-auto mr-auto">
                         {% for test in this_test_result %}
-                            <p class="paramedium pb-0">Your score for Question {{ test.test|slice:'5:7' }} is: <span id="answer1">{{ test.result }}</span></p>
+                            <p class="paramedium pb-0">Your score for Question {{ test.test|slice:'5:7' }} is: <span id="answer1">{{ test.result }}</span><i class="fa-solid fa-circle-check"></i></i></p>
                         {% endfor %}
                     </div>
                     <div class="col-xs pt-3 ml-auto mr-auto">
