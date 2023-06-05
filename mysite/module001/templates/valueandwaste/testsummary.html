@@ -15,10 +15,17 @@
                     </div>
                     <div class="col-xs pt-3 ml-auto mr-auto">
                         <p class="paralarge pb-md-1 mb-xl-1"><span class="orange-highlight">Your overall score is: </span></p>
-                        <p class="paralarge pb-md-1 mb-xl-1"><span id="totalScore">{{ test_score }}0%</span></p>
+                        <p class="paralarge pb-0 mb-xl-1"><span id="totalScore">{{ test_score }}0%</span></p>
+                        {% if test_score < 10 %}
+                            <div>
+                                <p class="paramedium pb-0">To retake the questions you missed, click <span class="orange-highlight">here</span></p>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
-                <button id="retestbutton" type="button" class="btn btn-blue mt-0" onclick="return resetPrint();">Print Summary</button>
+                <div>
+                    <p class="paramedium pb-0">Click <span class="orange-highlight">here</span> the print a summary of your score</p>
+                </div>
             {% else %}
                 <div class="col-xs ml-auto mr-auto">
                     <p class="paramedium pb-0">There was a problem retrieving your score ...<span class="white">0</span>1 is: <span id="answer1"></span></p>
