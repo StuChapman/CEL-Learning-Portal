@@ -16,6 +16,11 @@ body, html {
     justify-content: center;
 }
 
+.align-right { /* credit to https://webdevblog.com/css-vertical-align/ */
+    text-align: right;
+    margin-right: 5rem;
+}
+
 a  {
     background-color: transparent;
     color: #ffffff;
@@ -188,6 +193,10 @@ nav {
   }
 
 /* ------------------- Text Section Styling */
+
+#textsection .login {
+    width: 25rem;
+}
 
 #textsection, #certsection{
     background-color: #ffffff;
@@ -648,10 +657,6 @@ nav {
 
 @media screen and (orientation: portrait){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
 
-    #textsection .login {
-        width: 90vw;
-    }
-
     .extramarginbottom {
         margin-bottom: 1vh;
     }
@@ -734,7 +739,7 @@ nav {
 
     #totalScore {
         font-size: calc(25vw + (30 - 5) * ((100vw - 300px) / 1620));
-    }
+    }login
 
 }
 
@@ -742,10 +747,6 @@ nav {
 
     #totalScore {
         font-size: calc(15vh + (30 - 5) * ((100vw - 300px) / 1620));
-    }
-
-    #textsection .login {
-        width: 50vw;
     }
 
     #textsection .loginput {
