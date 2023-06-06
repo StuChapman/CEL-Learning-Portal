@@ -5,12 +5,13 @@
     {% if user.is_authenticated %}
         <!--Text Section-->
         <section id="textsection">
+            <h1 class="p-3">8 Wastes Online Test</h1>
             {% if this_test_result %}
-                <p class="paralarge mb-xl-2 pt-3">You have completed {{ this_test_count }} out of 10 questions.</p>
+                <p class="paralarge mb-xl-2 pb-0">You have completed {{ this_test_count }} out of 10 questions.</p>
                 <div class="row extramarginbottom resultscontainer ml-auto mr-auto">
-                    <div class="col-xs pt-3 ml-auto mr-auto">
+                    <div class="col-sm pt-3 ml-auto mr-auto">
                         {% for test in this_test_result %}
-                            <p class="paramedium pb-0">Your score for Question {{ test.test|slice:'5:7' }} is: <span id="answer1">{{ test.result }}</span>
+                            <p class="paramedium pb-0 pl-md-0 pr-md-0">Your score for Question {{ test.test|slice:'5:7' }} is: 
                                 {% if test.result == 1 %}
                                     <span class="greencheck"><i class="fa-solid fa-check"></i></span>
                                 {% else %}
@@ -19,27 +20,26 @@
                             </p>
                         {% endfor %}
                     </div>
-                    <div class="col-xs pt-3 ml-auto mr-auto">
-                        <p class="paralarge pb-md-1 mb-xl-1"><span class="orange-highlight">Your overall score is: </span></p>
-                        <p class="paralarge pb-0 mb-xl-1"><span id="totalScore">{{ test_score }}0%</span></p>
+                    <div class="col-sm pt-3 pb-3 ml-auto mr-auto">
+                        <p class="paralarge pb-0 mb-xl-0 pl-md-0 pr-md-0"><span class="orange-highlight">Your overall score is: </span></p>
+                        <p class="paralarge pb-0 mb-xl-1 pl-md-0 pr-md-0"><span id="totalScore">{{ test_score }}0%</span></p>
                         {% if test_score < 10 %}
                             <div>
-                                <p class="paramedium pb-0">To retake the questions you missed, click 
+                                <p class="paramedium p-0">To retake the questions you missed, click 
                                     <span>
                                         <a class="orange-highlight" href="{% url 'retest' %}?module_list={{ 'module001' }}">
-                                            here
-                                        </a>
-                                    </span></p>
+                                            here</a>
+                                    </span>
+                                </p>
+                                <p class="paramedium pb-0">Click 
+                                    <span>
+                                        <a class="orange-highlight" href="{% url 'retest' %}?module_list={{ 'module001' }}">
+                                            here</a>
+                                    </span> to print a summary of your score
+                                </p>
                             </div>
                         {% endif %}
                     </div>
-                </div>
-                <div>
-                    <p class="paramedium pb-0">Click 
-                        <span>
-                            <a class="orange-highlight" href="{% url 'retest' %}?module_list={{ 'module001' }}">
-                                here
-                            </a></span> to print a summary of your score</p>
                 </div>
             {% else %}
                 <div class="col-xs ml-auto mr-auto">

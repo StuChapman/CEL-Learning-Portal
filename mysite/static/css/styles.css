@@ -190,7 +190,7 @@ nav {
     background-color: #ffffff;
     font-family: 'Cairo', sans-serif;
     text-align: center;
-    height: 82.5vh;
+    min-height: 82.5vh;
 }
 
 #certsection {
@@ -230,7 +230,6 @@ nav {
 #totalScore {
     color: #CC613A;
     font-weight: bold;
-    font-size: calc(15vh + (30 - 5) * ((100vw - 300px) / 1620));
 }
 
 #textsection h1 {
@@ -730,9 +729,17 @@ nav {
         height: 3.5vh;
     }
 
+    #totalScore {
+        font-size: calc(25vw + (30 - 5) * ((100vw - 300px) / 1620));
+    }
+
 }
 
 @media screen and (orientation: landscape){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
+
+    #totalScore {
+        font-size: calc(15vh + (30 - 5) * ((100vw - 300px) / 1620));
+    }
 
     #textsection .login {
         width: 50vw;
@@ -835,7 +842,7 @@ nav {
     }
 
     .resultscontainer {
-        width: 70vw;
+        width: 90vw;
     }
 
 }
