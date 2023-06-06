@@ -12,9 +12,7 @@
         <p class="paralarge mb-xl-2 pb-0">
             <form class="login ml-auto mr-auto" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
-            <div class="align-right">
-                {{ form.as_p }}
-            </div>
+            {{ form.as_p }}
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}

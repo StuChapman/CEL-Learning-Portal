@@ -198,6 +198,10 @@ nav {
     width: 25rem;
 }
 
+#textsection .login label {
+    display: block
+}
+
 #textsection, #certsection{
     background-color: #ffffff;
     font-family: 'Cairo', sans-serif;
