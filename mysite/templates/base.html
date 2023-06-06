@@ -55,8 +55,11 @@
 
     {% include 'includes/templates/navbar.html' %}
 
-    <div id="topper" class="col-xl-12 align-vertically">
-        Continuous Engagement Ltd – online learning
+    <div id="topper" class="d-block align-vertically align-horizontally">
+        <p class="paramedium">
+            Continuous Engagement Ltd – online learning ...
+            <a href="{% url 'home' %}"> Home</a>
+        </p>
     </div>
 
     {% block content %}
