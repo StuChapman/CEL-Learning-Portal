@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-THIS_SITE = 'https://8000-stuchapman-cellearningp-wjij70pkna1.ws-eu98.gitpod.io'
+THIS_SITE = 'https://8000-stuchapman-cellearningp-gpu2u2rl5nj.ws-eu98.gitpod.io'
 
 CSRF_TRUSTED_ORIGINS = [THIS_SITE, THIS_SITE]
 
