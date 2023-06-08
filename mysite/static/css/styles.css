@@ -490,7 +490,7 @@ nav {
 }
 
 #arrowwaste, #arrowmaskwaste {
-    left: 67vw;
+    left: 65.9vw;
     width: 33vw;
     color: #ffffff;
     font-size: calc(2vh + (10 - 2) * ((100vw - 300px) / 1620));
