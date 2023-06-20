@@ -31,12 +31,14 @@
                                             here</a>
                                     </span>
                                 </p>
-                                <p class="paramedium pb-0">Click 
-                                    <span>
-                                        <a class="orange-highlight" href="{% url 'testcertificate' %}">
-                                            here</a>
-                                    </span> to print a summary of your score
-                                </p>
+                                {% if test_score > 6 %}
+                                    <p class="paramedium pb-0">Click 
+                                        <span>
+                                            <a class="orange-highlight" href="{% url 'testcertificate' %}?module_list={{ 'module001' }}">
+                                                here</a>
+                                        </span> to print your certificate
+                                    </p>
+                                {% endif %}
                             </div>
                         {% endif %}
                     </div>

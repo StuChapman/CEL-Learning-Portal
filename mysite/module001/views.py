@@ -493,7 +493,7 @@ def testcertificate(request):
     """ A view to return the testcertificate page """
     if request.user.is_authenticated:
 
-        if request.GET:      
+        if request.GET:
             """ get the Test Result for this user for this module """
             tests = Tests.objects.all()
             test_result = (tests.filter
