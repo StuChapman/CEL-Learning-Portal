@@ -39,4 +39,7 @@ urlpatterns = [
     path('module001/retest',
          views.retest,
          name='retest'),
+    path('module001/testcertificate',
+         views.testcertificate,
+         name='testcertificate'),
 ]

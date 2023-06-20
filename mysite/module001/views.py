@@ -487,3 +487,26 @@ def retest(request):
     }
 
     return render(request, 'valueandwaste/testintro.html', context)
+
+
+def testcertificate(request):
+    """ A view to return the testcertificate page """
+    if request.user.is_authenticated:
+
+        if request.GET:      
+            """ get the Test Result for this user for this module """
+            tests = Tests.objects.all()
+            test_result = (tests.filter
+                           (user=request.user))
+            failed_test_result = test_result.filter(test__contains='module001')
+            this_test_result = failed_test_result.exclude(test__contains='fail').order_by('test')
+            this_test_count = this_test_result.count()
+            test_score = this_test_result.filter(result='1').count()
+
+    context = {
+        'this_test_result': this_test_result,
+        'this_test_count': this_test_count,
+        'test_score': test_score,
+    }
+
+    return render(request, 'valueandwaste/testcertificate.html', context)
