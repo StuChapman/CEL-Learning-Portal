@@ -23,6 +23,7 @@ urlpatterns = [
     path("", include("home.urls")),
     path("polls/", include("polls.urls")),
     path("module001/", include("module001.urls")),
+    path("module002/", include("module002.urls")),
     path("admin/", admin.site.urls),
     path('accounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
