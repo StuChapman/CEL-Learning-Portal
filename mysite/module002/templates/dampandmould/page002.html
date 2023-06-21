@@ -1,0 +1,75 @@
+{% extends "basemodule002.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+    <section id="textsection">
+        <h1>What is Condensation?</h1>
+        <p class="paramedium">K-Class Science Channel explains how the air we breathe out has water vapour. When we blow it out and it comes into contact with a cool surface, the vapour condenses into water droplets.</p>
+        <div class="d-block">
+            <div id="onettovideo"></div>
+        </div>
+        <button id="playbutton" type="button" class="btn" onclick="return playVid();">
+            play
+        </button>
+    </section>
+    {% endif %}
+{% endblock %}
+
+{% block postloadjs %}
+    <!-- YouTube scripts --> 
+    <!-- Credit: https://developers.google.com/youtube/iframe_api_reference -->
+    <script>
+        // This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+    
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+            // This function creates an <iframe> (and YouTube player)
+            // after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+            player = new YT.Player('onettovideo', {
+                videoId: 'Y0nCzFUegl8',
+                allowfullscreen: 'false',
+                playsinline: 'true', // without this code getPlayerStatus will not run on apple iphones //
+                events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+                }
+            });
+            }
+    
+        // The API will call this function when the video player is ready.
+            function onPlayerReady(event) {
+            event.target.pauseVideo();
+            }
+    
+        //Function: play the video
+            function playVideo() {
+            player.playVideo();
+            }
+    
+        //Function: pause the video
+            function pauseVideo() {
+            player.pauseVideo();
+            }
+    
+        //Function: identify when the video has finished playing to reveal hidden navigation //
+            function getPlayerStatus(playerStatus) {
+                if  (playerStatus == 0) {
+                revealNext();
+                resetPlay();
+                }
+            }
+    
+        //Function: identify when the video changes state //
+            function onPlayerStateChange(event) {
+                getPlayerStatus(event.data);
+            }
+        </script>
+
+{% endblock %}
