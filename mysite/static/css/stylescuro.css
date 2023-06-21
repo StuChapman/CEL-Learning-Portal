@@ -112,6 +112,10 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     color: #635F5F;
     }
 
+.attribute a:hover {
+    color: #C0DC3B;
+    }
+    
 /*------------------- Navbar Styling */
 
 nav {
@@ -327,6 +331,11 @@ nav {
     margin-bottom: 2.5vh;
     height: 30vh;
     background-color: #f6f6f6;
+}
+
+.attribute, #attribute {
+    color: gray;
+    font-size: calc(1vh + (8 - 1) * ((100vw - 300px) / 1620));
 }
 
 /* ------------------- more styling in Media Screen responsiveness */

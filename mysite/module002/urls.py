@@ -12,4 +12,7 @@ urlpatterns = [
     path('module002/page003module002',
          views.page003module002,
          name='page003module002'),
+    path('module002/page004module002',
+         views.page004module002,
+         name='page004module002'),
 ]

@@ -1,0 +1,24 @@
+{% extends "basemodule002.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <h1>Condensation in the home...</h1>
+            <div class="d-inline">
+                <span id="leftcarouselarrow">
+                    <i class="fas fa-chevron-left" onclick="return prevImage(1);"></i>
+                </span>
+                <img id="valueimage" src="{{ MEDIA_URL }}\module002\kettle.jpg" alt="kettle graphic" >
+                <span id="rightcarouselarrow">
+                    <i class="fas fa-chevron-right" onclick="return nextImage(1);"></i>
+                </span>
+            </div>
+            <p id="imagetext">Water vapour can come from many sources, for example: a kettle</p>
+            <p id="attribute">
+                <a class="attribute" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm#query=kettle%20clipart&position=1&from_view=keyword&track=ais">Image by brgfx</a> on Freepik
+            </p>
+        </section>
+    {% endif %}
+{% endblock %}

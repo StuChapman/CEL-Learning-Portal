@@ -83,8 +83,8 @@ def page002module002(request):
         'prev_page': 'background',
         'prev_page_small': 'background',
         'next_url': 'page003module002',
-        'next_page': 'definition of value and waste',
-        'next_page_small': 'definition',
+        'next_page': 'condensation in the home',
+        'next_page_small': 'home condensation',
     }
     return render(request, 'dampandmould/page002.html', context)
 
@@ -115,10 +115,46 @@ def page003module002(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'prev_url': 'page002module002',
-        'prev_page': 'looking for waste',
-        'prev_page_small': 'looking',
+        'prev_page': 'what is condensation?',
+        'prev_page_small': 'condensation',
         'next_url': 'page004module002',
-        'next_page': 'examples of value',
-        'next_page_small': 'value',
+        'next_page': 'sources of condensation',
+        'next_page_small': 'sources',
     }
     return render(request, 'dampandmould/page003.html', context)
+
+
+def page004module002(request):
+    """ A view to return page004 """
+    thispage = 'page004module002'
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
+
+    context = {
+        'thispage': thispage,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'prev_url': 'page003module002',
+        'prev_page': 'definition of value and waste',
+        'prev_page_small': 'definition',
+        'next_url': 'page005module002',
+        'next_page': 'examples of waste',
+        'next_page_small': 'waste',
+    }
+    return render(request, 'valueandwaste/page004.html', context)
+
