@@ -9,15 +9,21 @@
                 <h1>Ventilation</h1>
                 <div class="row">
                     <div class="col-lg-8">
-                        <p class="paramedium">Mould is a microscopic fungus that grows in damp places. Mould spores are found everywhere, and are released in their thousands into the atmosphere.</p>
+                        <p class="paramedium">Creating condensation is unavoidable, so we need to be able to allow humid air to escape the home to be replaced by dry air from outside.</p>
                         <br>
-                        <p  class="paramedium">Signs of mould at home include fuzzy black, white or green patches on the walls, and a damp and musty smell.</p>
+                        <p  class="paramedium">Modern windows are usually fitted with 
+                            <span class="orange-highlight">Trickle Vents</span>.
+                            These vents allow small amounts of air to exchange without the need for mechanical extraction.
+                        </p>
                     </div>
                     <div class="mr-auto ml-auto col-lg-4">
                             <img id="ohnoimage" src="{{ MEDIA_URL }}\module002\trickle.jpg" alt="trickle vent image">
                     </div>
                     <div class="col-lg-12">
-                        <p  class="paralarge">People living with mould are more likely to suffer from respiratory illnesses, infections, allergies or asthma.</p>
+                        <p  class="paralarge">According to the UK Government 
+                            <a class="orange-highlight" href ="https://www.gov.uk/government/publications/home-user-guide-template/existing-home-ventilation-guide">website</a>
+                            , trickle vents should be permanently open - even in winter.
+                        </p>
                     </div>
                     <div id="downarrow" class="ml-auto mr-auto">
                         <i class="fas fa-chevron-down" onclick="return scrollDown();"></i>
@@ -28,14 +34,25 @@
                 <div id="uparrow">
                     <i class="fas fa-chevron-up mt-3" onclick="return scrollUp();"></i>
                 </div>
-                <h1 class="pt-0 pb-0">Another way to look at it is...</h1>
-                <br>
-                <p class="paralarge">- for every Customer who DID pay the loan back, the Credit Check was Waste.</p>
-                <p class="paralarge">- for every Customer who WOULDN’T HAVE paid the loan back, it added Value.</p>
-                <br>
-                <p class="paramedium">Therefore, we should keep Necessary Non-Value-Add to the minimum, and where we 
-                    accept it, we should keep the cost and effort to a minimum..</p>
-                <p class="paramedium">(no point spending a million dollers to avoid a half-million-dollar risk!)</p>
+                <div class="row">
+                    <div class="mr-auto ml-auto col-lg-4">
+                            <img id="ohnoimage" src="{{ MEDIA_URL }}\module002\extractor.jpg" alt="extractor fan image">
+                    </div>
+                    <div class="col-lg-8">
+                        <p class="paramedium">
+                            <span class="orange-highlight">Extractor Fans</span> 
+                            are vital in  removing humid air, particularly in bathrooms and kitchens. they should be turned on whenever steam is being created, either by cooking or bathing.</p>
+                        <br>
+                        <p  class="paramedium"> If an extractor fan is available in a utility room, ten it should be used while a washing machine or tumble drier is operating.</p>
+                    </div>
+                    <div class="col-lg-12 pt-4">
+                        <p  class="paralarge">The UK Government 
+                            <a class="orange-highlight" href ="https://www.gov.uk/government/publications/home-user-guide-template/existing-home-ventilation-guide">website</a>
+                            recommends they should be cleaned regularly.
+                        </p>
+                        <p  class="paramedium">A useful tip to determine whether a fan is working or not; is to hold a piece of tissue paper in front of it, while it is switched on. If the paper doesn't stick to the fan, then it is not working.
+                    </div>
+                </div>
             </div>
         </section>
     {% endif %}
