@@ -153,8 +153,8 @@ def page004module002(request):
         'prev_page': 'condensation in the home',
         'prev_page_small': 'home condensation',
         'next_url': 'page005module002',
-        'next_page': 'cold surfaces',
-        'next_page_small': 'cold surfaces',
+        'next_page': 'ventilation',
+        'next_page_small': 'ventilation',
     }
     return render(request, 'dampandmould/page004.html', context)
 
@@ -185,11 +185,11 @@ def page005module002(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'prev_url': 'page004module002',
-        'next_page': 'sources of condensation',
-        'next_page_small': 'sources',
+        'prev_page': 'sources of condensation',
+        'prev_page_small': 'sources',
         'next_url': 'page006module002',
-        'next_page': 'examples of waste',
-        'next_page_small': 'waste',
+        'next_page': 'cold surfaces',
+        'next_page_small': 'cold surfaces',
     }
     return render(request, 'dampandmould/page005.html', context)
 
@@ -220,10 +220,10 @@ def page006module002(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'prev_url': 'page004module002',
-        'next_page': 'sources of condensation',
-        'next_page_small': 'sources',
+        'prev_page': 'sources of condensation',
+        'prev_page_small': 'sources',
         'next_url': 'page006module002',
-        'next_page': 'examples of waste',
-        'next_page_small': 'waste',
+        'next_page': 'cold surfaces',
+        'next_page_small': 'cold surfaces',
     }
     return render(request, 'dampandmould/page006.html', context)
