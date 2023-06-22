@@ -15,4 +15,10 @@ urlpatterns = [
     path('module002/page004module002',
          views.page004module002,
          name='page004module002'),
+    path('module002/page005module002',
+         views.page005module002,
+         name='page005module002'),
+    path('module002/page006module002',
+         views.page006module002,
+         name='page006module002'),
 ]

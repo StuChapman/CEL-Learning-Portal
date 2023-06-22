@@ -150,11 +150,80 @@ def page004module002(request):
         'arrows': 'arrows',
         'nexthidden': nexthidden,
         'prev_url': 'page003module002',
-        'prev_page': 'definition of value and waste',
-        'prev_page_small': 'definition',
+        'prev_page': 'condensation in the home',
+        'prev_page_small': 'home condensation',
         'next_url': 'page005module002',
+        'next_page': 'cold surfaces',
+        'next_page_small': 'cold surfaces',
+    }
+    return render(request, 'dampandmould/page004.html', context)
+
+
+def page005module002(request):
+    """ A view to return page005 """
+    thispage = 'page005module002'
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
+
+    context = {
+        'thispage': thispage,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'prev_url': 'page004module002',
+        'next_page': 'sources of condensation',
+        'next_page_small': 'sources',
+        'next_url': 'page006module002',
         'next_page': 'examples of waste',
         'next_page_small': 'waste',
     }
-    return render(request, 'valueandwaste/page004.html', context)
+    return render(request, 'dampandmould/page005.html', context)
 
+
+def page006module002(request):
+    """ A view to return page006 """
+    thispage = 'page006module002'
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
+
+    context = {
+        'thispage': thispage,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'prev_url': 'page004module002',
+        'next_page': 'sources of condensation',
+        'next_page_small': 'sources',
+        'next_url': 'page006module002',
+        'next_page': 'examples of waste',
+        'next_page_small': 'waste',
+    }
+    return render(request, 'dampandmould/page006.html', context)

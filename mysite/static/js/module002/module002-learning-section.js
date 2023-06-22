@@ -16,7 +16,7 @@ function getIndexOfK(arr, k) { //credit to https://jsfiddle.net/wao20/Lct1de56/ 
 
 // ********** View specific Functions ********** //
 
-//Function: using the play button to play and pause the Mark Onetto video on page002module002 //
+//Function: using the play button to play and pause the condensation video on page002module002 //
 function playVid() { 
 
     let buttonText = $("#playbutton").text();
@@ -102,11 +102,11 @@ function populateImage(getpage) {
         case 1:
             imageArray = 
                 [
-                    ['kettle', 'Water vapour can come from many sources, for example: a kettle', '<a class="attribute" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm#query=kettle%20clipart&position=1&from_view=keyword&track=ais">Image by brgfx</a> on Freepik'],
-                    ['steam', 'The steam will disappear into the air','<a class="attribute" href="https://www.freepik.com/free-photo/drop-gray-paint-falling-water_995087.htm#query=steam&position=49&from_view=search&track=sph">Image by onlyyouqj</a> on Freepik'],
-                    ['meal', 'Serving a meal to a Customer'],
-                    ['tyre', 'Replacing a flat tyre on a car'],
-                    ['sale', 'Selling a new insurance policy to a Customer']
+                    ['kettle', 'Water vapour can come from many sources, for example: a kettle', '<a class="attribute" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm">Image by brgfx</a> on Freepik'],
+                    ['steam', 'The steam from the kettle will disappear into the air','<a class="attribute" href="https://www.freepik.com/free-photo/drop-gray-paint-falling-water_995087.htm">Image by onlyyouqj</a> on Freepik'],
+                    ['humidity', 'The air in the home now becomes more humid as a result of the steam','image copyright'],
+                    ['condensation', 'The humid air will condense into water droplets when it comes in contact with a cold surface','<a class="attribute"  href="https://www.freepik.com/free-photo/water-drops-texture-background-white-design_18998782.htm">Image by rawpixel.com</a> on Freepik'],
+                    ['sources', 'There are many sources of condensation in the home. Not all of them are obvious...','<a class="attribute"  href="https://www.freepik.com/free-vector/illustration-list_2945066.htm">Image by rawpixel.com</a> on Freepik']
                 ];
             break;
         case 2:
@@ -139,10 +139,10 @@ function populateImage(getpage) {
             colorTagLeft = '#eeeeee';
             break;
         case 1:
-            colorTagLeft = '#657486';
+            colorTagLeft = '#C0DC3B';
             break;
         case 3:
-            colorTagRight = '#657486';
+            colorTagRight = '#C0DC3B';
             break;
         case 4:
             colorTagRight = '#eeeeee';
@@ -176,28 +176,28 @@ function handleWaste(imagetag) {
 
     // as each image is clicked, populate its variable to 1 //
     switch(imageString) {
-        case 'transportationFlag':
+        case 'kettle2Flag':
             transportationFlag = 1;
             break;
-        case 'inventoryFlag':
+        case 'saucepanFlag':
             inventoryFlag = 1;
             break;
-        case 'motionFlag':
+        case 'clothesFlag':
             motionFlag = 1;
             break;
-        case 'waitingFlag':
+        case 'showerFlag':
             waitingFlag = 1;
             break;
-        case 'overproductionFlag':
+        case 'washingFlag':
             overproductionFlag = 1;
             break;
-        case 'overprocessingFlag':
+        case 'mortarFlag':
             overprocessingFlag = 1;
             break;
-        case 'defectsFlag':
+        case 'leakFlag':
             defectsFlag = 1;
             break;
-        case 'skillsFlag':
+        case 'breathFlag':
             skillsFlag = 1;
             break;
         default:
@@ -225,55 +225,55 @@ function popupWaste(imagetag) {
     let wasteIndex =0;
 
     let popupArray = [
-                    ['Transportation', 'Moving product or work around for no reason.', 
-                        'In a restaurant, this might be; carrying all the meat downstairs to the cellar, only to have to carry it all back upstairs again to cook it.', 
-                            '...or a Customer being transferred from one department to another.'],
-                    ['Inventory', 'Keeping excessive stocks of product.', 
-                        'In our restaurant, this might be filling the freezer with a year`s worth of sausages', 
-                            '...or batching up change requests for approval.'],
-                    ['Motion', 'Moving the worker around.', 
-                        'The chef in our restaurant might have to walk to one cupboard to get the oil, then walk to the other side of the kitchen to get the salt.', 
-                            '...or navigating through a number of screens of a website.'],
-                    ['Waiting', 'Work or product standing still.', 
-                        'Our restaurant Customers do not like spending 30 minutes waiting for thier food.', 
-                            '...or this could be a queue to speak to an advisor on the phone.'],
-                    ['Overproduction', 'Producing work or product ahead of schedule.', 
-                        'The waiter could take out the first course before the Customer has finished thier starter.', 
-                            '...or printing a batch of books before you have received orders.'],
-                    ['Overprocessing', 'Work or product that is too complicated', 
-                        'The chef arranging the sausages and mash into the shape of a steam locomotive!', 
-                            '...or quality checks and approvals throughout a process.'],
-                    ['Defects', 'Work or product that has to be repaired or discarded.', 
-                        'Burning the sausages!', 
-                            '...or a Customer losing patience with a website, and exiting before buying.'],
-                    ['Skills', 'Using the wrong people at the wrong time.', 
-                        'Asking the waiter to cook the food.', 
-                            '...or asking a manager to decide how a craftsperson uses thier tools.'],
+                    ['Kettle Boiling', 'As previously mentioned, steam will make the surrounding air humid.', 
+                        'Turning on the extractor fan, opening a window and keeping the kitchen door closed can all minimise the risk.', 
+                            '...remember, the humidity may be caused in the kitchen, but the condensation could appear in a different room.'],
+                    ['Cooking', 'Similarly to a kettle, steam from pans or the oven, will make the surrounding air humid.', 
+                        'Again, turn on the extractor fan, open a window and keep the kitchen door closed to reduce the risk.', 
+                            '...do all three if you can.'],
+                    ['Drying Clothes', 'Most people dry their clothes inside the home from time to time.', 
+                        'A single load of washing typically contains 2 litres of water which if dried internally, will become airborne .', 
+                            '...drying clothes in a utility room or bathroom, with an extraction fan on, will help remove the moisture to outside the home.'],
+                    ['Bathing', 'Running the bath, shower and hot taps produce steam.', 
+                        'The bathroom extractor fan should always be on when hot water is running, and the bathroom door closed.', 
+                            '...the bathroom door should also have a small gap at the bottom - to allow dry air to enter.'],
+                    ['Laundry', 'Washing Machines and Tumble Driers create steam.', 
+                        'Both utilities should be vented appropriately.', 
+                            '...windows, fans and doors can help prevent the steam from spreading to other rooms.'],
+                    ['Damaged Brick Work', 'Water can into the home from outside.', 
+                        'Missing mortar or cracks, or an ineffective or damaged Damp Proof Course should be inspected and repaired.', 
+                            '...a walk around your home could identify sources of moisture.'],
+                    ['Pipe or Roof Leaks', 'Another source of moisture from outside the home.', 
+                        'The fabric of the building will absorb water, which will then evaporate into the air.', 
+                            '...a pipe leak under a bathroom sink could cause condensation in a different room.'],
+                    ['Breathing!', 'As in the video we saw earlier.', 
+                        'Humans breathe out about a litre of water a day. Dogs and cats too!', 
+                            '...overcrowding can be a major source of condensation if too many people share one home.'],
                 ];
     
     switch(indexString) {
-        case 'transportation':
+        case 'kettle2':
             wasteIndex = 0;
             break;
-        case 'inventory':
+        case 'saucepan':
             wasteIndex = 1;
             break;
-        case 'motion':
+        case 'clothes':
             wasteIndex = 2;
             break;
-        case 'waiting':
+        case 'shower':
             wasteIndex = 3;
             break;
-        case 'overproduction':
+        case 'washing':
             wasteIndex = 4;
             break;
-        case 'overprocessing':
+        case 'mortar':
             wasteIndex = 5;
             break;
-        case 'defects':
+        case 'leak':
             wasteIndex = 6;
             break;
-        case 'skills':
+        case 'breath':
             wasteIndex = 7;
             break;
         default:

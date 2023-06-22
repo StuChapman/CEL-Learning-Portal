@@ -1,4 +1,3 @@
-
 /*------------------- General Styling */
 
 body, html {
@@ -43,7 +42,7 @@ label {
 }
 
 .orange-highlight {
-     color: #635F5F;
+     color: #C0DC3B;
  }
 
 .extramargin {
@@ -90,7 +89,7 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
 }
 
 .orange-highlight:hover {
-    color: #C0DC3B;
+    color: #635F5F;
 }
 
 .btn.focus, .btn:focus {
@@ -112,7 +111,7 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     color: #635F5F;
     }
 
-.attribute a:hover {
+.attribute a:hover, #attribute a:hover {
     color: #C0DC3B;
     }
     
@@ -682,14 +681,14 @@ nav {
         margin-left: auto;
     }
 
-    #transportation, 
-    #inventory,
-    #motion,
-    #waiting,
-    #overproduction,
-    #overprocessing,
-    #defects,
-    #skills {
+    #kettle2, 
+    #saucepan,
+    #clothes,
+    #shower,
+    #washing,
+    #mortar,
+    #leak,
+    #breath {
         height: 13vh;
         padding: .5vh .5vh 0 .5vh;
     }
@@ -778,14 +777,14 @@ nav {
         margin-left: 0;
     }
 
-    #transportation, 
-    #inventory,
-    #motion,
-    #waiting,
-    #overproduction,
-    #overprocessing,
-    #defects,
-    #skills {
+    #kettle2, 
+    #saucepan,
+    #clothes,
+    #shower,
+    #washing,
+    #mortar,
+    #leak,
+    #breath {
         height: 24.5vh;
         padding: .5vh .5vh 0 .5vh;
     }
