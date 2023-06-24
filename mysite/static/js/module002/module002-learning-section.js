@@ -236,7 +236,7 @@ function popupWaste(imagetag) {
                             '...drying clothes in a utility room or bathroom, with an extraction fan on, will help remove the moisture to outside the home.'],
                     ['Bathing', 'Running the bath, shower and hot taps produce steam.', 
                         'The bathroom extractor fan should always be on when hot water is running, and the bathroom door closed.', 
-                            '...the bathroom door should also have a small gap at the bottom - to allow dry air to enter.'],
+                            '...even better - open a window as well, to let all the steam escape.'],
                     ['Laundry', 'Washing Machines and Tumble Driers create steam.', 
                         'Both utilities should be vented appropriately.', 
                             '...windows, fans and doors can help prevent the steam from spreading to other rooms.'],
