@@ -213,7 +213,8 @@ def page006module002(request):
                               page=thispage,
                               status=1,)
             user_page.save()
-            nexthidden = 'true'
+            """ specific to this page only """
+            nexthidden = 'false'
 
     context = {
         'thispage': thispage,
@@ -257,7 +258,7 @@ def page007module002(request):
         'prev_url': 'page006module002',
         'prev_page': 'measuring humidity',
         'prev_page_small': 'humidity',
-        'next_url': 'page007module002',
+        'next_url': 'page008module002',
         'next_page': 'cold surfaces',
         'next_page_small': 'cold surfaces',
     }
@@ -292,8 +293,22 @@ def page008module002(request):
         'prev_url': 'page007module002',
         'prev_page': 'managing humidity',
         'prev_page_small': 'managing rh',
-        'next_url': 'page009module002',
-        'next_page': 'cold surfaces',
-        'next_page_small': 'cold surfaces',
+        'next_url': 'testintro',
+        'next_page': 'test',
+        'next_page_small': 'test',
     }
     return render(request, 'dampandmould/page008.html', context)
+
+
+def testintro(request):
+    """ A view to return the testintro page """
+    thistest = 'testintro'
+    nexttest = 'test001module002'
+    context = {
+        'thistest': thistest,
+        'nexttest': nexttest,
+        'arrows': 'noarrows',
+        'nexthidden': 'false',
+    }
+
+    return render(request, 'dampandmould/testintro.html', context)

@@ -24,4 +24,10 @@ urlpatterns = [
     path('module002/page007module002',
          views.page007module002,
          name='page007module002'),
+    path('module002/page008module002',
+         views.page008module002,
+         name='page008module002'),
+    path('module002/testintro',
+         views.testintro,
+         name='testintro'),
 ]
