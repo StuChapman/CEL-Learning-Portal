@@ -297,6 +297,11 @@ nav {
     color: #000000;
 }
 
+#textsection .parasmall {
+    font-size: calc(1.5vh + (15 - 2) * ((100vw - 300px) / 1620));
+    color: #000000;
+}
+
 #textsection button {
     margin-top: 2.5vh;
     background-color: #C0DC3B;
@@ -446,6 +451,10 @@ nav {
 #ohnoimage {
     height: 20vh;
     padding-bottom: 2.5vh;
+}
+
+#hygrometerimage {
+    height: 40vh;
 }
 
 #valueimage {
@@ -870,6 +879,12 @@ nav {
     padding: 0.75rem 1.25rem;
   }
 
+  @media screen and (min-width: 359px) {
+    #hygrometerimage {
+        height: 20vh;
+    }
+}
+
 @media screen and (min-width: 768px) {
     #helpbtn {
         font-size: calc(2.5vh + (5 - 2.5) * ((100vw - 768px) / 300));
@@ -880,7 +895,9 @@ nav {
     #ohnoimage {
         height: 30vh;
     }
-        
+    #hygrometerimage {
+        height: 40vh;
+    }
     #textsection .paralarge{
         padding: 0 5vw 0 5vw;
     }

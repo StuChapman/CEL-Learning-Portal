@@ -102,17 +102,17 @@ function populateImage(getpage) {
         case 1:
             imageArray = 
                 [
-                    ['kettle', 'Water vapour can come from many sources, for example: a kettle', '<a class="attribute" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm">Image by brgfx</a> on Freepik'],
-                    ['steam', 'The steam from the kettle will disappear into the air','<a class="attribute" href="https://www.freepik.com/free-photo/drop-gray-paint-falling-water_995087.htm">Image by onlyyouqj</a> on Freepik'],
+                    ['kettle', 'Water vapour can come from many sources, for example: a kettle', '<a class="attribute" target="_blank" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm">Image by brgfx</a> on Freepik'],
+                    ['steam', 'The steam from the kettle will disappear into the air','<a class="attribute" target="_blank" href="https://www.freepik.com/free-photo/drop-gray-paint-falling-water_995087.htm">Image by onlyyouqj</a> on Freepik'],
                     ['humidity', 'The air in the home now becomes more humid as a result of the steam','image copyright'],
-                    ['condensation', 'The humid air will condense into water droplets when it comes in contact with a cold surface','<a class="attribute"  href="https://www.freepik.com/free-photo/water-drops-texture-background-white-design_18998782.htm">Image by rawpixel.com</a> on Freepik'],
-                    ['sources', 'There are many sources of condensation in the home. Not all of them are obvious...','<a class="attribute"  href="https://www.freepik.com/free-vector/illustration-list_2945066.htm">Image by rawpixel.com</a> on Freepik']
+                    ['condensation', 'The humid air will condense into water droplets when it comes in contact with a cold surface','<a class="attribute"  target="_blank" href="https://www.freepik.com/free-photo/water-drops-texture-background-white-design_18998782.htm">Image by rawpixel.com</a> on Freepik'],
+                    ['sources', 'There are many sources of condensation in the home. Not all of them are obvious...','<a class="attribute"  target="_blank" href="https://www.freepik.com/free-vector/illustration-list_2945066.htm">Image by rawpixel.com</a> on Freepik']
                 ];
             break;
         case 2:
             imageArray = 
                 [
-                    ['headache', 'Going past the agreed date for the loan to be credited','<a class="attribute" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm#query=kettle%20clipart&position=1&from_view=keyword&track=ais">Image by brgfx</a> on Freepik'],
+                    ['headache', 'Going past the agreed date for the loan to be credited','<a class="attribute" target="_blank" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm#query=kettle%20clipart&position=1&from_view=keyword&track=ais">Image by brgfx</a> on Freepik'],
                     ['dirty', 'Removing smears left on a window after cleaning'],
                     ['overeat', 'Serving a meal to a Customer while they are still eating the previous course'],
                     ['flat', 'Not inflating the tyre to the correct pressure'],
