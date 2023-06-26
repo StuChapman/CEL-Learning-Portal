@@ -223,8 +223,8 @@ def page006module002(request):
         'prev_page': 'ventilation',
         'prev_page_small': 'ventilation',
         'next_url': 'page007module002',
-        'next_page': 'cold surfaces',
-        'next_page_small': 'cold surfaces',
+        'next_page': 'managing humidity',
+        'next_page_small': 'managing rh',
     }
     return render(request, 'dampandmould/page006.html', context)
 
@@ -254,11 +254,46 @@ def page007module002(request):
         'thispage': thispage,
         'arrows': 'arrows',
         'nexthidden': nexthidden,
-        'prev_url': 'page005module002',
-        'prev_page': 'ventilation',
-        'prev_page_small': 'ventilation',
+        'prev_url': 'page006module002',
+        'prev_page': 'measuring humidity',
+        'prev_page_small': 'humidity',
         'next_url': 'page007module002',
         'next_page': 'cold surfaces',
         'next_page_small': 'cold surfaces',
     }
-    return render(request, 'dampandmould/page006.html', context)
+    return render(request, 'dampandmould/page007.html', context)
+
+
+def page008module002(request):
+    """ A view to return page008 """
+    thispage = 'page008module002'
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
+
+    context = {
+        'thispage': thispage,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'prev_url': 'page007module002',
+        'prev_page': 'managing humidity',
+        'prev_page_small': 'managing rh',
+        'next_url': 'page009module002',
+        'next_page': 'cold surfaces',
+        'next_page_small': 'cold surfaces',
+    }
+    return render(request, 'dampandmould/page008.html', context)

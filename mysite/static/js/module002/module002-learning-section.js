@@ -306,9 +306,9 @@ function exampleSelect() {
     var exampleindex  = examplelist.selectedIndex; // Credit: https://www.codeproject.com/articles/656/using-javascript-to-handle-drop-down-list-selectio //
 
     if (exampleindex == answerindex) {
-        $('#examplestep').text('Thats right! ' + answertext);
+        $('#examplestep').html('Thats right! ' + answertext);
     } else {
-        $('#examplestep').text('Not quite. ' + answertext);
+        $('#examplestep').html('Not quite. ' + answertext);
     }
 
     if (exampleStepNo == 7) {
@@ -319,7 +319,7 @@ function exampleSelect() {
     } else {
         $('#examplepara').text('tap the arrow to move to the next step...');
         $('#examplelist').css('visibility', 'hidden');
-        $("#examplecarouselarrow").css('color', '#657486');
+        $("#examplecarouselarrow").css('color', '#C0DC3B');
     }
 }
 
@@ -329,11 +329,11 @@ function nextExample() {
         return;
     } else {
         ++exampleStepNo;
-        $('#examplestep').text(examplearray[exampleStepNo - 1][0]);
+        $('#examplestep').html(examplearray[exampleStepNo - 1][0]);
         document.getElementById("examplelist").selectedIndex = "0";
         $('#examplelist').css('visibility', 'visible');
         $("#examplecarouselarrow").css('color', '#dddcdc');
-        $('#examplepara').text('Is this step Value or Waste? If Waste, which of the 8 Wastes? Select from the list below...');
+        $('#examplepara').text('What action should we take to bring the humdity down? Select from the list below...');
     }
 }
 

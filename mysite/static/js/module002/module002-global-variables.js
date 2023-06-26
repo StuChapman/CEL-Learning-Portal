@@ -24,8 +24,8 @@ var skillsFlag = 0;
 
 //Set global variables - array examplestep, answerindex and answertext for on example.html //
 let examplearray = [
-                    ['1. First thing we need to do is get the wood from the truck and bring it to our workbench.',  '2', 'Moving material (wood) around is TRANSPORTATION. Even if we cannot fully eliminate it, we should reduce it as much as possible - maybe have the truck deliver to the workbench...'],
-                    ['2. Then we drill some holes in the wood to make the joints',  '1', 'Changing the shape of the work adds VALUE to it - it becomes closer to the finished product.'],
+                    ['1. It`s first thing in the morning, and the Hygrometer is displaying:',  '1', 'Ventilating the room using: a fan, vents or a window WILL reduce the Humidity a bit, but this room is far too cold! Turning on the heating will not only make the room more comfortable, but it will heat the air, allowing the Humidity to reduce.'],
+                    ['2. We turn the heating on and wait a short while. The Hygrometer is now displaying: <span class="orange-highlight">10&deg;C and 74%RH</span>',  '1', 'Changing the shape of the work adds VALUE to it - it becomes closer to the finished product.'],
                     ['3. Next, check the holes are the right size.',  '7', 'Checking is OVERPROCESSING - we should make failsafes that ensure processes are correct every time, without the need to check.'],
                     ['4. Fasten the legs to the base with glue and allow it to dry',  '5', 'WAITING for the glue to dry is Waste. We could experiment with different methods here, like using wood screws.'],
                     ['5. Turn the chair upside-down to fit the seat-back.',  '4', 'The MOTION of turning the chair adds time. If we designed a fixture to hold the chair in place while we fit the legs and the seat-back, we could remove this.'],

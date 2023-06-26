@@ -1,0 +1,34 @@
+{% extends "basemodule002.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <h1>Managing Humidity</h1>
+            <p class="paramedium">We'll step through an example now and decide if the steps we take 
+                will reduce Relative Humidity.</p>
+            <div class="row examplecontainer ml-auto mr-auto">
+                <div class="col-9 examplebox align-vertically pl-3">
+                    <p id="examplestep" class="paramedium">1. It's first thing in the morning, and the Hygrometer is displaying: 
+                    <span class="orange-highlight">5&deg;C and 80%RH</span></p>
+                </div>
+                <div class="col-3 examplebox align-vertically pr-3">
+                    <span id="examplecarouselarrow">
+                        <i class="fas fa-chevron-right" onclick="return nextExample();"></i>
+                    </span>
+                </div>
+            </div>
+            <p id="examplepara" class="paramedium">What action should we take to bring the humdity down? Select from the 
+                list below...</p>
+            <select name="examplelist" id="examplelist" onchange="return exampleSelect(examplelist);">
+                <option value="default" selected>select...</option>
+                <option value="heating">Turn on the heating</option>
+                <option value="ventilation">Open the trickle vents</option>
+                <option value="extractiob">Switch on a fan</option>
+                <option value="window">Open a window</option>
+                <option value="wait">Wait...</option>
+            </select>
+        </section>
+    {% endif %}
+{% endblock %}
