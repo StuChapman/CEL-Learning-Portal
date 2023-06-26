@@ -311,8 +311,8 @@ function exampleSelect() {
         $('#examplestep').html('Not quite. ' + answertext);
     }
 
-    if (exampleStepNo == 7) {
-        $('#examplepara').text('tap next to start the Online Test...');
+    if (exampleStepNo == 4) {
+        $('#examplepara').text('Hygrometers are really useful in helping to manage humidity, and could be used in every room.');
         $('#examplelist').css('visibility', 'hidden');
         $("#examplecarouselarrow").css('color', '#dddcdc');
         revealNext();
@@ -333,7 +333,7 @@ function nextExample() {
         document.getElementById("examplelist").selectedIndex = "0";
         $('#examplelist').css('visibility', 'visible');
         $("#examplecarouselarrow").css('color', '#dddcdc');
-        $('#examplepara').text('What action should we take to bring the humdity down? Select from the list below...');
+        $('#examplepara').text('What action should we take to bring the humidity down? Select from the list below...');
     }
 }
 
