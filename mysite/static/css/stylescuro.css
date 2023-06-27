@@ -252,7 +252,6 @@ nav {
 }
 
 #textsection h1 {
-    padding: 5vh;
     margin: 0;
     font-size: calc(5vh + (30 - 5) * ((100vw - 300px) / 1620));
 }
@@ -684,6 +683,14 @@ nav {
 
 @media screen and (orientation: portrait){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
 
+    
+    #textsection h1 {
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+        padding-left: 1vh;
+        padding-right: 1vh;
+    }
+
     .extramarginbottom {
         margin-bottom: 1vh;
     }
@@ -778,6 +785,10 @@ nav {
 }
 
 @media screen and (orientation: landscape){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
+
+    #textsection h1 {
+        padding: 5vh;
+    }
 
     #totalScore {
         font-size: calc(15vh + (30 - 5) * ((100vw - 300px) / 1620));

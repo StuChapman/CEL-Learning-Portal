@@ -292,7 +292,7 @@ function popupWaste(imagetag) {
                     ['Damp Proof Course', 'A membrane that prevents moisure from the ground getting into the home.', 
                         'A damaged, missing or ineffective Damp Proof Course can be a major source of water ingress.', 
                             '...can have a significant effect on the property.'],
-                    ['External obstructions', 'Either blocking sunlight or damaging the brickwork.', 
+                    ['Obstructions', 'Either blocking sunlight or damaging the brickwork.', 
                         'Anything that is against an external wall can be a problem. Rubbish bags or a bin can block the light and keep the wall cooler that it could be.', 
                             'Vegetation can grow into cracks in the bricks and mortar and cause problems.'],
                     ['General Ventilation', 'The survey will review the ventilation in all rooms.', 
