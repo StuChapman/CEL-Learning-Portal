@@ -26,5 +26,10 @@ function sendEmail() {
 
 // Function: navigate to Continuous Engagament Ltd homepage //
 function goCELHome() {
-    window.location.replace('http://www.continuous-engagement.co.uk');
+    window.location.replace('https://continuous-engagement.co.uk');
+    }
+
+// Function: navigate to Curo Ltd homepage //
+function goCuroHome() {
+    window.location.replace('https://www.curo-group.co.uk/');
     }

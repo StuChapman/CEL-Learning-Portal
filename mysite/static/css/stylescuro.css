@@ -310,9 +310,15 @@ nav {
 }
 
 #textsection #imagetext {
-    font-size: calc(3.5vh + (26 - 3.5) * ((100vw - 300px) / 1620));
+    font-size: calc(2.5vh + (26 - 3.5) * ((100vw - 300px) / 1620));
     color: #101828;
     padding: 0 20vw 0 20vw;
+}
+
+#textsection #imagedetail {
+    font-size: calc(2vh + (15 - 2) * ((100vw - 300px) / 1620));
+    color: #101828;
+    padding: 0 10vw 0 10vw;
 }
 
 #textsection .imagefooter {
@@ -697,7 +703,9 @@ nav {
     #washing,
     #mortar,
     #leak,
-    #breath {
+    #breath,
+    #anemometer,
+    #hygrometer2 {
         height: 13vh;
         padding: .5vh .5vh 0 .5vh;
     }
@@ -793,7 +801,9 @@ nav {
     #washing,
     #mortar,
     #leak,
-    #breath {
+    #breath,
+    #anemometer,
+    #hygrometer2 {
         height: 24.5vh;
         padding: .5vh .5vh 0 .5vh;
     }

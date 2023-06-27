@@ -1,0 +1,70 @@
+{% extends "basemodule002.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <h1 class="pt-1 pb-1">Damp & Mould Survey</h1>
+            <p class="paramedium">A Damp & Mould Survey can help you identify the causes of: Humidity, Condensation and Mould, by ...</p>
+            <div class="row wastecontainer ml-auto mr-auto">
+                <div class="wasteimagecontainer">
+                    <img id="anemometer" onclick="return handleWaste('#anemometer');" 
+                        src="{{ MEDIA_URL }}\module002\anemometer.jpg" alt="anemometer image">
+                    <div class="imagefooter">Anemometer</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="hygrometer2" onclick="return handleWaste('#hygrometer2');" 
+                        src="{{ MEDIA_URL }}\module002\hygrometer2.jpg" alt="hygrometer image">
+                    <div class="imagefooter">Hygrometer</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="clothes" onclick="return handleWaste('#clothes');" 
+                        src="{{ MEDIA_URL }}\module002\clothes.jpg" alt="drying clothes image">
+                    <div class="imagefooter">Dyring Clothes</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="shower" onclick="return handleWaste('#shower');" 
+                        src="{{ MEDIA_URL }}\module002\shower.jpg" alt="shower image">
+                    <div class="imagefooter">Bathing</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="washing" onclick="return handleWaste('#washing');" 
+                        src="{{ MEDIA_URL }}\module002\washing.jpg" alt="washing machine image">
+                    <div class="imagefooter">Laundry</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="mortar" onclick="return handleWaste('#mortar');" 
+                        src="{{ MEDIA_URL }}\module002\mortar.jpg" alt="damamged mortar image">
+                    <div class="imagefooter">Damaged Brickwork</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="leak" onclick="return handleWaste('#leak');" 
+                        src="{{ MEDIA_URL }}\module002\leak.jpg" alt="leaking pip image">
+                    <div class="imagefooter">Pipe and Roof Leaks</div>
+                </div>
+                <div class="wasteimagecontainer">
+                    <img id="breath" onclick="return handleWaste('#breath');" 
+                        src="{{ MEDIA_URL }}\module002\breath.jpg" alt="breathing image">
+                    <div class="imagefooter">Breathing!</div>
+                </div>
+            </div>
+
+        <!-- Waste pop-up -->
+            <div id="wastepopup">
+                <h1 id="pophead">Transportation</h1>
+                <p id="poppone" class="paralarge">Moving product or work around for no reason.</p>
+                <p id="popptwo"  class="paramedium">In a restaurant, this might be; carrying all the 
+                    meat downstairs to the cellar, only to have to carry it all back upstairs again to cook it.</p>
+            <div class="wastepopupimagecontainer">
+                <img id="wastepopupimage" 
+                    src="{{ MEDIA_URL }}\module002\kettle2.jpg" alt="image to represent waste">
+            </div>
+                <p id="poppthree"  class="paramedium">Or a Customer being transferred from one department to another.</p>
+                <button type="button" class="btn-blue mt-0" onclick="return popDownWaste();">
+                    Close
+                </button>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

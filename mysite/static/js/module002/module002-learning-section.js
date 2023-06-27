@@ -112,11 +112,11 @@ function populateImage(getpage) {
         case 2:
             imageArray = 
                 [
-                    ['headache', 'Going past the agreed date for the loan to be credited','<a class="attribute" target="_blank" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm#query=kettle%20clipart&position=1&from_view=keyword&track=ais">Image by brgfx</a> on Freepik'],
-                    ['dirty', 'Removing smears left on a window after cleaning'],
-                    ['overeat', 'Serving a meal to a Customer while they are still eating the previous course'],
-                    ['flat', 'Not inflating the tyre to the correct pressure'],
-                    ['phone', 'Telling the telephone Customer they have to go online to buy the policy']
+                    ['window', 'Windows are one of the coldest surfaces in the home. One way to minimise this; is for radiators to be located below windows.'],
+                    ['external', 'External walls tend to be colder than internal - you can see in the image, the mould is only on one wall (external) and the other (internal) is mould free. Again, locating radiators on external walls will help.'],
+                    ['thermal', 'External walls can be even colder if there is a lack of cavity insulation, or the insulation has been breached by some building material (a beam, joist, block etc.) A cavity inspection or use of thermal imaging as shown, will indicate any remedial work that would be required.'],
+                    ['ceiling', 'Upstairs ceilings are another colder surface, especially if the loft insulation is missing or inadequate. Mould is common around the edges of a ceiling, where the loft insulation has not been pushed all the way into the eaves, causing a cold gap. Relaying or replacing the loft insulation will help.'],
+                    ['furniture', 'Behind furniture is not a cold spot specifically, more the humid air get trapped behind and eventually condenses onto the wall. it can be a problem because it us unseen and grows for a long time. Moving furniture away from the wall (even by a centimeter) helps. ']
                 ];
             break;
         default:
@@ -127,8 +127,15 @@ function populateImage(getpage) {
 
     // 200ms delay to allow image to cache //
     setTimeout(function() {
-        $("#imagetext").text(imageArray[imageCount][1]);
-        $("#attribute").html(imageArray[imageCount][2]);
+        switch(getpage) {
+            case 1:
+                $("#imagetext").text(imageArray[imageCount][1]);
+                $("#attribute").html(imageArray[imageCount][2]);
+                break;
+            case 2:
+                $("#imagedetail").text(imageArray[imageCount][1]);
+                break;
+        }
     }, 200);
 
     let colorTagLeft;
@@ -179,7 +186,13 @@ function handleWaste(imagetag) {
         case 'kettle2Flag':
             transportationFlag = 1;
             break;
+        case 'anemometerFlag':
+            transportationFlag = 1;
+            break;
         case 'saucepanFlag':
+            inventoryFlag = 1;
+            break;
+        case 'hygrometer2Flag':
             inventoryFlag = 1;
             break;
         case 'clothesFlag':
@@ -218,7 +231,7 @@ function handleWaste(imagetag) {
     popupWaste(imagetag);
 }
 
-//Function: reveal and populate the detailed description of each waste on page007module002 //
+//Function: reveal and populate the detailed description of each waste on page004module002 and page009module002 //
 function popupWaste(imagetag) {
 
     let indexString = imagetag.substr(1);
@@ -240,7 +253,7 @@ function popupWaste(imagetag) {
                     ['Laundry', 'Washing Machines and Tumble Driers create steam.', 
                         'Both utilities should be vented appropriately.', 
                             '...windows, fans and doors can help prevent the steam from spreading to other rooms.'],
-                    ['Damaged Brick Work', 'Water can into the home from outside.', 
+                    ['Damaged Brick Work', 'Water can get into the home from outside.', 
                         'Missing mortar or cracks, or an ineffective or damaged Damp Proof Course should be inspected and repaired.', 
                             '...a walk around your home could identify sources of moisture.'],
                     ['Pipe or Roof Leaks', 'Another source of moisture from outside the home.', 
@@ -249,6 +262,12 @@ function popupWaste(imagetag) {
                     ['Breathing!', 'As in the video we saw earlier.', 
                         'Humans breathe out about a litre of water a day. Dogs and cats too!', 
                             '...overcrowding can be a major source of condensation if too many people share one home.'],
+                    ['Anemometer', 'Air flow, in litres per second, through a fan, using an Anemometer.                    ', 
+                        'More accurate than using a piece of tissue paper!', 
+                            '...will reveal whether the fan is working to specification and if it is the correct fan for the room size.'],
+                    ['Hygrometer', 'Air Temperature and Relative Humidity, with a Hygrometer.                    ', 
+                        'Sets a baseline for each room within the home', 
+                            '...can actually very a lot depending on: the weather, time-of-day, whether the heating is on etc.'],
                 ];
     
     switch(indexString) {
@@ -275,6 +294,12 @@ function popupWaste(imagetag) {
             break;
         case 'breath':
             wasteIndex = 7;
+            break;
+        case 'anemometer':
+            wasteIndex = 8;
+            break;
+        case 'hygrometer2':
+            wasteIndex = 9;
             break;
         default:
             break;

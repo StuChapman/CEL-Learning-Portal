@@ -24,7 +24,7 @@ var skillsFlag = 0;
 
 //Set global variables - array examplestep, answerindex and answertext for on example.html //
 let examplearray = [
-                    ['1. It`s first thing in the morning, and the Hygrometer is displaying:',  '1', 'Ventilating the room using: a fan, vents or a window WILL reduce the Humidity a bit, but this room is far too cold! Turning on the heating will not only make the room more comfortable, but it will heat the air, allowing the Humidity to reduce.'],
+                    ['1. It`s first thing in the morning, and the Hygrometer is displaying:',  '1', 'Ventilating the room will reduce the Humidity, but this room is far too cold! Turning on the heating will not only make the room more comfortable, but it will heat the air, allowing the Humidity to reduce.'],
                     ['2. We turn the heating on and wait a short while. The Hygrometer is now displaying: <span class="orange-highlight">10&deg;C and 74%RH</span>',  '5', 'The room is still too cold - it would be uncomfortable to sit in, let alone worry about ventilation.'],
                     ['3. After a short while, the Hygrometer now displays: <span class="orange-highlight">19&deg;C and 56%RH</span>',  '2', 'The room is a comfortable temperature and the humidity is in the `ideal` range. Now is a good time to open the trickle vents to let air circulate.'],
                     ['4. The afternoon sun is shining into the room, keeping it at a toasty <span class="orange-highlight">24&deg;C</span>. You decide this is a good time to dry your laundry on a clothes horse.',  '4', 'Opening a window will allow the moisure that evaporates for the laundry to escape to the outside. It`s a good idea to keep the window open for a short while after the clothes are dry too.'],

@@ -5,19 +5,21 @@
     {% if user.is_authenticated %}
         <!--Text Section-->
         <section id="textsection">
-            <h1>Condensation in the home...</h1>
+            <h1>Cold Surfaces</h1>
+            <p class="paramedium pl-2 pr-2">In the earlier video, we saw that humidity in the air will condense in to water droplets when it meets a cold surface.
+                Some of the more common cold surfaces include ...
+            </p>
             <div class="d-inline">
                 <span id="leftcarouselarrow">
-                    <i class="fas fa-chevron-left" onclick="return prevImage(1);"></i>
+                    <i class="fas fa-chevron-left" onclick="return prevImage(2);"></i>
                 </span>
-                <img id="valueimage" src="{{ MEDIA_URL }}\module002\kettle.jpg" alt="condensation graphic" >
+                <img id="valueimage" src="{{ MEDIA_URL }}\module002\window.jpg" alt="cold surface image" >
                 <span id="rightcarouselarrow">
-                    <i class="fas fa-chevron-right" onclick="return nextImage(1);"></i>
+                    <i class="fas fa-chevron-right" onclick="return nextImage(2);"></i>
                 </span>
             </div>
-            <p id="imagetext">Water vapour can come from many sources, for example: a kettle</p>
-            <p id="attribute">
-                <a class="attribute" target="_blank" href="https://www.freepik.com/free-vector/sticker-template-kettle-with-boiling-water-isolated_18376252.htm#query=kettle%20clipart&position=1&from_view=keyword&track=ais">Image by brgfx</a> on Freepik
+            <p id="imagedetail">Windows are one of the coldest surfaces in the home. 
+                One way to minimise this; is for radiators to be located below windows.
             </p>
         </section>
     {% endif %}

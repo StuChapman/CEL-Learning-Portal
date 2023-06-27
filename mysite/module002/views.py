@@ -225,7 +225,7 @@ def page006module002(request):
         'prev_page_small': 'ventilation',
         'next_url': 'page007module002',
         'next_page': 'managing humidity',
-        'next_page_small': 'managing rh',
+        'next_page_small': 'humidity',
     }
     return render(request, 'dampandmould/page006.html', context)
 
@@ -292,12 +292,47 @@ def page008module002(request):
         'nexthidden': nexthidden,
         'prev_url': 'page007module002',
         'prev_page': 'managing humidity',
-        'prev_page_small': 'managing rh',
+        'prev_page_small': 'humidity',
+        'next_url': 'page009module002',
+        'next_page': 'damp & mould survey',
+        'next_page_small': 'survey',
+    }
+    return render(request, 'dampandmould/page008.html', context)
+
+
+def page009module002(request):
+    """ A view to return page009 """
+    thispage = 'page009module002'
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
+
+    context = {
+        'thispage': thispage,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'prev_url': 'page008module002',
+        'prev_page': 'cold surfaces',
+        'prev_page_small': 'cold surfaces',
         'next_url': 'testintro',
         'next_page': 'test',
         'next_page_small': 'test',
     }
-    return render(request, 'dampandmould/page008.html', context)
+    return render(request, 'dampandmould/page009.html', context)
 
 
 def testintro(request):
