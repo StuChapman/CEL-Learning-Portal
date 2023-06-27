@@ -705,7 +705,12 @@ nav {
     #leak,
     #breath,
     #anemometer,
-    #hygrometer2 {
+    #hygrometer2,
+    #thermal2,
+    #moisture,
+    #dampproof,
+    #vegetation,
+    #ventilation {
         height: 13vh;
         padding: .5vh .5vh 0 .5vh;
     }
@@ -803,7 +808,12 @@ nav {
     #leak,
     #breath,
     #anemometer,
-    #hygrometer2 {
+    #hygrometer2,
+    #thermal2,
+    #moisture,
+    #dampproof,
+    #vegetation,
+    #ventilation {
         height: 24.5vh;
         padding: .5vh .5vh 0 .5vh;
     }

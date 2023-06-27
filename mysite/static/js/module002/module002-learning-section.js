@@ -198,10 +198,19 @@ function handleWaste(imagetag) {
         case 'clothesFlag':
             motionFlag = 1;
             break;
+        case 'thermal2Flag':
+            motionFlag = 1;
+            break;
         case 'showerFlag':
             waitingFlag = 1;
             break;
+        case 'moistureFlag':
+            waitingFlag = 1;
+            break;
         case 'washingFlag':
+            overproductionFlag = 1;
+            break;
+        case 'dampproofFlag':
             overproductionFlag = 1;
             break;
         case 'mortarFlag':
@@ -210,7 +219,13 @@ function handleWaste(imagetag) {
         case 'leakFlag':
             defectsFlag = 1;
             break;
+        case 'vegetationFlag':
+            defectsFlag = 1;
+            break;
         case 'breathFlag':
+            skillsFlag = 1;
+            break;
+        case 'ventilationFlag':
             skillsFlag = 1;
             break;
         default:
@@ -262,12 +277,27 @@ function popupWaste(imagetag) {
                     ['Breathing!', 'As in the video we saw earlier.', 
                         'Humans breathe out about a litre of water a day. Dogs and cats too!', 
                             '...overcrowding can be a major source of condensation if too many people share one home.'],
-                    ['Anemometer', 'Air flow, in litres per second, through a fan, using an Anemometer.                    ', 
+                    ['Anemometer', 'Air flow, in litres per second, through a fan, using an Anemometer.', 
                         'More accurate than using a piece of tissue paper!', 
                             '...will reveal whether the fan is working to specification and if it is the correct fan for the room size.'],
-                    ['Hygrometer', 'Air Temperature and Relative Humidity, with a Hygrometer.                    ', 
+                    ['Hygrometer', 'Air Temperature and Relative Humidity, with a Hygrometer.', 
                         'Sets a baseline for each room within the home', 
-                            '...can actually very a lot depending on: the weather, time-of-day, whether the heating is on etc.'],
+                            '...can actually vary a lot depending on: the weather, time-of-day, whether the heating is on etc.'],
+                    ['Thermal Imaging', 'To identify cold spots...', 
+                        '...where cavity insulation has been breached or doesn`t exist, where loft insulation is missing.', 
+                            '...can be used to predict where mould will form in colder months.'],
+                    ['Moisture Content', 'Within a wall', 
+                        '...Can indicate the presence of water, from a leak, or getting in from outside.', 
+                            '...may not be in the same room as the mould!'],
+                    ['Damp Proof Course', 'A membrane that prevents moisure from the ground getting into the home.', 
+                        'A damaged, missing or ineffective Damp Proof Course can be a major source of water ingress.', 
+                            '...can have a significant effect on the property.'],
+                    ['External obstructions', 'Either blocking sunlight or damaging the brickwork.', 
+                        'Anything that is against an external wall can be a problem. Rubbish bags or a bin can block the light and keep the wall cooler that it could be.', 
+                            'Vegetation can grow into cracks in the bricks and mortar and cause problems.'],
+                    ['General Ventilation', 'The survey will review the ventilation in all rooms.', 
+                        '... are there trickle vents? Are they open? Is the fan switched off at the isolator? Is there a fan? Does it get used?', 
+                            'General conditions, such as: the drying of clothes, overcrowding and thermostat settings will be considered too.'],
                 ];
     
     switch(indexString) {
@@ -300,6 +330,21 @@ function popupWaste(imagetag) {
             break;
         case 'hygrometer2':
             wasteIndex = 9;
+            break;
+        case 'thermal2':
+            wasteIndex = 10;
+            break;
+        case 'moisture':
+            wasteIndex = 11;
+            break;
+        case 'dampproof':
+            wasteIndex = 12;
+            break;
+        case 'vegetation':
+            wasteIndex = 13;
+            break;
+        case 'ventilation':
+            wasteIndex = 14;
             break;
         default:
             break;
