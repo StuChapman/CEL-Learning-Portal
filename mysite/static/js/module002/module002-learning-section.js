@@ -48,7 +48,8 @@ function revealValue() {
     nextReveal = nextRevealValue * nextRevealWaste;
 
     if (nextReveal > 0) {
-    revealNext();
+        $("#arrowsub").text("Obviously, treatment and cleaning are no substitute for prevention, but keeping on top of mould before it spreads can improve quality of life in the home.");
+        revealNext();
     }
     $("#arrowmaskwaste").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
                 width: '33vw'
@@ -66,7 +67,8 @@ function revealWaste() {
     nextReveal = nextRevealValue * nextRevealWaste;
 
     if (nextReveal > 0) {
-    revealNext();
+        $("#arrowsub").text("Obviously, treatment and cleaning are no substitute for prevention, but keeping on top of mould before it spreads can improve quality of life in the home.");
+        revealNext();
     }
     $("#arrowmaskvalue").animate({ //Credit: https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-slide-left-and-right-effect
                 width: '33vw'

@@ -5,11 +5,16 @@
     {% if user.is_authenticated %}
         <!--Text Section-->
         <section id="textsection">
-            <p class="paramedium extrapadding">In addition to minimising: Humidity, Condensation and Cold Surfaces, Cleaning and Treating can help have an impact on Damp and Mould.</p>
+            <p class="paralarge extrapadding">In addition to minimising: Humidity, Condensation and Cold Surfaces; Cleaning and Treating can help have an impact on Damp and Mould.</p>
             <div id="arrowcontainer" class="row">
                 <div class ="col-4">
-                    <div id="arrowvalue" class="align-vertically">
-                        “Value” is defined as work that directly contributes to what the Customer is paying for.
+                    <div id="arrowvalue" class="align-vertically row">
+                        <div class="arrowimagecontainer">
+                            <img id="arrowimage" src="{{ MEDIA_URL }}\module002\trace.jpg" alt="trace mould image">
+                        </div>
+                        <div class="arrowimagecontainer">
+                            As soon as a trace of mould is visible; spray with `black mould remover` and/or wipe with a cloth.
+                        </div>
                     </div>
                     <div id="arrowmaskvalue"></div>
                 </div>
@@ -19,14 +24,19 @@
                     <div onclick="return revealWaste();" class="arrowtext">Treating</div>
                 </div>
                 <div class ="col-4">
-                    <div id="arrowwaste" class="align-vertically">
-                        “Waste” is defined as work that if it was removed, the Customer would receive the same quality.
+                    <div id="arrowwaste" class="align-vertically row">
+                        <div class="arrowimagecontainer">
+                            <img id="arrowimage" src="{{ MEDIA_URL }}\module002\paint.jpg" alt="anti mould paint image">
+                        </div>
+                        <div class="arrowimagecontainer">
+                            If the mould is persistent, and returns too frequently to be manageable; anti mould paint can be used to slow the growth.
+                        </div>
                     </div>
                     <div id="arrowmaskwaste"></div>
                 </div>
             </div>
             <div>
-                <p class="paralarge pt-3">Tap on each of them to see the definition ...</p>
+                <p id="arrowsub" class="paramedium pt-3">Tap on each of them to see the definition ...</p>
             </div>
         </section>
     {% endif %}

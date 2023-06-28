@@ -479,7 +479,7 @@ nav {
 /* ------------------- Arrow Styling */
 
 #arrowcontainer {
-    margin-top: 5vh;
+    margin-top: 2vh;
     height: 33vh;
     width: 100%;
 }
@@ -518,7 +518,7 @@ nav {
     left:0;
     width: 33vw;
     color: #ffffff;
-    font-size: calc(2vh + (10 - 2) * ((100vw - 300px) / 1620));
+    font-size: calc(1.5vh + (10 - 2) * ((100vw - 300px) / 1620));
 }
 
 #arrowmaskvalue {
@@ -528,7 +528,7 @@ nav {
 #arrowwaste, #arrowmaskwaste {
     width: 33vw;
     color: #ffffff;
-    font-size: calc(2vh + (10 - 2) * ((100vw - 300px) / 1620));
+    font-size: calc(1.5vh + (10 - 2) * ((100vw - 300px) / 1620));
 }
 
 #leftcarouselarrow, #rightcarouselarrow, #examplecarouselarrow {
@@ -696,7 +696,10 @@ nav {
 
 @media screen and (orientation: portrait){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
 
-    
+    #arrowimage {
+        width: 20vw;
+    }
+
     #textsection h1 {
         padding-top: 5vh;
         padding-bottom: 5vh;
@@ -746,6 +749,11 @@ nav {
     .wasteimagecontainer {
         flex: 0 0 50%;
         max-width: 50%;
+    }
+
+    .arrowimagecontainer {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 
     .dragcontainerouter {
@@ -799,6 +807,10 @@ nav {
 
 @media screen and (orientation: landscape){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
 
+    #arrowimage {
+        height: 20vh;
+    }
+
     #textsection h1 {
         padding: 5vh;
     }
@@ -849,6 +861,11 @@ nav {
     .wasteimagecontainer {
         flex: 0 0 25%;
         max-width: 25%;
+    }
+
+    .arrowimagecontainer {
+        flex: 0 0 50%;
+        max-width: 50%;
     }
 
     .examplecontainer {
