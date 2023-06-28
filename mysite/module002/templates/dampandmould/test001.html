@@ -1,0 +1,27 @@
+{% extends "basemodule002.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+        {% if test_already_complete == 'true' %}
+            <h1>Q1: Water Droplets - completed</h1>
+            <p class="paralarge">Please go to the next question...</p>
+        {% else %}
+            <h1>Q1: Water Droplets</h1>
+            <p class="paralarge">What is it called when water vapour comes into contact with a cool surface, and turns into water droplets?</p>
+            <form id="optionform" class="ml-auto mr-auto" onclick="return checkQuestionRadio();">
+                <label for="optionone" class="float-left">Evaporation</label>
+                <input type="radio" name="question" id="optionone" class="float-right"><br>
+                <label for="optiontwo" class="float-left">Exhalation</label>
+                <input type="radio" name="question" id="optiontwo" class="float-right"><br>
+                <label for="optionthree" class="float-left">Humidity</label>
+                <input type="radio" name="question" id="optionthree" class="float-right"><br>
+                <label for="optionfour" class="float-left">Condensation</label>
+                <input type="radio" name="question" id="optionfour" class="float-right">
+            </form>
+        {% endif %}
+        </section>
+    {% endif %}
+{% endblock %}
