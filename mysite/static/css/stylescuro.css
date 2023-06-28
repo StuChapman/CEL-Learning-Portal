@@ -478,14 +478,29 @@ nav {
 
 /* ------------------- Arrow Styling */
 
+#arrowcontainer {
+    margin-top: 5vh;
+    height: 33vh;
+    width: 100%;
+}
+
 .arrowtext {
     font-weight: normal;
+    font-size: calc(4vh + (20 - 5) * ((100vw - 300px) / 1620));
+    padding-bottom: 2.5vh;
+    color: #C0DC3B;
+}
+
+.arrowtextsmall {
+    font-weight: normal;
+    font-size: calc(2.5vh + (10 - 5) * ((100vw - 300px) / 1620));
+    padding-bottom: 2.5vh;
+    color: #635F5F;
 }
 
 #arrowvalue, #arrowwaste, #arrowmaskvalue, #arrowmaskwaste {
     position: absolute;
-    top: 26.5vh;
-    left: 0;
+    top: 0;
     height: 33vh;
     border: none;
 }
@@ -507,12 +522,10 @@ nav {
 }
 
 #arrowmaskvalue {
-    right: 67vw;
     width: 33vw;
 }
 
 #arrowwaste, #arrowmaskwaste {
-    left: 65.7vw;
     width: 33vw;
     color: #ffffff;
     font-size: calc(2vh + (10 - 2) * ((100vw - 300px) / 1620));

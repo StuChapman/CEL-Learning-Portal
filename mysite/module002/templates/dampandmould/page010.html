@@ -1,0 +1,33 @@
+{% extends "basemodule002.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            <p class="paramedium extrapadding">In addition to minimising: Humidity, Condensation and Cold Surfaces, Cleaning and Treating can help have an impact on Damp and Mould.</p>
+            <div id="arrowcontainer" class="row">
+                <div class ="col-4">
+                    <div id="arrowvalue" class="align-vertically">
+                        “Value” is defined as work that directly contributes to what the Customer is paying for.
+                    </div>
+                    <div id="arrowmaskvalue"></div>
+                </div>
+                <div class ="col-4 mt-auto mb-auto">
+                    <div onclick="return revealValue();" class="arrowtext">Cleaning</div>
+                    <div class="arrowtextsmall">and</div>
+                    <div onclick="return revealWaste();" class="arrowtext">Treating</div>
+                </div>
+                <div class ="col-4">
+                    <div id="arrowwaste" class="align-vertically">
+                        “Waste” is defined as work that if it was removed, the Customer would receive the same quality.
+                    </div>
+                    <div id="arrowmaskwaste"></div>
+                </div>
+            </div>
+            <div>
+                <p class="paralarge pt-3">Tap on each of them to see the definition ...</p>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

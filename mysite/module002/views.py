@@ -328,11 +328,46 @@ def page009module002(request):
         'prev_url': 'page008module002',
         'prev_page': 'cold surfaces',
         'prev_page_small': 'cold surfaces',
+        'next_url': 'page010module002',
+        'next_page': 'treating mould',
+        'next_page_small': 'treating',
+    }
+    return render(request, 'dampandmould/page009.html', context)
+
+
+def page010module002(request):
+    """ A view to return page010 """
+    thispage = 'page010module002'
+
+    if request.user.is_authenticated:
+        """ check if a Page exists for this user for this page """
+        pages = Pages.objects.all()
+        page_exists = (pages.filter
+                       (user=request.user,
+                        page=thispage,
+                        status=1,))
+        if page_exists:
+            nexthidden = 'false'
+        else:
+            """ create a Page for this user for this page """
+            user_page = Pages(user=request.user,
+                              page=thispage,
+                              status=1,)
+            user_page.save()
+            nexthidden = 'true'
+
+    context = {
+        'thispage': thispage,
+        'arrows': 'arrows',
+        'nexthidden': nexthidden,
+        'prev_url': 'page009module002',
+        'prev_page': 'damp & mould survey',
+        'prev_page_small': 'survey',
         'next_url': 'testintro',
         'next_page': 'test',
         'next_page_small': 'test',
     }
-    return render(request, 'dampandmould/page009.html', context)
+    return render(request, 'dampandmould/page010.html', context)
 
 
 def testintro(request):
