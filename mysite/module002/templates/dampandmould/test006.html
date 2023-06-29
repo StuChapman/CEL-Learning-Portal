@@ -1,0 +1,71 @@
+{% extends "basemodule002.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="textsection">
+            {% if test_already_complete == 'true' %}
+                <h1>Q6: What's the definition? - completed</h1>
+                <p class="paralarge">Please go to the next question...</p>
+            {% else %}
+                <h1 class="pb-2">Q6: What's the definition?</h1>
+                <p class="paralarge">Relative Humidity  is defined as...</p>
+                <div class="wordsquarebox align-vertically row ml-auto mr-auto">
+                    <div class="word ml-auto mr-auto">
+                        <div>How much </div>
+                    </div>
+                    <div class="row ml-auto mr-auto">
+                        <div id="square-one" class="ml-auto mt-auto wordsquare">
+                        </div>
+                        <div id="square-two" class="mr-auto mt-auto wordsquare">
+                        </div>
+                    </div>
+                    <div class="word ml-auto mr-auto">
+                        <div>there is in the </div>
+                    </div>
+                    <div class="row ml-auto mr-auto">
+                        <div id="square-three" class="ml-auto mt-auto wordsquare">
+                        </div>
+                    </div>
+                    <div class="word ml-auto mr-auto">
+                        <div>compared to how much there could be at that </div>
+                    </div>
+                    <div class="row ml-auto mr-auto">
+                        <div id="square-four" class="mr-auto mt-auto wordsquare">
+                        </div>
+                    </div>
+                </div>
+                <div class="wordpickbox row ml-auto mr-auto">
+                    <div id="divleft" class="ml-auto mr-auto">
+                        <div id="letterpick-percentage" class="wordpick d-inline" onclick="return populateMuda('percentage');">percentage
+                        </div>
+                        <div id="letterpick-temperature" class="wordpick d-inline" onclick="return populateMuda('temperature');">temperature
+                        </div>
+                        <div id="letterpick-air" class="wordpick d-inline" onclick="return populateMuda('air');">air
+                        </div>
+                        <div id="letterpick-pressure" class="wordpick d-inline" onclick="return populateMuda('pressure');">pressure
+                        </div>
+                        <div id="letterpick-people" class="wordpick d-inline" onclick="return populateMuda('people');">people
+                        </div>
+                    </div>
+                    <div id="divright" class="ml-auto mr-auto">
+                        <div id="letterpick-time" class="wordpick d-inline" onclick="return populateMuda('time');">time
+                        </div>
+                        <div id="letterpick-vapour" class="wordpick d-inline" onclick="return populateMuda('vapour');">vapour
+                        </div>
+                        <div id="letterpick-degrees" class="wordpick d-inline" onclick="return populateMuda('degrees');">degrees
+                        </div>
+                        <div id="letterpick-ventilation" class="wordpick d-inline" onclick="return populateMuda('ventilation');">ventilation
+                        </div>
+                        <div id="letterpick-water" class="wordpick d-inline" onclick="return populateMuda('water');">water
+                        </div>
+                    </div>
+                </div>
+                <button id="resetbutton" type="button" class="btn btn-blue" onclick="return resetMuda();">
+                    reset
+                </button>
+            {% endif %}
+        </section>
+    {% endif %}
+{% endblock %}

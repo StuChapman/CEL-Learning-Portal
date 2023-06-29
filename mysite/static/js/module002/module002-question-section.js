@@ -62,8 +62,9 @@ function populateMuda(letterpick) {
     }
 
     $(letterString).css('color', 'gray');
-    letterpick = letterpick.substring(0, 1);
-    console.log(letterpick);
+    if(letterpick.length < 3){
+        letterpick = letterpick.substring(0, 1);
+    }
 
     if($.trim($('#square-one').text())==''){ // Credit: https://stackoverflow.com/questions/6813227/how-do-i-check-if-an-html-element-is-empty-using-jquery //
         $('#square-one').text(letterpick);
@@ -117,10 +118,18 @@ function populateMuda(letterpick) {
 
     letterCount = ++letterCount;
 
-    if (letterCount == 10)  {
-        letterCount = 0;
-        revealNext();
-        return;
+    if(letterpick.length < 3){
+        if (letterCount == 10) {
+            letterCount = 0;
+            revealNext();
+            return;
+        }
+    } else {
+        if (letterCount == 4) {
+            letterCount = 0;
+            revealNext();
+            return;
+        }
     }
 }
 

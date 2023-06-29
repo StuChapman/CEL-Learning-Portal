@@ -1,0 +1,39 @@
+{% extends "basecertificate.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--Text Section-->
+        <section id="certsection">
+            <div class="certhead mr-auto ml-auto d-block pt-2">
+                <img id="brandimage" src="{{ MEDIA_URL }}\assets\img\brand.jpg" alt="continuous engagement brand image">
+            </div>
+            <h1 class="pt-5 pb-5">Congratulations!</h1>
+            <p class="paralarge pt-5">This is to certify that:</p>
+            <p id="certName" class="pt-5 pb-5">{{ user.username }}</p>
+            <p class="paralarge pb-3">has passed the 8 Wastes test.</p>
+            <div>
+                <p class="paralarge pt-5">With a score of:</p>
+                <p class="paralarge pb-5">
+                    <span id="totalScore">{{ test_score }}0%</span>
+                </p>
+            </div>
+            <div class="mr-auto ml-auto">
+                <div class="row">
+                    <div class="signature col-4 pt-3">
+                        <strong>Authorised</strong> <br>
+                        Stuart Chapman <br>
+                        Director <br>
+                        Continuous Engagement Ltd.
+                    </div>
+                    <div class="col-4 pt-3">
+                        <img id="signature" src="{{ MEDIA_URL }}\assets\img\signature.jpg" alt="director signature">
+                    </div>
+                    <div class="col-4">
+                        <img id="signatureBrand" src="{{ MEDIA_URL }}\assets\img\signature-brand.jpg" alt="brand image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
