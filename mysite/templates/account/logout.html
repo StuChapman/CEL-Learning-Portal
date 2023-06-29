@@ -18,6 +18,9 @@
     {% endif %}
     <button class="secondaryAction btn btn-blue" type="submit">{% trans 'Sign Out' %}</button>
     </form>
+    
+    <p class="paralarge mt-5 pb-0">or go to Home page</p>
+    <button class="secondaryAction btn btn-blue" type="submit"><a href="{% url 'home' %}">Home</button>
 </section>
 
 {% endblock %}
