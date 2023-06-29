@@ -62,14 +62,14 @@ var dragcard5 = null;
 
 //Set global variables - array for the contents of each of the orderboxes on question-nine.html //
 let orderArray = [
-                    ['orderbox1', 'ordercard1', 'delivering ahead of schedule', 'full'],
-                    ['orderbox2', 'ordercard2', 'using the wrong resource', 'full'],
-                    ['orderbox3', 'ordercard3', 'faults', 'full'],
-                    ['orderbox4', 'ordercard4', 'moving the work/customer around', 'full'],
-                    ['orderbox5', 'ordercard5', 'complicated processes', 'full'],
-                    ['orderbox6', 'ordercard6', 'moving the worker around', 'full'],
-                    ['orderbox7', 'ordercard7', 'queues', 'full'],
-                    ['orderbox8', 'ordercard8', 'building up stock', 'full']
+                    ['orderbox1', 'ordercard1', 'are found in their thousands in the atmosphere', 'full'],
+                    ['orderbox2', 'ordercard2', 'are colder because ambient air is on the other side', 'full'],
+                    ['orderbox3', 'ordercard3', 'allows water from outside the home to get in', 'full'],
+                    ['orderbox4', 'ordercard4', 'allows humid air to be replaced by fresh', 'full'],
+                    ['orderbox5', 'ordercard5', 'is water vapour that has turned into water droplets', 'full'],
+                    ['orderbox6', 'ordercard6', 'determines how much moisture the air can hold', 'full'],
+                    ['orderbox7', 'ordercard7', 'reduces cold surfaces', 'full'],
+                    ['orderbox8', 'ordercard8', 'measures how much water vapour there is in the air', 'full']
                     ];
 
 //Set global variables - flags for each of the dragcards drop locations on question-five.html //

@@ -1,4 +1,4 @@
-{% extends "basemodule001.html" %}
+{% extends "basemodule002.html" %}
 {% load static %}
 
 {% block content %}
@@ -10,34 +10,34 @@
                 <p class="paralarge">Please go to the next question...</p>
             {% else %}
                 <h1 class="pt-2 pb-2">Q9: The 8 Wastes</h1>
-                <p class="paralarge">Re-order the descriptions to align to the Waste they describe ...</p>
+                <p class="paralarge">Re-order the descriptions to align to the item they describe ...</p>
                 <div class="row ordercontainerouter ml-auto mr-auto">
                     <div class="col-6">
                         <div class="row ordercontainerleft">
-                            <span class="orderboxheader ml-auto mr-auto mb-1">Wastes</span>
+                            <span class="orderboxheader ml-auto mr-auto mb-1">Items</span>
                             <div class="orderbox align-vertically" id="orderleft1">
-                                TRANSPORTATION
+                                VENTILATION
                             </div>
                             <div class="orderbox align-vertically" id="orderleft2">
-                                INVENTORY
+                                HUMIDITY
                             </div>
                             <div class="orderbox align-vertically" id="orderleft3">
-                                MOTION
+                                TEMPERATURE
                             </div>
                             <div class="orderbox align-vertically" id="orderleft4">
-                                WAITING
+                                INSULATION
                             </div>
                             <div class="orderbox align-vertically" id="orderleft5">
-                                OVERPRODUCTION
+                                SPORES
                             </div>
                             <div class="orderbox align-vertically" id="orderleft6">
-                                OVERPROCESSING
+                                CONDENSATION
                             </div>
                             <div class="orderbox align-vertically" id="orderleft7">
-                                DEFECTS
+                                INGRESS
                             </div>
                             <div class="orderbox align-vertically" id="orderleft8">
-                                SKILLS
+                                EXTERNAL WALLS
                             </div>
                         </div>
                     </div>
@@ -46,42 +46,42 @@
                             <span class="orderboxheader ml-auto mr-auto mb-1">Description</span>
                             <div class="orderbox" id="orderbox1" ondrop="order(event)" ondragover="allowDrop(event)">
                                 <div class="ordercard align-vertically" id="ordercard1" draggable="true" ondragstart="dragOrder(event)" >
-                                    delivering ahead of schedule
+                                    are found in their thousands in the atmosphere
                                 </div>
                             </div>
                             <div class="orderbox" id="orderbox2" ondrop="order(event)" ondragover="allowDrop(event)">
                                 <div class="ordercard align-vertically" id="ordercard2" draggable="true" ondragstart="dragOrder(event)" >
-                                    using the wrong resource
+                                    are colder because ambient air is on the other side
                                 </div>
                             </div>
                             <div class="orderbox" id="orderbox3" ondrop="order(event)" ondragover="allowDrop(event)">
                                 <div class="ordercard align-vertically" id="ordercard3" draggable="true" ondragstart="dragOrder(event)" >
-                                    faults
+                                    allows water from outside the home to get in
                                 </div>
                             </div>
                             <div class="orderbox" id="orderbox4" ondrop="order(event)" ondragover="allowDrop(event)">
                                 <div class="ordercard align-vertically" id="ordercard4" draggable="true" ondragstart="dragOrder(event)" >
-                                    moving the work/customer around
+                                    allows humid air to be replaced by fresh
                                 </div>
                             </div>
                             <div class="orderbox" id="orderbox5" ondrop="order(event)" ondragover="allowDrop(event)">
                                 <div class="ordercard align-vertically" id="ordercard5" draggable="true" ondragstart="dragOrder(event)" >
-                                    complicated processes
+                                    is water vapour that has turned into water droplets
                                 </div>
                             </div>
                             <div class="orderbox" id="orderbox6" ondrop="order(event)" ondragover="allowDrop(event)">
                                 <div class="ordercard align-vertically" id="ordercard6" draggable="true" ondragstart="dragOrder(event)" >
-                                    moving the worker around
+                                    determines how much moisture the air can hold
                                 </div>
                             </div>
                             <div class="orderbox" id="orderbox7" ondrop="order(event)" ondragover="allowDrop(event)">
                                 <div class="ordercard align-vertically" id="ordercard7" draggable="true" ondragstart="dragOrder(event)" >
-                                    queues
+                                    reduces cold surfaces
                                 </div>
                             </div>
                             <div class="orderbox" id="orderbox8" ondrop="order(event)" ondragover="allowDrop(event)">
                                 <div class="ordercard align-vertically" id="ordercard8" draggable="true" ondragstart="dragOrder(event)" >
-                                    building up stock
+                                    measures how much water vapour there is in the air
                                 </div>
                             </div>
                         </div>
