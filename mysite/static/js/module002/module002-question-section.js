@@ -62,6 +62,8 @@ function populateMuda(letterpick) {
     }
 
     $(letterString).css('color', 'gray');
+    letterpick = letterpick.substring(0, 1);
+    console.log(letterpick);
 
     if($.trim($('#square-one').text())==''){ // Credit: https://stackoverflow.com/questions/6813227/how-do-i-check-if-an-html-element-is-empty-using-jquery //
         $('#square-one').text(letterpick);
@@ -78,37 +80,44 @@ function populateMuda(letterpick) {
                 if($.trim($('#square-four').text())==''){
                     $('#square-four').text(letterpick);
                     $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
+                } else {
+                    if($.trim($('#square-five').text())==''){
+                        $('#square-five').text(letterpick);
+                        $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
+                    } else {
+                        if($.trim($('#square-six').text())==''){
+                            $('#square-six').text(letterpick);
+                            $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
+                        } else {
+                            if($.trim($('#square-seven').text())==''){
+                                $('#square-seven').text(letterpick);
+                                $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
+                            } else {
+                                if($.trim($('#square-eight').text())==''){
+                                    $('#square-eight').text(letterpick);
+                                    $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
+                                } else {
+                                    if($.trim($('#square-nine').text())==''){
+                                        $('#square-nine').text(letterpick);
+                                        $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
+                                    } else {
+                                        if($.trim($('#square-ten').text())==''){
+                                            $('#square-ten').text(letterpick);
+                                            $('input[name="testanswer"]').val($('input[name="testanswer"]').val()+letterpick);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 
-    let thisquestion = document.title;
-
-    if (thisquestion == 'Online Learning - Question 2') {
-        if (($.trim($('#square-one').text()) == 'M')  && ($.trim($('#square-two').text()) == 'U') && ($.trim($('#square-three').text()) == 'D') && ($.trim($('#square-four').text()) == 'A')){
-                        answerFlag2 = 1;
-                    } else {
-                        answerFlag2 = -1;
-                    }
-    // write answer to local storage //
-    localStorage.setItem('answerFlag2', answerFlag2);
-    }
-
-    if (thisquestion == 'Online Learning - Question 6') {
-        // allow 'directly' and 'contributes' be interchangeable on question-six.html - symantically the same sentence //
-        if ((($.trim($('#square-one').text()) == 'contributes') || ($.trim($('#square-one').text()) == 'directly')) && (($.trim($('#square-two').text()) == 'directly') || ($.trim($('#square-two').text()) == 'contributes')) && ($.trim($('#square-three').text()) == 'paying') && ($.trim($('#square-four').text()) == 'for')){
-                        answerFlag6 = 1;
-                    } else {
-                        answerFlag6 = -1;
-                    }
-    // write answer to local storage //
-    localStorage.setItem('answerFlag6', answerFlag6);
-    }
-
     letterCount = ++letterCount;
 
-    if (letterCount == 4)  {
+    if (letterCount == 10)  {
         letterCount = 0;
         revealNext();
         return;
@@ -121,6 +130,12 @@ function resetMuda() {
     $('#square-two').text('');
     $('#square-three').text('');
     $('#square-four').text('');
+    $('#square-five').text('');
+    $('#square-six').text('');
+    $('#square-seven').text('');
+    $('#square-eight').text('');
+    $('#square-nine').text('');
+    $('#square-ten').text('');
     $('.letterpickbox div').css('color', 'black');
     $('.wordpickbox div').css('color', 'black');
     $('input[name="testanswer"]').val('');

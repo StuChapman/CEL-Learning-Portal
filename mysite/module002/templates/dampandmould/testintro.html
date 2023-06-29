@@ -11,7 +11,7 @@
                     <p class="paramedium pb-0">Question {{ test.test|slice:'5:7' }}</p>
                 {% endfor %}
                 <button type="button" class="btn btn-blue">
-                    <a href="{% url 'nexttest' %}?test_list={{ 'testintro' }},{{ 'test001module002' }},{{ 'false' }}">
+                    <a href="{% url 'dampnexttest' %}?test_list={{ 'testintro' }},{{ 'test001module002' }},{{ 'false' }}">
                     Click to Begin
                     </a>
                 </button>
@@ -25,7 +25,7 @@
                     mark is 70% (7 out of 10).</p>
                 <p class="paramedium">Good Luck!</p>
                 <button type="button" class="btn btn-blue">
-                    <a href="{% url 'nexttest' %}?test_list={{ 'testintro' }},{{ 'test001module002' }},{{ 'false' }}">
+                    <a href="{% url 'dampnexttest' %}?test_list={{ 'testintro' }},{{ 'test001module002' }},{{ 'false' }}">
                     Click to Begin
                     </a>
                 </button>

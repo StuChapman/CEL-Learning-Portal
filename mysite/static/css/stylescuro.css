@@ -350,7 +350,7 @@ nav {
 /* ------------------- more styling in Media Screen responsiveness */
 .letterpickbox {
     align-content: stretch;    
-    width: 60vw;
+    width: 90vw;
 }
 
 #lettersquarebox, .letterpickbox {
@@ -358,22 +358,29 @@ nav {
 }
 
 #lettersquarebox {
-    width: 80vw;
+    width: 90vw;
     margin-bottom: 5vh;
 }
 
 .lettersquare, .letterpick {
-    max-width: 7vh;
+    max-width: 10vw;
     height: 12.5vh;
     padding: 0;
-    font-size: calc(5vh + (30 - 5) * ((100vw - 300px) / 1620));
+    font-size: calc(4.5vh + (30 - 5) * ((100vw - 300px) / 1620));
     font-weight: bold;
 }
 
 .lettersquare {
+    flex: 0 0 5%;
+    max-width: 5%;
     margin: 2vw;
     border-bottom: 4px solid #000000;
     color: #635F5F;
+}
+
+#letterpick {
+    flex: 0 0 5%;
+    max-width: 5%;;
 }
 
 .letterpick {
@@ -381,6 +388,9 @@ nav {
     color: #000000;
 }
 
+#divleft, #divright {
+    width: 90vw;
+}
 
 /* ------------------- more styling in Media Screen responsiveness */
 .wordsquarebox {
@@ -711,14 +721,6 @@ nav {
         margin-bottom: 1vh;
     }
 
-    #divleft {
-        margin-right: auto;
-    }
-
-    #divright {
-        margin-left: auto;
-    }
-
     #kettle2, 
     #saucepan,
     #clothes,
@@ -825,14 +827,6 @@ nav {
 
     .extramarginbottom {
         margin-bottom: 5vh;
-    }
-
-    #divleft {
-        margin-right: 0;
-    }
-
-    #divright {
-        margin-left: 0;
     }
 
     #kettle2, 

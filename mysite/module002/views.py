@@ -388,7 +388,7 @@ def dampcheckanswer(request):
     """ Check the answer to each question against the correct answer """
     nexthidden = 'false'
     test_already_complete = 'false'
-    next_url = 'nexttest'
+    next_url = 'dampnexttest'
     next_page = 'next question'
 
     if request.user.is_authenticated:
