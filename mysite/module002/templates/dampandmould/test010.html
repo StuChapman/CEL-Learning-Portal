@@ -1,4 +1,4 @@
-{% extends "basemodule001.html" %}
+{% extends "basemodule002.html" %}
 {% load static %}
 
 {% block content %}
@@ -6,27 +6,25 @@
         <!--Text Section-->
         <section id="textsection">
             {% if test_already_complete == 'true' %}
-                <h1>Q10: Which Wastes? - completed</h1>
+                <h1>Q10: Cooking and Bathing - completed</h1>
                 <p class="paralarge">Please go to the summary page to see your score ...</p>
             {% else %}
-                <h1>Q10: Which Wastes?</h1>
-                <p class="paramedium">A Customer contacts an online retailer to tell them they have delivered the wrong items.
-                    <br>
-                    They are told they need to contact the returns department.
+                <h1>Q10: Cooking and Bathing</h1>
+                <p class="paramedium">Cooking and Bathing both produce significant humidity.
                 </p>
-                <p class="paramedium">Which 2 of the 8 wastes are present in thie above scenario...?</p>
+                <p class="paramedium">Which 2 of the answers below will help remove that humidity...?</p>
                 <form id="checkform" class="ml-auto mr-auto" onclick="return checkTwo();">
                     <label for="checkone" class="d-block mb-2 float-left">
-                        Defects</label>
+                        Turn on an extractor fan</label>
                     <input type="checkbox" name="question" id="checkone" class="float-right"><br>
                     <label for="checktwo" class="d-block mb-2 float-left">
-                        Skills</label>
+                        Open the door</label>
                     <input type="checkbox" name="question" id="checktwo" class="float-right"><br>
                     <label for="checkthree" class="d-block mb-2 float-left">
-                        Overproduction</label>
+                        Turn off the heating</label>
                     <input type="checkbox" name="question" id="checkthree" class="float-right"><br>
                     <label for="checkfour" class="d-block mb-2 float-left">
-                        Transportation</label>
+                        Open a window</label>
                     <input type="checkbox" name="question" id="checkfour" class="float-right">
                 </form>
             {% endif %}

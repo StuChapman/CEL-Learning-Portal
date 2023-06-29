@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "basecuro.html" %}
 {% load static %}
 
 {% block content %}
     {% if user.is_authenticated %}
         <!--Text Section-->
         <section id="textsection">
-            <h1 class="p-3">8 Wastes Online Test</h1>
+            <h1 class="p-3">Damp and Mould Online Test</h1>
             {% if this_test_result %}
                 <p class="paralarge mb-xl-2 pb-0">You have completed {{ this_test_count }} out of 10 questions.</p>
                 <div class="row extramarginbottom resultscontainer ml-auto mr-auto">
@@ -27,18 +27,20 @@
                             <div>
                                 <p class="paramedium p-0">To retake the questions you missed, click 
                                     <span>
-                                        <a class="orange-highlight" href="{% url 'retest' %}?module_list={{ 'module001' }}">
+                                        <a class="orange-highlight" href="{% url 'dampretest' %}?module_list={{ 'module002' }}">
                                             here</a>
                                     </span>
                                 </p>
-                                {% if test_score > 6 %}
-                                    <p class="paramedium pb-0">Click 
-                                        <span>
-                                            <a class="orange-highlight" href="{% url 'testcertificate' %}?module_list={{ 'module001' }}">
-                                                here</a>
-                                        </span> to print your certificate
-                                    </p>
-                                {% endif %}
+                            </div>
+                        {% endif %}
+                        {% if test_score > 6 %}
+                            <div>
+                                <p class="paramedium pb-0">Click 
+                                    <span>
+                                        <a class="orange-highlight" href="{% url 'damptestcertificate' %}?module_list={{ 'module002' }}">
+                                            here</a>
+                                    </span> to print your certificate
+                                </p>
                             </div>
                         {% endif %}
                     </div>

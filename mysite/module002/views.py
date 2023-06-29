@@ -496,7 +496,7 @@ def dampnexttest(request):
             nexthidden = 'true'
             next_page = 'submit'
 
-        if thistest == 'testsummary':
+        if thistest == 'damptestsummary':
             """ get the Test Result for this user for this module """
             tests = Tests.objects.all()
             test_result = (tests.filter
