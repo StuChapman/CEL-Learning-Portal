@@ -118,7 +118,7 @@ function populateImage(getpage) {
                     ['external', 'External walls tend to be colder than internal - you can see in the image, the mould is only on one wall (external) and the other (internal) is mould free. Again, locating radiators on external walls will help.'],
                     ['thermal', 'External walls can be even colder if there is a lack of cavity insulation, or the insulation has been breached by some building material (a beam, joist, block etc.) A cavity inspection or use of thermal imaging as shown, will indicate any remedial work that would be required.'],
                     ['ceiling', 'Upstairs ceilings are another colder surface, especially if the loft insulation is missing or inadequate. Mould is common around the edges of a ceiling, where the loft insulation has not been pushed all the way into the eaves, causing a cold gap. Relaying or replacing the loft insulation will help.'],
-                    ['furniture', 'Behind furniture is not a cold spot specifically, more the humid air get trapped behind and eventually condenses onto the wall. it can be a problem because it us unseen and grows for a long time. Moving furniture away from the wall (even by a centimeter) helps. ']
+                    ['furniture', 'Behind furniture is not a cold spot specifically, more the humid air get trapped behind and eventually condenses onto the wall. It can be a problem because the mould is unseen and grows for a long time. Moving furniture away from the wall (even by a centimeter) helps. ']
                 ];
             break;
         default:
