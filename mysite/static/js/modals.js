@@ -1,18 +1,23 @@
 //Function: use emailjs account to email a question from the help? button on the header //
 function sendEmail() {
 
-    if (this.question.value.length < 10) {
-        alert('Please enter a question of at least 10 characters.');
+    if (!(/^\S+@\S+\.\S+$/.test(this.email.value))) {
+        alert('Please enter a valid email address.');
+        this.email.focus();
+        return;
+    }
+
+    if (!(/^[a-z A-Z?:,.-]+$/.test(this.question.value)) ||this.question.value.length < 10) {
+        alert('Please enter a question of at least 10 characters, and no special characters .');
+        this.question.focus();
         return false;
     }
     
     emailjs.init("user_37585cYmkMNZRiOobd27i");
     
-    var thispage = document.title;
     var template_params = {
-    "from_name": localStorage.getItem('username'),
-    "from_email": localStorage.getItem('useremail'),
-    "question": thispage + ": " + this.question.value
+    "from_email": "From: " + this.email.value,
+    "question": "Question: " + this.question.value
     };
     
     var service_id = "continuous_engagement";

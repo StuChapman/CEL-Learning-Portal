@@ -10,6 +10,14 @@
                 </div>
                 <form>
                     <div class="modal-body">
+                        {% if user.is_authenticated %}
+                            <label class="mr-auto" for="email">Email address *<span class="imagefooter">(required)</span></label><br>
+                            <input type="email" id="email" name="email" required value="{{ user.username }}">
+                        {% else %}
+                            <label class="mr-auto" for="email">Email address *<span class="imagefooter">(required)</span></label><br>
+                            <input type="email" id="email" name="email" required>
+                        {% endif %}
+                        <br>
                         <label class="mr-auto" for="question">Type your question here... *<span class="imagefooter">(min 10 characters)</span></label><br>
                         <textarea id="question" rows="2" required></textarea>
                     </div>
