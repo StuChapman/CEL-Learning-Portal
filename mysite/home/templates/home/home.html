@@ -5,7 +5,7 @@
     <!--Text Section-->
     <section id="textsection">
         {% if user.is_authenticated %}
-            <h1>Welcome: {{ user.username }}</h1>
+            <h1>Welcome: <span class="username">{{ user.username }}</span></h1>
         {% else %}
             <h1>Welcome: Please sign in to continue</h1>
             <button type="button" class="btn">
