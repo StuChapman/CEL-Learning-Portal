@@ -33,6 +33,14 @@
                                 </p>
                             </div>
                         {% endif %}
+                        <div>
+                            <p class="paramedium p-0">To run through the learning section again, click 
+                                <span>
+                                    <a class="orange-highlight" href="{% url 'page001module002' %}?module_list={{ 'module002' }}">
+                                        here</a>
+                                </span>
+                            </p>
+                        </div>
                         {% if test_score > 6 %}
                             <div>
                                 <p class="paramedium pb-0">Click 

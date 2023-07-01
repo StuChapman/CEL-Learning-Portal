@@ -27,17 +27,25 @@
                             <div>
                                 <p class="paramedium p-0">To retake the questions you missed, click 
                                     <span>
-                                        <a class="orange-highlight" href="{% url 'dampretest' %}?module_list={{ 'module002' }}">
+                                        <a class="orange-highlight" href="{% url 'retest' %}?module_list={{ 'module001' }}">
                                             here</a>
                                     </span>
                                 </p>
                             </div>
                         {% endif %}
+                        <div>
+                            <p class="paramedium p-0">To run through the learning section again, click 
+                                <span>
+                                    <a class="orange-highlight" href="{% url 'page001module001' %}?module_list={{ 'module001' }}">
+                                        here</a>
+                                </span>
+                            </p>
+                        </div>
                         {% if test_score > 6 %}
                             <div>
                                 <p class="paramedium pb-0">Click 
                                     <span>
-                                        <a class="orange-highlight" href="{% url 'damptestcertificate' %}?module_list={{ 'module002' }}">
+                                        <a class="orange-highlight" href="{% url 'testcertificate' %}?module_list={{ 'module001' }}">
                                             here</a>
                                     </span> to print your certificate
                                 </p>
