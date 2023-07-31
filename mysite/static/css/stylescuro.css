@@ -482,10 +482,6 @@ nav {
     padding-bottom: 2.5vh;
 }
 
-#wastepopupimage {
-    height: 17.5vh;
-}
-
 /* ------------------- Arrow Styling */
 
 #arrowcontainer {
@@ -707,6 +703,10 @@ nav {
 
 @media screen and (orientation: portrait){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
 
+    #wastepopupimage {
+        height: 17.5vh;
+    }
+
     #arrowimage {
         width: 20vw;
     }
@@ -809,6 +809,10 @@ nav {
 }
 
 @media screen and (orientation: landscape){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
+
+    #wastepopupimage {
+        height: 40vh;
+    }
 
     #arrowimage {
         height: 20vh;

@@ -43,7 +43,7 @@
                         src="{{ MEDIA_URL }}\module002\leak.jpg" alt="leaking pip image">
                     <div class="imagefooter">Pipe and Roof Leaks</div>
                 </div>
-                <div class="wasteimagecontainer">
+                <div class="wasteimagecontainer ">
                     <img id="breath" onclick="return handleWaste('#breath');" 
                         src="{{ MEDIA_URL }}\module002\breath.jpg" alt="breathing image">
                     <div class="imagefooter">Breathing!</div>
@@ -52,14 +52,18 @@
 
         <!-- Waste pop-up -->
             <div id="wastepopup">
-                <h1 id="pophead">Transportation</h1>
-                <p id="poppone" class="paralarge">Moving product or work around for no reason.</p>
-                <p id="popptwo"  class="paramedium">In a restaurant, this might be; carrying all the 
-                    meat downstairs to the cellar, only to have to carry it all back upstairs again to cook it.</p>
-            <div class="wastepopupimagecontainer">
-                <img id="wastepopupimage" 
-                    src="{{ MEDIA_URL }}\module002\kettle2.jpg" alt="image to represent waste">
-            </div>
+                <h1 id="pophead" class="pb-2">Transportation</h1>
+                <div class="row">
+                    <div class="col-xl-8 mt-lg-5">
+                        <p id="poppone" class="paralarge">Moving product or work around for no reason.</p>
+                        <p id="popptwo"  class="paramedium">In a restaurant, this might be; carrying all the 
+                            meat downstairs to the cellar, only to have to carry it all back upstairs again to cook it.</p>
+                    </div>
+                    <div class="wastepopupimagecontainer col-xl-4">
+                        <img id="wastepopupimage" 
+                            src="{{ MEDIA_URL }}\module002\kettle2.jpg" alt="image to represent waste">
+                    </div>
+                </div>
                 <p id="poppthree"  class="paramedium">Or a Customer being transferred from one department to another.</p>
                 <button type="button" class="btn-blue mt-0" onclick="return popDownWaste();">
                     Close

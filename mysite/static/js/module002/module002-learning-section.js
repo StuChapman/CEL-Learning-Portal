@@ -283,7 +283,7 @@ function popupWaste(imagetag) {
                         'More accurate than using a piece of tissue paper!', 
                             '...will reveal whether the fan is working to specification and if it is the correct fan for the room size.'],
                     ['Hygrometer', 'Air Temperature and Relative Humidity, with a Hygrometer.', 
-                        'Sets a baseline for each room within the home', 
+                        'Can be bought relatively cheaply (£10 for 3). Sets a baseline for each room within the home.', 
                             '...can actually vary a lot depending on: the weather, time-of-day, whether the heating is on etc.'],
                     ['Thermal Imaging', 'To identify cold spots...', 
                         '...where cavity insulation has been breached or doesn`t exist, where loft insulation is missing.', 
