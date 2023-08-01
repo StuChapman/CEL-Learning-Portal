@@ -4,31 +4,18 @@
 {% block content %}
     <!--Text Section-->
     <section id="textsection">
-        {% if user.is_authenticated %}
-            <h1>Welcome: {{ user.username }}</h1>
-        {% else %}
-            <h1>Welcome: Please sign in to continue</h1>
-            <button type="button" class="btn">
-                <a href ="{% url 'account_login' %}"> Sign In</a>
-            </button>
-        {% endif %}
-
-        {% if user.is_authenticated %}
-            <p class="paralarge">Below are all the learning modules you have been enrolled in:
-                <br>
-                {% for group in user.groups.all %}
-                    {% with my_url=group.name|cut:" "|lower %}
-                    <span>
-                        <a class="orange-highlight" href ="{% url my_url %}">{{ group.name }}</a>
-                    </span>
-                    <br>
-                    {% endwith %}
-                {% endfor %}
-            </p>
-            <p class="paramedium">Click the links to complete the modules.</p>
-            <button type="button" class="btn">
-                <a href="{% url 'account_logout' %}"> Sign Out</a>
-            </button>
-        {% endif %}
+        <h1>Sign Up</h1>
+        
+        <p>Already have an account? Then please <a class="orange-highlight" href="{{ login_url }}">sign in</a>.</p>
+        
+        <form class="login ml-auto mr-auto" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button type="submit">Sign Up</button>
+        </form>
+        
     </section>
 {% endblock %}

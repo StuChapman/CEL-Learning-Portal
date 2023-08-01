@@ -14,21 +14,29 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-            <p class="paralarge">Below are all the learning modules you have been enrolled in:
-                <br>
-                {% for group in user.groups.all %}
-                    {% with my_url=group.name|cut:" "|lower %}
-                    <span>
-                        <a class="orange-highlight" href ="{% url my_url %}">{{ group.name }}</a>
-                    </span>
+            {% if user.groups.all %}
+                <p class="paralarge">Below are all the learning modules you have been enrolled in:
                     <br>
-                    {% endwith %}
-                {% endfor %}
-            </p>
-            <p class="paramedium">Click the links to complete the modules.</p>
-            <button type="button" class="btn">
-                <a href="{% url 'account_logout' %}"> Sign Out</a>
-            </button>
+                    {% for group in user.groups.all %}
+                        {% with my_url=group.name|cut:" "|lower %}
+                        <span>
+                            <a class="orange-highlight" href ="{% url my_url %}">{{ group.name }}</a>
+                        </span>
+                        <br>
+                        {% endwith %}
+                    {% endfor %}
+                </p>
+                <p class="paramedium">Click the links to complete the modules.</p>
+                <button type="button" class="btn">
+                    <a href="{% url 'account_logout' %}"> Sign Out</a>
+                </button>
+            {% else %}
+                <p class="paralarge">Select a learning module to be enrolled in:
+                <br>
+                <span>
+                    <a class="orange-highlight" href ="{% url 'group_curo' %}">Curo - Damp and Mould</a>
+                </span>
+            {% endif %}
         {% endif %}
     </section>
 {% endblock %}
