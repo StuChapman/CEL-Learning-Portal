@@ -68,3 +68,8 @@ function goCELHome() {
 function goCuroHome() {
     window.location.replace('https://www.curo-group.co.uk/');
     }
+
+// Function: navigate to Guinness Partnership Ltd homepage //
+function goGPHome() {
+    window.location.replace('https://www.guinnesspartnership.com/');
+    }
