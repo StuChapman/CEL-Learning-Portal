@@ -32,7 +32,7 @@ a  {
 }
 
 .btn-blue {
-    background-color: #6F7B2D;
+    background-color: #879637;
     border-color: #5c6674;
     color: #ffffff;
 }
@@ -42,7 +42,7 @@ label {
 }
 
 .orange-highlight {
-     color: #6F7B2D;
+     color: #879637;
  }
 
 .extramargin {
@@ -112,14 +112,14 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
     }
 
 .attribute a:hover, #attribute a:hover {
-    color: #6F7B2D;
+    color: #879637;
     }
     
 /*------------------- Navbar Styling */
 
 nav {
     padding: 1vh;
-    background-color: #6F7B2D;
+    background-color: #879637;
     font-family: 'Cairo', sans-serif;
     font-size: 3vh;
     height: 10vh;
@@ -152,7 +152,7 @@ nav {
 }
 
 #toastsection {
-    color: #6F7B2D;
+    color: #879637;
     font-family: 'Cairo', sans-serif;
     text-align: center;
     height: calc(3vh + (20 - 2.5) * ((100vw - 300px) / 1620));
@@ -191,7 +191,7 @@ nav {
   }
 
   #textsection .toast-close-container .toast-close {
-    color: #6F7B2D;
+    color: #879637;
     background-color: #ffffff;
   }
 
@@ -225,7 +225,7 @@ nav {
 
 .certhead {
     height: 10vh;
-    background-color: #6F7B2D;
+    background-color: #879637;
 }
 
 #signature, #signatureBrand {
@@ -303,7 +303,7 @@ nav {
 
 #textsection button {
     margin-top: 2.5vh;
-    background-color: #6F7B2D;
+    background-color: #879637;
     border: none;
     font-size: calc(2.5vh + (10 - 2.5) * ((100vw - 300px) / 1620));
 }
@@ -494,7 +494,7 @@ nav {
     font-weight: normal;
     font-size: calc(4vh + (20 - 5) * ((100vw - 300px) / 1620));
     padding-bottom: 2.5vh;
-    color: #6F7B2D;
+    color: #879637;
 }
 
 .arrowtextsmall {
@@ -547,7 +547,7 @@ nav {
 }
 
 #rightcarouselarrow {
-    color: #6F7B2D;
+    color: #879637;
     padding: 0 0 0 10vw;
 }
 
@@ -556,7 +556,7 @@ nav {
 }
 
 #downarrow, #uparrow {
-    color: #6F7B2D;
+    color: #879637;
     font-size: calc(5vh + (30 - 5) * ((100vw - 300px) / 1620));
 }
 
@@ -613,7 +613,7 @@ nav {
     height: 76.5vh;
     width: 97vw;
     background-color: #ffffff;
-    border: 1px solid #6F7B2D;
+    border: 1px solid #879637;
     visibility: hidden;
 }
 
@@ -692,7 +692,7 @@ nav {
 }
 
 #footer svg {
-    color: #6F7B2D;
+    color: #879637;
 }
 
 #footer a, #footer button {

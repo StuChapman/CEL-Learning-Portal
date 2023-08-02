@@ -26,7 +26,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-THIS_SITE = 'https://8000-stuchapman-cellearningp-67a5t4url4r.ws-eu102.gitpod.io'
+THIS_SITE = 'https://8000-stuchapman-cellearningp-w0cbm8cinfv.ws-eu102.gitpod.io'
 
 CSRF_TRUSTED_ORIGINS = [THIS_SITE, THIS_SITE]
 
