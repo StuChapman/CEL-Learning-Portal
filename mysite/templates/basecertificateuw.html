@@ -44,9 +44,9 @@
         <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
         <!-- Module specific scripts -->
         <script src="{% static 'js/DragDropTouch.js' %}"></script>
-        <script src="{% static 'js/module002/module002-global-variables.js' %}"></script>
-        <script src="{% static 'js/module002/module002-learning-section.js' %}"></script>
-        <script src="{% static 'js/module002/module002-question-section.js' %}"></script>
+        <script src="{% static 'js/module001/module001-global-variables.js' %}"></script>
+        <script src="{% static 'js/module001/module001-learning-section.js' %}"></script>
+        <script src="{% static 'js/module001/module001-question-section.js' %}"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -58,30 +58,10 @@
 
 <body class="ml-0">
 
-    {% include 'includes/templates/navbaruw.html' %}
-    {% include 'includes/templates/topper.html' %}
-
-    {% if messages %}
-        {% for message in messages %}
-            {% include 'includes/toasts/toast_success.html' %}
-        {% endfor %}
-    {% endif %}
-
     {% block content %}
     {% endblock %}
 
-    {% include 'includes/templates/footerarrows.html' %}
-
 </body>
-
-    {% include 'includes/modals/homeuwmodal.html' %}
-    {% include 'includes/modals/helpmodal.html' %}
-
-    {% block postloadjs %}
-    <script>
-        $(".toast").toast('show');
-    </script>
-    {% endblock %}
 
 </html>
 

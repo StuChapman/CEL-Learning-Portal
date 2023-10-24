@@ -73,3 +73,8 @@ function goCuroHome() {
 function goGPHome() {
     window.location.replace('https://www.guinnesspartnership.com/');
     }
+
+// Function: navigate to United Welsh homepage //
+function goUWHome() {
+    window.location.replace('https://www.unitedwelsh.com/');
+    }

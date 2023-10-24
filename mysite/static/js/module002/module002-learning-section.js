@@ -148,10 +148,10 @@ function populateImage(getpage) {
             colorTagLeft = '#eeeeee';
             break;
         case 1:
-            colorTagLeft = '#C0DC3B';
+            colorTagLeft = '#DB308A';
             break;
         case 3:
-            colorTagRight = '#C0DC3B';
+            colorTagRight = '#DB308A';
             break;
         case 4:
             colorTagRight = '#eeeeee';
@@ -391,7 +391,7 @@ function exampleSelect() {
     } else {
         $('#examplepara').text('tap the arrow to move to the next step...');
         $('#examplelist').css('visibility', 'hidden');
-        $("#examplecarouselarrow").css('color', '#C0DC3B');
+        $("#examplecarouselarrow").css('color', '#DB308A');
     }
 }
 

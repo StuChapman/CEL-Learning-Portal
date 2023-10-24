@@ -16,7 +16,7 @@ def group_curo(request):
     """ A view to enrol the user in the curo group """
 
     user = request.user
-    g = Group.objects.get(name="Value and Waste")
+    g = Group.objects.get(name="Damp and Mould")
     user.groups.add(g)
     user.save()
 
