@@ -24,7 +24,7 @@
         <!--Font Awesome stylesheet-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
         <!-- Core theme CSS (includes Bootstrap) -->
-        <link href="{% static 'css/stylesuw.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     {% endblock %}
 
     {% block extra_css %}
@@ -58,7 +58,7 @@
 
 <body class="ml-0">
 
-    {% include 'includes/templates/navbaruw.html' %}
+    {% include 'includes/templates/navbar.html' %}
     {% include 'includes/templates/topper.html' %}
 
     {% if messages %}
@@ -74,7 +74,7 @@
 
 </body>
 
-    {% include 'includes/modals/homeuwmodal.html' %}
+    {% include 'includes/modals/homemodal.html' %}
     {% include 'includes/modals/helpmodal.html' %}
 
     {% block postloadjs %}

@@ -1,3 +1,4 @@
+
 /*------------------- General Styling */
 
 body, html {
@@ -26,7 +27,7 @@ a  {
 }
 
 .btn-orange {
-    background-color: #00234E;
+    background-color: #CC613A;
     border-color: rgb(187, 96, 63);
     color: #ffffff;
 }
@@ -89,7 +90,7 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
 }
 
 .orange-highlight:hover {
-    color: #00234E;
+    color: #657486;
 }
 
 .btn.focus, .btn:focus {
@@ -108,13 +109,9 @@ a:hover, #helpbtn:hover, .btn-orange:hover, .btn-blue:hover {
 }
 
 #topper a:hover {
-    color: #00234E;
+    color: #CC613A;
     }
 
-.attribute a:hover, #attribute a:hover {
-    color: #657486;
-    }
-    
 /*------------------- Navbar Styling */
 
 nav {
@@ -240,24 +237,25 @@ nav {
 #topper, #topper a {
     background-color: #EFEFEF;
     font-size: calc(2vh + (5 - 2) * ((100vw - 300px) / 1620));
-    color: #101828;
+    color: #101828;button;
     height: 4vh;
     text-align: center;
     font-family: 'Cairo', sans-serif;
 }
 
 #totalScore {
-    color: #00234E;
+    color: #CC613A;
     font-weight: bold;
 }
 
 #textsection h1 {
+    padding: 5vh;
     margin: 0;
     font-size: calc(5vh + (30 - 5) * ((100vw - 300px) / 1620));
 }
 
 #textsection h1, #certsection h1 {
-    color: #00234E;
+    color: #CC613A;
     font-weight: bold;
 }
 
@@ -296,11 +294,6 @@ nav {
     color: #000000;
 }
 
-#textsection .parasmall {
-    font-size: calc(1.5vh + (15 - 2) * ((100vw - 300px) / 1620));
-    color: #000000;
-}
-
 #textsection button {
     margin-top: 2.5vh;
     background-color: #657486;
@@ -309,15 +302,9 @@ nav {
 }
 
 #textsection #imagetext {
-    font-size: calc(2.5vh + (26 - 3.5) * ((100vw - 300px) / 1620));
+    font-size: calc(3.5vh + (26 - 3.5) * ((100vw - 300px) / 1620));
     color: #101828;
     padding: 0 20vw 0 20vw;
-}
-
-#textsection #imagedetail {
-    font-size: calc(2vh + (15 - 2) * ((100vw - 300px) / 1620));
-    color: #101828;
-    padding: 0 10vw 0 10vw;
 }
 
 #textsection .imagefooter {
@@ -331,7 +318,7 @@ nav {
 
 #textsection #examplestep {
     width: 50vw;
-    color: #00234E;
+    color: #CC613A;
     font-weight: bold;
 }
 
@@ -342,15 +329,10 @@ nav {
     background-color: #f6f6f6;
 }
 
-.attribute, #attribute {
-    color: gray;
-    font-size: calc(1vh + (8 - 1) * ((100vw - 300px) / 1620));
-}
-
 /* ------------------- more styling in Media Screen responsiveness */
 .letterpickbox {
     align-content: stretch;    
-    width: 90vw;
+    width: 60vw;
 }
 
 #lettersquarebox, .letterpickbox {
@@ -358,29 +340,22 @@ nav {
 }
 
 #lettersquarebox {
-    width: 90vw;
+    width: 80vw;
     margin-bottom: 5vh;
 }
 
 .lettersquare, .letterpick {
-    max-width: 10vw;
+    max-width: 7vh;
     height: 12.5vh;
     padding: 0;
-    font-size: calc(4.5vh + (30 - 5) * ((100vw - 300px) / 1620));
+    font-size: calc(5vh + (30 - 5) * ((100vw - 300px) / 1620));
     font-weight: bold;
 }
 
 .lettersquare {
-    flex: 0 0 5%;
-    max-width: 5%;
     margin: 2vw;
     border-bottom: 4px solid #000000;
-    color: #00234E;
-}
-
-#letterpick {
-    flex: 0 0 5%;
-    max-width: 5%;;
+    color: #CC613A;
 }
 
 .letterpick {
@@ -388,9 +363,6 @@ nav {
     color: #000000;
 }
 
-#divleft, #divright {
-    width: 90vw;
-}
 
 /* ------------------- more styling in Media Screen responsiveness */
 .wordsquarebox {
@@ -410,7 +382,7 @@ nav {
 
 .wordsquare {
     border-bottom: 2px solid #000000;
-    color: #00234E;
+    color: #CC613A;
 }
 
 .wordpick {
@@ -420,12 +392,19 @@ nav {
 }
 
 #certName {
-    color: #00234E;
+    color: #CC613A;
     font-size: calc(2.5vh + (20 - 2.5) * ((100vw - 300px) / 1620));
     font-weight: bold;
 }
 
 /* ------------------- Option Form Styling */
+
+#optionform {
+    padding-top: 10vh;
+    width: 50vw;
+    height: 50vh;
+    font-size: calc(3vh + (18 - 3) * ((100vw - 300px) / 1620));
+}
 
 #optionform input[type=radio] {
     margin-top: 1vh;
@@ -461,10 +440,6 @@ nav {
     padding-bottom: 2.5vh;
 }
 
-#hygrometerimage {
-    height: 40vh;
-}
-
 #valueimage {
     width: calc(20vh + (70 - 20) * ((100vw - 300px) / 1620));
     margin-bottom: 5vh;
@@ -475,37 +450,26 @@ nav {
     padding-bottom: 2.5vh;
 }
 
-/* ------------------- Arrow Styling */
-
-#arrowcontainer {
-    margin-top: 2vh;
-    height: 33vh;
-    width: 100%;
+#wastepopupimage {
+    height: 17.5vh;
 }
+
+/* ------------------- Arrow Styling */
 
 .arrowtext {
     font-weight: normal;
-    font-size: calc(4vh + (20 - 5) * ((100vw - 300px) / 1620));
-    padding-bottom: 2.5vh;
-    color: #657486;
-}
-
-.arrowtextsmall {
-    font-weight: normal;
-    font-size: calc(2.5vh + (10 - 5) * ((100vw - 300px) / 1620));
-    padding-bottom: 2.5vh;
-    color: #00234E;
 }
 
 #arrowvalue, #arrowwaste, #arrowmaskvalue, #arrowmaskwaste {
     position: absolute;
-    top: 0;
+    top: 26.5vh;
+    left: 0;
     height: 33vh;
     border: none;
 }
 
 #arrowvalue, #arrowwaste {
-    background-color: #00234E;
+    background-color: #CC613A;
     padding: 2vw;
 }
 
@@ -517,17 +481,19 @@ nav {
     left:0;
     width: 33vw;
     color: #ffffff;
-    font-size: calc(1.5vh + (10 - 2) * ((100vw - 300px) / 1620));
+    font-size: calc(2vh + (10 - 2) * ((100vw - 300px) / 1620));
 }
 
 #arrowmaskvalue {
+    right: 67vw;
     width: 33vw;
 }
 
 #arrowwaste, #arrowmaskwaste {
-    width: 32.9vw;
+    left: 65.7vw;
+    width: 33vw;
     color: #ffffff;
-    font-size: calc(1.5vh + (10 - 2) * ((100vw - 300px) / 1620));
+    font-size: calc(2vh + (10 - 2) * ((100vw - 300px) / 1620));
 }
 
 #leftcarouselarrow, #rightcarouselarrow, #examplecarouselarrow {
@@ -577,7 +543,7 @@ nav {
 }
 
 .modal-header {
-    color: #00234E;
+    color: #CC613A;
     font-size: calc(2.5vh + (10 - 2.5) * ((100vw - 300px) / 1620));
 }
 
@@ -591,9 +557,17 @@ nav {
     font-size: calc(10px + (18 - 10) * ((100vw - 300px) / 1620));
 }
 
-#name, #emailinput, #question {
+#name, #email, #question, #passwordemail {
     width: 100%;
     margin-bottom: 2vh;
+}
+
+.passwordreset {
+    width: 50vw;
+}
+
+.resetpassword, #passwordmessage {
+    width: 0;
 }
 
 /* ------------------- Waste pop-up Styling */
@@ -614,7 +588,6 @@ nav {
 /* ------------------- more styling in Media Screen responsiveness */
 
 .dragboxheader {
-    min-height: 7.5vh;
     font-size: calc(2vh + (12 - 2) * ((100vw - 300px) / 1620));
 }
 
@@ -662,7 +635,7 @@ nav {
 }
 
 .ordercontainerleft {
-    color: #00234E;
+    color: #CC613A;
 }
 
 .orderbox, .ordercard {
@@ -696,47 +669,30 @@ nav {
 
 @media screen and (orientation: portrait){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
 
-    #optionform {
-        padding-top: 10vh;
-        width: 90vw;
-        height: 50vh;
-        font-size: calc(2.6vh + (18 - 3) * ((100vw - 300px) / 1620));
-    }
-    
-    #wastepopupimage {
-        height: 17.5vh;
-    }
-
-    #arrowimage {
-        width: 20vw;
-    }
-
-    #textsection h1 {
-        padding-top: 5vh;
-        padding-bottom: 5vh;
-        padding-left: 1vh;
-        padding-right: 1vh;
+    .username {
+        font-size: calc(7vw + (25 - 5) * ((100vw - 300px) / 1620));
     }
 
     .extramarginbottom {
         margin-bottom: 1vh;
     }
 
-    #kettle2, 
-    #saucepan,
-    #clothes,
-    #shower,
-    #washing,
-    #mortar,
-    #leak,
-    #breath,
-    #anemometer,
-    #hygrometer2,
-    #thermal2,
-    #moisture,
-    #dampproof,
-    #vegetation,
-    #ventilation {
+    #divleft {
+        margin-right: auto;
+    }
+
+    #divright {
+        margin-left: auto;
+    }
+
+    #transportation, 
+    #inventory,
+    #motion,
+    #waiting,
+    #overproduction,
+    #overprocessing,
+    #defects,
+    #skills {
         height: 13vh;
         padding: .5vh .5vh 0 .5vh;
     }
@@ -754,11 +710,6 @@ nav {
         max-width: 50%;
     }
 
-    .arrowimagecontainer {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
     .dragcontainerouter {
         width: 90vw;
     }
@@ -770,7 +721,7 @@ nav {
     .dragbox, .dragcard {
         height: 8.5vh;
         margin-bottom: 2vw;
-        font-size: 1.25vh;
+        font-size: 2vh;
     }
 
     .ordercontainerouter {
@@ -784,7 +735,7 @@ nav {
     .orderbox, .ordercard {
         height: 5vh;
         margin-bottom: 2vw;
-        font-size: 1.6vh;
+        font-size: 1.8vh;
     }
 
     .wordsquarebox, .wordpickbox {
@@ -810,23 +761,8 @@ nav {
 
 @media screen and (orientation: landscape){ /* Credit: https://stackoverflow.com/questions/43589507/how-can-you-have-bootstrap-responsiveness-based-on-screen-ratio-instead-of-scree */
 
-#optionform {
-    padding-top: 10vh;
-    width: 50vw;
-    height: 50vh;
-    font-size: calc(3vh + (18 - 3) * ((100vw - 300px) / 1620));
-}
-
-    #wastepopupimage {
-        height: 40vh;
-    }
-
-    #arrowimage {
-        height: 20vh;
-    }
-
-    #textsection h1 {
-        padding: 5vh;
+    .username {
+        font-size: calc(5vh + (25 - 5) * ((100vw - 300px) / 1620));
     }
 
     #totalScore {
@@ -841,21 +777,22 @@ nav {
         margin-bottom: 5vh;
     }
 
-    #kettle2, 
-    #saucepan,
-    #clothes,
-    #shower,
-    #washing,
-    #mortar,
-    #leak,
-    #breath,
-    #anemometer,
-    #hygrometer2,
-    #thermal2,
-    #moisture,
-    #dampproof,
-    #vegetation,
-    #ventilation {
+    #divleft {
+        margin-right: 0;
+    }
+
+    #divright {
+        margin-left: 0;
+    }
+
+    #transportation, 
+    #inventory,
+    #motion,
+    #waiting,
+    #overproduction,
+    #overprocessing,
+    #defects,
+    #skills {
         height: 24.5vh;
         padding: .5vh .5vh 0 .5vh;
     }
@@ -867,11 +804,6 @@ nav {
     .wasteimagecontainer {
         flex: 0 0 25%;
         max-width: 25%;
-    }
-
-    .arrowimagecontainer {
-        flex: 0 0 50%;
-        max-width: 50%;
     }
 
     .examplecontainer {
@@ -890,7 +822,7 @@ nav {
         width: 24vw;
         height: 8vh;
         margin-bottom: .5vw;
-        font-size: 2vh;
+        font-size: 3vh;
     }
 
     .ordercontainerouter {
@@ -946,12 +878,6 @@ nav {
     padding: 0.75rem 1.25rem;
   }
 
-  @media screen and (min-width: 359px) {
-    #hygrometerimage {
-        height: 20vh;
-    }
-}
-
 @media screen and (min-width: 768px) {
     #helpbtn {
         font-size: calc(2.5vh + (5 - 2.5) * ((100vw - 768px) / 300));
@@ -962,9 +888,7 @@ nav {
     #ohnoimage {
         height: 30vh;
     }
-    #hygrometerimage {
-        height: 40vh;
-    }
+        
     #textsection .paralarge{
         padding: 0 5vw 0 5vw;
     }
